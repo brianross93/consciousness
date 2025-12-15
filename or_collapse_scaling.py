@@ -2,7 +2,7 @@
 OR Collapse Time Simulator - Penrose's Objective Reduction
 ===========================================================
 
-Simulates how collapse time (τ) scales with tubulin ensemble size (N).
+Simulates how collapse time (tau) scales with tubulin ensemble size (N).
 Tests if OR mechanism can reach neural timescales (25-500 ms) for brain-scale ensembles.
 
 Key Fix: Penrose's E_g is ~N-linear for coherent superpositions, not quadratic.
@@ -16,8 +16,8 @@ import matplotlib.pyplot as plt
 import os
 
 # Physical constants
-hbar = 1.0545718e-34  # J·s (reduced Planck constant)
-G = 6.67430e-11       # m³·kg⁻¹·s⁻² (gravitational constant)
+hbar = 1.0545718e-34  # J*s (reduced Planck constant)
+G = 6.67430e-11       # m^3*kg^-1*s^-2 (gravitational constant)
 
 # Tubulin parameters
 # Note: Original values gave tau ~10s for N=10^10. To hit ~0.1s (neural timescale),
@@ -31,8 +31,8 @@ def collapse_time(N):
     """
     Calculate OR collapse time for ensemble of N tubulins.
     
-    Penrose OR: τ ≈ ℏ / E_g
-    where E_g ≈ N * (G m² / d) for coherent ensemble (linear approximation)
+    Penrose OR: tau = hbar / E_g
+    where E_g = N * (G m^2 / d) for coherent ensemble (linear approximation)
     
     Parameters:
     -----------
@@ -161,7 +161,7 @@ def main():
     print("* Single tubulin: ~10^11 s -> eternal quantum bliss")
     print("* Brain-scale ensemble (~10^10): ~0.1 s -> perfect for decisions")
     print("* If tau matches gamma rhythms, it vibes with biology")
-    print("• Vary d (conformation separation) or m (isotope mass) to test quantum effects")
+    print("* Vary d (conformation separation) or m (isotope mass) to test quantum effects")
     print()
 
 

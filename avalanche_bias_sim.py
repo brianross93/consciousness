@@ -324,11 +324,11 @@ def main():
     print("="*60)
     print("Interpretation:")
     print("="*60)
-    print("• If quantum runs show sharper decision forks (non-Gaussian tails),")
+    print("* If quantum runs show sharper decision forks (non-Gaussian tails),")
     print("  it indicates quantum-specific steering beyond classical noise")
-    print("• Testable twist: Quantify 'will variance'—vary bias strength")
+    print("* Testable twist: Quantify 'will variance' - vary bias strength")
     print("  (meditator vs. fatigued) to see if quantum runs cluster non-randomly")
-    print("• Scale to 10k nodes for full brain simulation")
+    print("* Scale to 10k nodes for full brain simulation")
     print()
 
 
