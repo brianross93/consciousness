@@ -2,6 +2,8 @@
 
 **Computational exploration of the Penrose-Hameroff Orch-OR hypothesis and thermodynamic models of neural decision-making.**
 
+**Important** Please read free_will_investigation_synthesis, or drop it into an LLM, to understand more why this specific model is being tested.
+
 This project investigates whether quantum effects in microtubules could provide a mechanism for consciousness and free will, using thermodynamic simulations (THRML), Monte Carlo analysis, and examination of existing experimental data.
 
 ---
