@@ -419,3 +419,4 @@ if __name__ == "__main__":
         print(f"{condition:20s}: mean_mag = {np.mean(mags):+.4f} +/- {np.std(mags):.4f}")
     
     plt.show()
+
