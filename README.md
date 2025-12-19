@@ -1,4 +1,4 @@
-# Quantum Consciousness Investigation
+# Consciousness Investigation
 
 **Computational exploration of the Penrose-Hameroff Orch-OR hypothesis and thermodynamic models of neural decision-making.**
 
