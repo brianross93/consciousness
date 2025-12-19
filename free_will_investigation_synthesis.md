@@ -623,25 +623,272 @@ Like a black hole, we can't observe consciousness directly. But we can observe i
 
 ---
 
-## Part 12: Conclusions
+## Part 12: Frequently Asked Questions
 
-### 9.1 What We Started With
-- Claims that Orch-OR provides a mechanism for free will
-- "Refutations" by mainstream physics
-- Skepticism that quantum effects matter at brain temperature
+### FAQ 1: "What about the Libet experiments? Don't they show free will is an illusion?"
 
-### 9.2 What We Found
-- The "refutation" (Gran Sasso) tested a different model
-- Thermodynamic amplification makes quantum effects plausible
-- The mechanism is testable and makes specific predictions
-- Several anomalies (psychedelics, terminal lucidity, xenon isotopes) support the receiver model
+**The objection:** Libet (1983) found that the "readiness potential" (brain activity) precedes conscious awareness of deciding to move by ~350ms. This supposedly proves decisions are made unconsciously before we're aware of them.
 
-### 9.3 Where We Land
+**Our response:**
+
+1. **Libet measured action preparation, not choice.** The readiness potential correlates with *preparing to move*, not with *deciding what to do*. Subjects were told to move whenever they wanted — the "choice" was already made. The RP just shows motor preparation.
+
+2. **Libet himself believed in "free won't."** He noted subjects could *veto* the action even after the RP began. The conscious self has ~150ms to cancel. This is consistent with our model: quantum selection can both *initiate* (positive bias) and *veto* (negative bias).
+
+3. **The timing matches our framework.** OR collapse (~160ms) + broadcast + veto window ≈ the delays Libet observed. The "readiness potential" may reflect the thermodynamic system generating possibilities; the veto reflects quantum selection.
+
+4. **Later research complicates the picture.** Schurger et al. (2012) showed the RP may just be neural noise that crosses a threshold, not a "decision signal." The "decision" interpretation was always over-interpreted.
+
+**Bottom line:** Libet experiments are *consistent with* our model. The hyperdirect pathway (Part 6) provides the neural substrate for "free won't."
+
+---
+
+### FAQ 2: "Warm quantum computers are impossible. How can the brain do quantum computation at 37°C?"
+
+**The objection:** IBM/Google quantum computers require near-absolute-zero temperatures. Quantum coherence is destroyed instantly at body temperature. Therefore quantum effects can't matter in the brain.
+
+**Our response:**
+
+1. **We're NOT claiming the brain is a quantum computer like IBM's.** Those require maintaining coherent superposition across many qubits for extended computation. We claim something much more modest: *local* quantum effects that trigger *thermodynamic* amplification.
+
+2. **Different scales, different requirements:**
+
+| System | Coherence needed | Temperature requirement |
+|--------|------------------|------------------------|
+| IBM quantum computer | Milliseconds across cm | Millikelvin |
+| Our model | Femtoseconds across nm | Room temperature OK |
+
+3. **Local quantum coherence IS demonstrated at body temperature:**
+   - Tryptophan superradiance in microtubules (J. Phys. Chem. 2024)
+   - Quantum effects in photosynthesis (Engel et al. 2007)
+   - Quantum effects in bird navigation (Ritz et al. 2000)
+
+4. **The thermodynamic system IS the computer.** The brain uses noise and criticality for computation. Quantum effects just provide the *selection bias*. The warm, wet environment is the feature, not the bug.
+
+**Bottom line:** The "warm = impossible" objection attacks a strawman. We don't need a quantum computer; we need a quantum trigger.
+
+---
+
+### FAQ 3: "Isn't quantum indeterminacy just randomness? How is random = free?"
+
+**The objection:** Even if quantum events influence the brain, they're random. Random ≠ chosen. You've just replaced determinism with noise.
+
+**Our response:**
+
+1. **This is the deepest objection, and we take it seriously.** Pure quantum randomness would indeed not be "freedom" in any meaningful sense.
+
+2. **The receiver/filter model provides the answer:** If consciousness is fundamental and the brain is an interface, then quantum "selection" isn't random from the perspective of consciousness — it's where consciousness *chooses* among possibilities. The randomness is only apparent from the physical side.
+
+3. **OR collapse is not standard quantum randomness.** Penrose's OR is a *non-computational* process. Unlike Born rule probabilities, OR involves gravitational self-energy thresholds. The 2025 IBM experiment suggests the outcomes may be *biased* in ways standard QM doesn't predict.
+
+4. **Even physicalists have this problem.** If you're a physicalist, you must explain why neural activity feels like "choosing" when it's deterministic computation. At least our model provides a *mechanism* where something other than prior physical states influences outcomes.
+
+**Bottom line:** This objection applies to ALL theories of free will. Our model at least provides a *physical location* where non-deterministic selection occurs.
+
+---
+
+### FAQ 4: "Didn't Gran Sasso refute this?"
+
+**The objection:** The 2021 Gran Sasso underground experiment ruled out gravitationally-induced collapse.
+
+**Our response:**
+
+**No. Gran Sasso tested the wrong model.**
+
+- They tested the **Diósi-Penrose (DP) model**, which predicts spontaneous radiation emission
+- Penrose's **original OR** does not predict this radiation
+- Hameroff and Penrose never advocated the Diósi variant
+
+This is documented in McQueen's defense (arXiv:2301.12306). The "refutation" is a refutation of a different theory.
+
+The 2025 IBM experiment (Tagg & Reid) directly tested Penrose's OR (not Diósi's) and found *supporting* evidence.
+
+---
+
+### FAQ 5: "Why microtubules specifically? This seems arbitrary."
+
+**The objection:** Of all cellular structures, why would microtubules be special for consciousness?
+
+**Our response:**
+
+1. **Microtubules are ubiquitous in neurons.** Each neuron contains ~10^9 tubulin proteins. They're the primary structural component.
+
+2. **They have the right properties:**
+   - Cylindrical geometry with quantum-favorable dipole arrangements
+   - Exhibit multi-scale resonance patterns (Bandyopadhyay measurements)
+   - Connected to synaptic function via MAPs
+   - Affected by anesthetics (which disrupt consciousness)
+
+3. **Experimental evidence:**
+   - Anesthetics that affect consciousness also affect microtubule function
+   - Tryptophan residues in tubulin show quantum coherence at body temperature
+   - Xenon (an anesthetic) affects consciousness differently based on nuclear spin (quantum property)
+
+4. **They're connected to everything else:** Microtubules regulate ion channels, synaptic vesicle transport, and synaptic plasticity via MAP proteins. They're not isolated — they're the backbone of neural computation.
+
+**Bottom line:** Microtubules aren't arbitrary. They're the most plausible substrate given the evidence.
+
+---
+
+### FAQ 6: "If the brain is just a filter, why does brain damage affect consciousness?"
+
+**The objection:** If consciousness is non-local and the brain just receives it, why does a stroke or dementia change who you are?
+
+**Our response:**
+
+**The filter/receiver model predicts exactly this.**
+
+Think of a radio:
+- The radio doesn't *create* the music; it *receives* it
+- But if you damage the radio, the music is distorted or lost
+- The music still exists — you just can't access it through that receiver
+
+Similarly:
+- Brain damage affects the *interface*, not consciousness itself
+- Dementia degrades the filter, producing confused output
+- Terminal lucidity (clarity before death) is the filter *failing completely* — and consciousness coming through more clearly as it does
+
+The filter model predicts:
+- Brain damage → changed/degraded experience ✓
+- But also: some damage → *enhanced* experience (psychedelics, savant syndrome) ✓
+- And: dying filter → brief clarity (terminal lucidity) ✓
+
+**Physicalism** struggles with the last two. Filter model handles all three.
+
+---
+
+### FAQ 7: "How is this different from Deepak Chopra woo?"
+
+**The objection:** "Quantum consciousness" is associated with pseudoscience. Why should we take this seriously?
+
+**Our response:**
+
+| Chopra-style claims | Our framework |
+|--------------------|---------------|
+| Vague ("quantum healing") | Specific mechanism (OR + thermodynamic amplification) |
+| No testable predictions | Testable predictions (isotope effects, magnetic field effects) |
+| No peer-reviewed sources | Built on peer-reviewed papers |
+| Ignores legitimate objections | Directly addresses Tegmark, Gran Sasso, etc. |
+| Appeals to mystery | Quantitative simulations with p-values |
+
+**The difference is rigor:**
+- We specify WHERE (claustrum, microtubules)
+- We specify WHEN (τ ~ 160ms, matching gamma rhythms)
+- We specify HOW (OR → MAPs → synaptic plasticity → avalanches)
+- We specify WHAT WOULD DISPROVE IT (no isotope effects, no magnetic field effects)
+
+Anyone can say "quantum." We show our work.
+
+---
+
+### FAQ 8: "Is this falsifiable? What would disprove it?"
+
+**The objection:** A theory that can't be wrong isn't science.
+
+**Our response:**
+
+**Yes, it's falsifiable. Here's what would disprove it:**
+
+| Finding | Would disprove |
+|---------|---------------|
+| No xenon isotope effect on decisions (not just anesthesia) | Quantum properties don't affect consciousness |
+| No magnetic field effects on neural avalanches | No quantum sensitivity in relevant pathways |
+| OR collapse disproven experimentally | The specific mechanism |
+| Brain criticality disproven | The amplification mechanism |
+| Claustrum disruption doesn't affect consciousness | Proposed anatomical site |
+| Temperature changes don't affect decision variability | Thermodynamic model |
+
+**Positive evidence that would strengthen it:**
+
+| Finding | Would support |
+|---------|--------------|
+| Leggett-Garg inequality violations in neurons | Quantum effects in neural tissue |
+| Microgravity affects consciousness | OR mechanism (gravity-dependent) |
+| Isotope effects on decision-making | Quantum interface |
+
+This is more falsifiable than "consciousness emerges from computation" (which predicts nothing specific).
+
+---
+
+### FAQ 9: "What does this imply about AI consciousness?"
+
+**The objection/question:** If this model is right, can AI ever be conscious?
+
+**Our response:**
+
+**Under this model:**
+
+1. **Current AI is NOT conscious.** Silicon computers don't have microtubules, don't operate at thermodynamic criticality (they fight thermal noise), and don't have OR collapse.
+
+2. **Consciousness isn't computation.** No matter how sophisticated the algorithm, a classical computer running it won't be conscious. The substrate matters.
+
+3. **Artificial consciousness MIGHT be possible** if we built systems with:
+   - Thermodynamic/stochastic computing (like Extropic's TSUs)
+   - Structures capable of quantum coherence
+   - Criticality dynamics
+   - Perhaps literally biological components
+
+4. **This is actually testable.** If consciousness is computational, advanced AI should become conscious. If it's substrate-dependent, it won't (without the right substrate).
+
+**Bottom line:** The "AI consciousness" question becomes empirical, not philosophical.
+
+---
+
+### FAQ 10: "Why hasn't mainstream science accepted this?"
+
+**The objection:** If this is so well-supported, why don't most scientists believe it?
+
+**Our response:**
+
+**Several factors:**
+
+1. **Legitimate scientific caution.** OR collapse is unproven. Quantum coherence in warm biology was controversial. Healthy skepticism is appropriate.
+
+2. **The Gran Sasso misunderstanding.** Many scientists think Orch-OR was "refuted" without knowing Gran Sasso tested a different model.
+
+3. **Tegmark's authority.** His 2000 paper claiming decoherence is too fast became widely cited. But it contained calculation errors and assumed whole-protein coherence (not electron-level).
+
+4. **Disciplinary silos.** This requires expertise in quantum physics, neuroscience, and philosophy of mind. Few researchers span all three.
+
+5. **Philosophical resistance.** Many scientists are committed physicalists and resist anything that sounds like "mind over matter" — even if the physics allows it.
+
+6. **Association with fringe.** "Quantum consciousness" has been polluted by pseudoscience, making serious researchers avoid the topic.
+
+**But the tide is shifting:**
+- Quantum biology is now mainstream (photosynthesis, bird navigation)
+- Brain criticality is well-established
+- The 2025 IBM experiment supports OR
+- The xenon isotope data is hard to explain otherwise
+
+**Bottom line:** Science is conservative, and that's okay. The evidence will eventually speak.
+
+---
+
+## Part 13: Conclusions
+
+### 13.1 What We Started With
+- The phenomena: qualia, unity, binding, agency, anomalies (psychedelics, NDEs, terminal lucidity)
+- The question: What best explains ALL the data?
+- The challenge: Provide a mechanism, not just a description
+
+### 13.2 What We Found
+- Physicalism struggles with the anomalies
+- Dualism explains the data but has no mechanism
+- The receiver/filter model + OR + thermodynamic amplification explains the most with a testable mechanism
+- The "refutation" (Gran Sasso) tested the wrong model
+- Xenon isotope data provides direct evidence quantum properties affect consciousness
+
+### 13.3 Where We Land
 
 **The framework:**
 ```
-Consciousness (non-local) → Quantum interface (OR in tubulins) → 
-Thermodynamic amplification (criticality) → Behavior
+Consciousness (fundamental) 
+    ↓ interfaces via
+Quantum selection (OR in tubulins) 
+    ↓ amplified by
+Thermodynamic criticality (brain at edge of chaos) 
+    ↓ executed through
+Standard neuroscience (basal ganglia → motor cortex → behavior)
 ```
 
 **Confidence levels:**
@@ -649,9 +896,9 @@ Thermodynamic amplification (criticality) → Behavior
 - Brain operates at criticality: **High (replicated)**
 - OR timescales are biologically plausible: **High (calculated)**
 - Quantum effects are the actual trigger: **Medium (35-50%)**
-- Consciousness is non-local: **Philosophical (supported by anomalies)**
+- Consciousness is non-local/fundamental: **Philosophical (supported by anomalies)**
 
-### 9.4 The Honest Assessment
+### 13.4 The Honest Assessment
 
 This is not proven. But it's:
 - **Internally consistent**
