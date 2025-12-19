@@ -395,6 +395,84 @@ not Monte Carlo approximation.
 # MAIN
 # =============================================================================
 
+def save_results_to_csv(results, critical_beta, betas, suscept, hubs, output_dir="data/thrml_experiment"):
+    """Save all numerical results to CSV files."""
+    import pandas as pd
+    
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    
+    # 1. Summary statistics
+    summary_data = []
+    for condition in ['classical', 'quantum_positive', 'quantum_negative']:
+        mags = [r['mean_mag'] for r in results[condition]]
+        summary_data.append({
+            'condition': condition,
+            'mean_magnetization': np.mean(mags),
+            'std_magnetization': np.std(mags),
+            'n_runs': len(mags),
+            'min_mag': np.min(mags),
+            'max_mag': np.max(mags)
+        })
+    
+    summary_df = pd.DataFrame(summary_data)
+    summary_path = f"{output_dir}/thrml_summary_{timestamp}.csv"
+    summary_df.to_csv(summary_path, index=False)
+    print(f"Saved: {summary_path}")
+    
+    # 2. All individual run results
+    all_runs = []
+    for condition in ['classical', 'quantum_positive', 'quantum_negative']:
+        for i, r in enumerate(results[condition]):
+            all_runs.append({
+                'condition': condition,
+                'run': i,
+                'mean_mag': r['mean_mag'],
+                'std_mag': r['std_mag'],
+                'mean_flips': np.mean(r['flip_sizes']),
+                'max_flips': np.max(r['flip_sizes'])
+            })
+    
+    runs_df = pd.DataFrame(all_runs)
+    runs_path = f"{output_dir}/thrml_all_runs_{timestamp}.csv"
+    runs_df.to_csv(runs_path, index=False)
+    print(f"Saved: {runs_path}")
+    
+    # 3. Statistical tests
+    from scipy import stats
+    classical_mags = [r['mean_mag'] for r in results['classical']]
+    qpos_mags = [r['mean_mag'] for r in results['quantum_positive']]
+    qneg_mags = [r['mean_mag'] for r in results['quantum_negative']]
+    
+    t_pos, p_pos = stats.ttest_ind(classical_mags, qpos_mags)
+    t_neg, p_neg = stats.ttest_ind(classical_mags, qneg_mags)
+    
+    stats_data = {
+        'comparison': ['classical_vs_quantum_positive', 'classical_vs_quantum_negative'],
+        't_statistic': [t_pos, t_neg],
+        'p_value': [p_pos, p_neg],
+        'significant_0.05': [p_pos < 0.05, p_neg < 0.05],
+        'significant_0.01': [p_pos < 0.01, p_neg < 0.01],
+        'significant_0.001': [p_pos < 0.001, p_neg < 0.001]
+    }
+    
+    stats_df = pd.DataFrame(stats_data)
+    stats_path = f"{output_dir}/thrml_statistics_{timestamp}.csv"
+    stats_df.to_csv(stats_path, index=False)
+    print(f"Saved: {stats_path}")
+    
+    # 4. Experimental parameters
+    params = {
+        'parameter': ['critical_beta', 'n_nodes', 'n_hubs', 'hub_indices'],
+        'value': [str(critical_beta), '100', str(len(hubs)), str(list(hubs))]
+    }
+    params_df = pd.DataFrame(params)
+    params_path = f"{output_dir}/thrml_parameters_{timestamp}.csv"
+    params_df.to_csv(params_path, index=False)
+    print(f"Saved: {params_path}")
+    
+    return timestamp
+
+
 if __name__ == "__main__":
     print("Starting THRML thermodynamic brain simulation...")
     print("This uses true Gibbs sampling, not Monte Carlo approximation.\n")
@@ -409,6 +487,12 @@ if __name__ == "__main__":
     # Plot
     fig = plot_results(results, critical_beta, betas, suscept)
     
+    # Save numerical results to CSV
+    print("\n" + "="*60)
+    print("SAVING NUMERICAL RESULTS")
+    print("="*60)
+    timestamp = save_results_to_csv(results, critical_beta, betas, suscept, hubs)
+    
     # Print summary statistics
     print("\n" + "="*60)
     print("FINAL RESULTS")
@@ -417,6 +501,19 @@ if __name__ == "__main__":
     for condition in ['classical', 'quantum_positive', 'quantum_negative']:
         mags = [r['mean_mag'] for r in results[condition]]
         print(f"{condition:20s}: mean_mag = {np.mean(mags):+.4f} +/- {np.std(mags):.4f}")
+    
+    # Print statistical significance
+    from scipy import stats
+    classical_mags = [r['mean_mag'] for r in results['classical']]
+    qpos_mags = [r['mean_mag'] for r in results['quantum_positive']]
+    qneg_mags = [r['mean_mag'] for r in results['quantum_negative']]
+    
+    t_pos, p_pos = stats.ttest_ind(classical_mags, qpos_mags)
+    t_neg, p_neg = stats.ttest_ind(classical_mags, qneg_mags)
+    
+    print(f"\nStatistical Tests:")
+    print(f"Classical vs Q(+): t={t_pos:.3f}, p={p_pos:.6f}")
+    print(f"Classical vs Q(-): t={t_neg:.3f}, p={p_neg:.6f}")
     
     plt.show()
 
