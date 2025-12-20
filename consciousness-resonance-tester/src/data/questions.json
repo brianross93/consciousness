@@ -1,0 +1,458 @@
+{
+  "practice": [
+    {
+      "id": "p1",
+      "type": "sequence",
+      "prompt": "What comes next? 1, 2, 3, 4, ...",
+      "options": ["5", "6", "4", "3"],
+      "correct": "5",
+      "difficulty": "easy"
+    },
+    {
+      "id": "p2",
+      "type": "analogy",
+      "prompt": "Hot is to Cold as Up is to ___",
+      "options": ["Sky", "Down", "High", "Left"],
+      "correct": "Down",
+      "difficulty": "easy"
+    },
+    {
+      "id": "p3",
+      "type": "logic",
+      "prompt": "If all roses are flowers, and some flowers fade quickly, which must be true?",
+      "options": ["All roses fade quickly", "Some roses may fade quickly", "No roses fade quickly", "Roses are not flowers"],
+      "correct": "Some roses may fade quickly",
+      "difficulty": "moderate"
+    }
+  ],
+  "easy": [
+    {
+      "id": "e01",
+      "type": "sequence",
+      "prompt": "What comes next? 3, 6, 9, 12, ...",
+      "options": ["14", "15", "16", "18"],
+      "correct": "15",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e02",
+      "type": "analogy",
+      "prompt": "Eye is to See as Ear is to ___",
+      "options": ["Sound", "Hear", "Music", "Noise"],
+      "correct": "Hear",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e03",
+      "type": "analogy",
+      "prompt": "Fish is to Swim as Bird is to ___",
+      "options": ["Nest", "Feathers", "Fly", "Sky"],
+      "correct": "Fly",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e04",
+      "type": "logic",
+      "prompt": "All mammals breathe air. Whales are mammals. Therefore:",
+      "options": ["Whales live in water", "Whales breathe air", "Whales are fish", "Some mammals live in water"],
+      "correct": "Whales breathe air",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e05",
+      "type": "analogy",
+      "prompt": "Doctor is to Patient as Teacher is to ___",
+      "options": ["School", "Student", "Book", "Classroom"],
+      "correct": "Student",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e06",
+      "type": "analogy",
+      "prompt": "Glove is to Hand as Sock is to ___",
+      "options": ["Shoe", "Foot", "Leg", "Toe"],
+      "correct": "Foot",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e07",
+      "type": "analogy",
+      "prompt": "Moon is to Night as Sun is to ___",
+      "options": ["Sky", "Day", "Light", "Star"],
+      "correct": "Day",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e08",
+      "type": "sequence",
+      "prompt": "What comes next? 10, 20, 30, 40, ...",
+      "options": ["45", "50", "60", "55"],
+      "correct": "50",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e09",
+      "type": "analogy",
+      "prompt": "Knife is to Cut as Hammer is to ___",
+      "options": ["Nail", "Pound", "Tool", "Build"],
+      "correct": "Pound",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e10",
+      "type": "sequence",
+      "prompt": "What comes next? 5, 10, 15, 20, ...",
+      "options": ["30", "22", "25", "35"],
+      "correct": "25",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e11",
+      "type": "analogy",
+      "prompt": "Pen is to Write as Brush is to ___",
+      "options": ["Art", "Paint", "Canvas", "Color"],
+      "correct": "Paint",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e12",
+      "type": "logic",
+      "prompt": "All dogs are animals. Spot is a dog. Therefore:",
+      "options": ["Spot is an animal", "All animals are dogs", "Spot is not a dog", "Some animals are Spot"],
+      "correct": "Spot is an animal",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e13",
+      "type": "sequence",
+      "prompt": "What comes next? 2, 4, 6, 8, ...",
+      "options": ["9", "10", "12", "11"],
+      "correct": "10",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e14",
+      "type": "analogy",
+      "prompt": "Pilot is to Plane as Captain is to ___",
+      "options": ["Ocean", "Ship", "Crew", "Sail"],
+      "correct": "Ship",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e15",
+      "type": "analogy",
+      "prompt": "Cold is to Ice as Hot is to ___",
+      "options": ["Fire", "Steam", "Sun", "Heat"],
+      "correct": "Steam",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e16",
+      "type": "sequence",
+      "prompt": "What comes next? 100, 90, 80, 70, ...",
+      "options": ["65", "60", "50", "55"],
+      "correct": "60",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e17",
+      "type": "analogy",
+      "prompt": "Shoe is to Foot as Hat is to ___",
+      "options": ["Hair", "Head", "Warm", "Wear"],
+      "correct": "Head",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e18",
+      "type": "sequence",
+      "prompt": "What comes next? 1, 3, 5, 7, ...",
+      "options": ["8", "9", "10", "11"],
+      "correct": "9",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e19",
+      "type": "analogy",
+      "prompt": "Bee is to Hive as Ant is to ___",
+      "options": ["Colony", "Hill", "Bug", "Work"],
+      "correct": "Colony",
+      "difficulty": "easy"
+    },
+    {
+      "id": "e20",
+      "type": "logic",
+      "prompt": "All cats have tails. Whiskers is a cat. Therefore:",
+      "options": ["Whiskers has a tail", "All tails are cats", "Whiskers is not a cat", "Some cats are Whiskers"],
+      "correct": "Whiskers has a tail",
+      "difficulty": "easy"
+    }
+  ],
+  "moderate": [
+    {
+      "id": "m01",
+      "type": "sequence",
+      "prompt": "What comes next? 2, 4, 8, 16, ...",
+      "options": ["24", "32", "20", "18"],
+      "correct": "32",
+      "difficulty": "moderate"
+    },
+    {
+      "id": "m02",
+      "type": "analogy",
+      "prompt": "Book is to Reading as Fork is to ___",
+      "options": ["Kitchen", "Eating", "Metal", "Knife"],
+      "correct": "Eating",
+      "difficulty": "moderate"
+    },
+    {
+      "id": "m03",
+      "type": "letter",
+      "prompt": "What comes next? A, C, E, G, ...",
+      "options": ["H", "I", "J", "K"],
+      "correct": "I",
+      "difficulty": "moderate"
+    },
+    {
+      "id": "m04",
+      "type": "analogy",
+      "prompt": "Painter is to Brush as Writer is to ___",
+      "options": ["Book", "Pen", "Paper", "Story"],
+      "correct": "Pen",
+      "difficulty": "moderate"
+    },
+    {
+      "id": "m05",
+      "type": "logic",
+      "prompt": "No reptiles have fur. All snakes are reptiles. Therefore:",
+      "options": ["Some snakes have fur", "Snakes have no fur", "All reptiles are snakes", "Some reptiles have fur"],
+      "correct": "Snakes have no fur",
+      "difficulty": "moderate"
+    },
+    {
+      "id": "m06",
+      "type": "sequence",
+      "prompt": "What comes next? 5, 10, 20, 40, ...",
+      "options": ["60", "80", "50", "70"],
+      "correct": "80",
+      "difficulty": "moderate"
+    },
+    {
+      "id": "m07",
+      "type": "letter",
+      "prompt": "What comes next? Z, X, V, T, ...",
+      "options": ["S", "R", "Q", "P"],
+      "correct": "R",
+      "difficulty": "moderate"
+    },
+    {
+      "id": "m08",
+      "type": "logic",
+      "prompt": "If A > B and B > C, then:",
+      "options": ["A = C", "A < C", "A > C", "Cannot determine"],
+      "correct": "A > C",
+      "difficulty": "moderate"
+    },
+    {
+      "id": "m09",
+      "type": "sequence",
+      "prompt": "What comes next? 7, 14, 28, 56, ...",
+      "options": ["84", "112", "98", "70"],
+      "correct": "112",
+      "difficulty": "moderate"
+    },
+    {
+      "id": "m10",
+      "type": "logic",
+      "prompt": "Some dogs bark loudly. Rex is a dog. Therefore:",
+      "options": ["Rex barks loudly", "Rex might bark loudly", "Rex doesn't bark", "All dogs are Rex"],
+      "correct": "Rex might bark loudly",
+      "difficulty": "moderate"
+    },
+    {
+      "id": "m11",
+      "type": "letter",
+      "prompt": "What comes next? J, F, M, A, M, J, ...",
+      "options": ["J", "A", "S", "O"],
+      "correct": "J",
+      "difficulty": "moderate"
+    },
+    {
+      "id": "m12",
+      "type": "sequence",
+      "prompt": "What comes next? 11, 22, 44, 88, ...",
+      "options": ["132", "176", "166", "144"],
+      "correct": "176",
+      "difficulty": "moderate"
+    },
+    {
+      "id": "m13",
+      "type": "analogy",
+      "prompt": "Carpenter is to Wood as Mason is to ___",
+      "options": ["Brick", "House", "Hammer", "Build"],
+      "correct": "Brick",
+      "difficulty": "moderate"
+    },
+    {
+      "id": "m14",
+      "type": "analogy",
+      "prompt": "Keyboard is to Typing as Microphone is to ___",
+      "options": ["Sound", "Recording", "Music", "Speaking"],
+      "correct": "Recording",
+      "difficulty": "moderate"
+    },
+    {
+      "id": "m15",
+      "type": "sequence",
+      "prompt": "What comes next? 1, 2, 4, 8, 16, ...",
+      "options": ["24", "32", "20", "28"],
+      "correct": "32",
+      "difficulty": "moderate"
+    }
+  ],
+  "hard": [
+    {
+      "id": "h01",
+      "type": "sequence",
+      "prompt": "What comes next? 1, 1, 2, 3, 5, 8, ...",
+      "options": ["11", "12", "13", "10"],
+      "correct": "13",
+      "difficulty": "hard"
+    },
+    {
+      "id": "h02",
+      "type": "logic",
+      "prompt": "If it's raining, the ground is wet. The ground is wet. What can we conclude?",
+      "options": ["It is raining", "It might be raining", "It is not raining", "The sky is cloudy"],
+      "correct": "It might be raining",
+      "difficulty": "hard"
+    },
+    {
+      "id": "h03",
+      "type": "sequence",
+      "prompt": "What comes next? 100, 50, 25, 12.5, ...",
+      "options": ["6", "6.25", "10", "5"],
+      "correct": "6.25",
+      "difficulty": "hard"
+    },
+    {
+      "id": "h04",
+      "type": "sequence",
+      "prompt": "What comes next? 2, 6, 12, 20, 30, ...",
+      "options": ["40", "42", "36", "38"],
+      "correct": "42",
+      "difficulty": "hard"
+    },
+    {
+      "id": "h05",
+      "type": "sequence",
+      "prompt": "What comes next? 1, 4, 9, 16, 25, ...",
+      "options": ["30", "36", "35", "49"],
+      "correct": "36",
+      "difficulty": "hard"
+    },
+    {
+      "id": "h06",
+      "type": "sequence",
+      "prompt": "What comes next? 3, 5, 8, 13, 21, ...",
+      "options": ["29", "34", "31", "32"],
+      "correct": "34",
+      "difficulty": "hard"
+    },
+    {
+      "id": "h07",
+      "type": "letter",
+      "prompt": "What comes next? B, D, G, K, ...",
+      "options": ["N", "O", "P", "M"],
+      "correct": "P",
+      "difficulty": "hard"
+    },
+    {
+      "id": "h08",
+      "type": "sequence",
+      "prompt": "What comes next? 1, 3, 7, 15, 31, ...",
+      "options": ["47", "63", "45", "62"],
+      "correct": "63",
+      "difficulty": "hard"
+    },
+    {
+      "id": "h09",
+      "type": "sequence",
+      "prompt": "What comes next? 2, 3, 5, 7, 11, ...",
+      "options": ["12", "13", "14", "15"],
+      "correct": "13",
+      "difficulty": "hard"
+    },
+    {
+      "id": "h10",
+      "type": "logic",
+      "prompt": "If all Zorks are Borks, and all Borks are Morks, then:",
+      "options": ["Some Morks are Zorks", "All Zorks are Morks", "No Zorks are Morks", "All Morks are Zorks"],
+      "correct": "All Zorks are Morks",
+      "difficulty": "hard"
+    },
+    {
+      "id": "h11",
+      "type": "sequence",
+      "prompt": "What comes next? 1, 8, 27, 64, ...",
+      "options": ["100", "125", "81", "128"],
+      "correct": "125",
+      "difficulty": "hard"
+    },
+    {
+      "id": "h12",
+      "type": "sequence",
+      "prompt": "What comes next? 0, 1, 1, 2, 4, 7, 13, ...",
+      "options": ["20", "24", "21", "26"],
+      "correct": "24",
+      "difficulty": "hard"
+    },
+    {
+      "id": "h13",
+      "type": "logic",
+      "prompt": "All squares are rectangles. Some rectangles are not squares. Therefore:",
+      "options": ["All rectangles are squares", "Some rectangles are squares", "No squares exist", "Squares don't exist"],
+      "correct": "Some rectangles are squares",
+      "difficulty": "hard"
+    },
+    {
+      "id": "h14",
+      "type": "sequence",
+      "prompt": "What comes next? 1, 2, 4, 7, 11, 16, ...",
+      "options": ["21", "22", "23", "20"],
+      "correct": "22",
+      "difficulty": "hard"
+    },
+    {
+      "id": "h15",
+      "type": "letter",
+      "prompt": "What comes next? O, T, T, F, F, S, S, ...",
+      "options": ["N", "E", "T", "S"],
+      "correct": "E",
+      "difficulty": "hard"
+    },
+    {
+      "id": "h16",
+      "type": "sequence",
+      "prompt": "What comes next? 2, 5, 10, 17, 26, ...",
+      "options": ["35", "37", "36", "38"],
+      "correct": "37",
+      "difficulty": "hard"
+    },
+    {
+      "id": "h17",
+      "type": "logic",
+      "prompt": "If no heroes are cowards, and some soldiers are heroes, then:",
+      "options": ["All soldiers are cowards", "Some soldiers are not cowards", "No soldiers are heroes", "All heroes are soldiers"],
+      "correct": "Some soldiers are not cowards",
+      "difficulty": "hard"
+    },
+    {
+      "id": "h18",
+      "type": "sequence",
+      "prompt": "What comes next? 1, 1, 2, 6, 24, 120, ...",
+      "options": ["480", "720", "600", "840"],
+      "correct": "720",
+      "difficulty": "hard"
+    }
+  ]
+}
