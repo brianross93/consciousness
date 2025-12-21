@@ -185,6 +185,14 @@
       "options": ["Whiskers has a tail", "All tails are cats", "Whiskers is not a cat", "Some cats are Whiskers"],
       "correct": "Whiskers has a tail",
       "difficulty": "easy"
+    },
+    {
+      "id": "e21",
+      "type": "sequence",
+      "prompt": "What comes next? 100, 50, 25, 12.5, ...",
+      "options": ["6", "6.25", "10", "5"],
+      "correct": "6.25",
+      "difficulty": "easy"
     }
   ],
   "moderate": [
@@ -194,7 +202,7 @@
       "prompt": "What comes next? 2, 4, 8, 16, ...",
       "options": ["24", "32", "20", "18"],
       "correct": "32",
-      "difficulty": "moderate"
+      "difficulty": "easy"
     },
     {
       "id": "m02",
@@ -234,7 +242,7 @@
       "prompt": "What comes next? 5, 10, 20, 40, ...",
       "options": ["60", "80", "50", "70"],
       "correct": "80",
-      "difficulty": "moderate"
+      "difficulty": "easy"
     },
     {
       "id": "m07",
@@ -274,7 +282,7 @@
       "prompt": "What comes next? J, F, M, A, M, J, ...",
       "options": ["J", "A", "S", "O"],
       "correct": "J",
-      "difficulty": "moderate"
+      "difficulty": "hard"
     },
     {
       "id": "m12",
@@ -301,12 +309,20 @@
       "difficulty": "moderate"
     },
     {
+      "id": "m16",
+      "type": "logic",
+      "prompt": "If all circles are shapes, and all shapes have boundaries, then:",
+      "options": ["All boundaries are circles", "All circles have boundaries", "Some shapes are circles", "Boundaries are shapes"],
+      "correct": "All circles have boundaries",
+      "difficulty": "moderate"
+    },
+    {
       "id": "m15",
       "type": "sequence",
       "prompt": "What comes next? 1, 2, 4, 8, 16, ...",
       "options": ["24", "32", "20", "28"],
       "correct": "32",
-      "difficulty": "moderate"
+      "difficulty": "easy"
     }
   ],
   "hard": [
@@ -327,14 +343,6 @@
       "difficulty": "hard"
     },
     {
-      "id": "h03",
-      "type": "sequence",
-      "prompt": "What comes next? 100, 50, 25, 12.5, ...",
-      "options": ["6", "6.25", "10", "5"],
-      "correct": "6.25",
-      "difficulty": "hard"
-    },
-    {
       "id": "h04",
       "type": "sequence",
       "prompt": "What comes next? 2, 6, 12, 20, 30, ...",
@@ -348,7 +356,7 @@
       "prompt": "What comes next? 1, 4, 9, 16, 25, ...",
       "options": ["30", "36", "35", "49"],
       "correct": "36",
-      "difficulty": "hard"
+      "difficulty": "moderate"
     },
     {
       "id": "h06",
@@ -380,7 +388,7 @@
       "prompt": "What comes next? 2, 3, 5, 7, 11, ...",
       "options": ["12", "13", "14", "15"],
       "correct": "13",
-      "difficulty": "hard"
+      "difficulty": "moderate"
     },
     {
       "id": "h10",
@@ -396,7 +404,7 @@
       "prompt": "What comes next? 1, 8, 27, 64, ...",
       "options": ["100", "125", "81", "128"],
       "correct": "125",
-      "difficulty": "hard"
+      "difficulty": "moderate"
     },
     {
       "id": "h12",

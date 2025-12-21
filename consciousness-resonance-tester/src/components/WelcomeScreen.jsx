@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function WelcomeScreen({ onStart }) {
+function WelcomeScreen({ onStart, onOpenTinnitusMatcher }) {
   const [headphonesConfirmed, setHeadphonesConfirmed] = useState(false);
 
   return (
@@ -143,6 +143,47 @@ function WelcomeScreen({ onStart }) {
           Estimated duration: 12-18 minutes
         </p>
       </div>
+
+      {/* Tools Section */}
+      {onOpenTinnitusMatcher && (
+        <div style={{ 
+          textAlign: 'center', 
+          marginTop: '2rem',
+          padding: '1rem',
+          borderTop: '1px solid var(--border-color)'
+        }}>
+          <p style={{ 
+            fontSize: '0.75rem', 
+            color: 'var(--text-muted)',
+            marginBottom: '0.75rem'
+          }}>
+            Additional Tools
+          </p>
+          <button 
+            onClick={onOpenTinnitusMatcher}
+            style={{
+              background: 'transparent',
+              border: '1px solid var(--border-color)',
+              color: 'var(--text-secondary)',
+              padding: '0.5rem 1rem',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              fontSize: '0.85rem',
+              transition: 'all 0.2s'
+            }}
+            onMouseOver={(e) => {
+              e.target.style.borderColor = 'var(--accent-cyan)';
+              e.target.style.color = 'var(--accent-cyan)';
+            }}
+            onMouseOut={(e) => {
+              e.target.style.borderColor = 'var(--border-color)';
+              e.target.style.color = 'var(--text-secondary)';
+            }}
+          >
+            🔊 Tinnitus Frequency Matcher
+          </button>
+        </div>
+      )}
 
       {/* Footer */}
       <div style={{ 

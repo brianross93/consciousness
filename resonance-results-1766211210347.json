@@ -1,0 +1,508 @@
+[
+  {
+    "sessionId": 1766207574839,
+    "timestamp": "2025-12-20T05:41:16.178Z",
+    "phaseOrder": [
+      2,
+      1,
+      4,
+      3
+    ],
+    "results": {
+      "practice": {
+        "correct": 3,
+        "times": [
+          2.661,
+          11.376,
+          9.776
+        ]
+      },
+      "phases": {
+        "1": {
+          "correct": 10,
+          "times": [
+            3.797,
+            4.541,
+            5.575,
+            4.944,
+            8.326,
+            9.178,
+            4.076,
+            10.011,
+            5.327,
+            10.174
+          ]
+        },
+        "2": {
+          "correct": 9,
+          "times": [
+            6.264,
+            18.083,
+            6.834,
+            14.623,
+            23.073,
+            3.853,
+            20.345,
+            7.02,
+            26.095,
+            23.762
+          ]
+        },
+        "3": {
+          "correct": 7,
+          "times": [
+            17.22,
+            8.077,
+            33.643,
+            16.332,
+            10.958,
+            53.433,
+            3.293,
+            11.547,
+            31.055
+          ]
+        },
+        "4": {
+          "correct": 9,
+          "times": [
+            11.911,
+            9.763,
+            43.808,
+            22.256,
+            21.176,
+            7.135,
+            12.535,
+            16.672,
+            23.097,
+            29.816
+          ]
+        }
+      }
+    }
+  },
+  {
+    "sessionId": 1766210554728,
+    "timestamp": "2025-12-20T06:13:10.508Z",
+    "phaseOrder": [
+      1,
+      3,
+      5,
+      2,
+      4
+    ],
+    "results": {
+      "practice": {
+        "correct": 3,
+        "times": [
+          2.825,
+          3.546,
+          4.469
+        ],
+        "questions": [
+          {
+            "id": "p1",
+            "correct": true,
+            "time": 2.825
+          },
+          {
+            "id": "p2",
+            "correct": true,
+            "time": 3.546
+          },
+          {
+            "id": "p3",
+            "correct": true,
+            "time": 4.469
+          }
+        ]
+      },
+      "phases": {
+        "1": {
+          "correct": 9,
+          "times": [
+            5.362,
+            9.386,
+            4.747,
+            8.25,
+            9.686,
+            3.666,
+            5.026,
+            3.506,
+            6.574,
+            19.547
+          ],
+          "questions": [
+            {
+              "id": "e19",
+              "correct": true,
+              "time": 5.362,
+              "difficulty": "easy"
+            },
+            {
+              "id": "m14",
+              "correct": false,
+              "time": 9.386,
+              "difficulty": "moderate"
+            },
+            {
+              "id": "e13",
+              "correct": true,
+              "time": 4.747,
+              "difficulty": "easy"
+            },
+            {
+              "id": "e05",
+              "correct": true,
+              "time": 8.25,
+              "difficulty": "easy"
+            },
+            {
+              "id": "h04",
+              "correct": true,
+              "time": 9.686,
+              "difficulty": "hard"
+            },
+            {
+              "id": "h02",
+              "correct": true,
+              "time": 3.666,
+              "difficulty": "hard"
+            },
+            {
+              "id": "m15",
+              "correct": true,
+              "time": 5.026,
+              "difficulty": "moderate"
+            },
+            {
+              "id": "m01",
+              "correct": true,
+              "time": 3.506,
+              "difficulty": "moderate"
+            },
+            {
+              "id": "e03",
+              "correct": true,
+              "time": 6.574,
+              "difficulty": "easy"
+            },
+            {
+              "id": "h06",
+              "correct": true,
+              "time": 19.547,
+              "difficulty": "hard"
+            }
+          ]
+        },
+        "2": {
+          "correct": 8,
+          "times": [
+            7.49,
+            9.825,
+            9.401,
+            11.623,
+            3.013,
+            9.062,
+            2.346,
+            3.346,
+            17.756,
+            3.914
+          ],
+          "questions": [
+            {
+              "id": "e11",
+              "correct": true,
+              "time": 7.49,
+              "difficulty": "easy"
+            },
+            {
+              "id": "m11",
+              "correct": false,
+              "time": 9.825,
+              "difficulty": "moderate"
+            },
+            {
+              "id": "h01",
+              "correct": true,
+              "time": 9.401,
+              "difficulty": "hard"
+            },
+            {
+              "id": "h07",
+              "correct": true,
+              "time": 11.623,
+              "difficulty": "hard"
+            },
+            {
+              "id": "e06",
+              "correct": true,
+              "time": 3.013,
+              "difficulty": "easy"
+            },
+            {
+              "id": "h16",
+              "correct": true,
+              "time": 9.062,
+              "difficulty": "hard"
+            },
+            {
+              "id": "e16",
+              "correct": true,
+              "time": 2.346,
+              "difficulty": "easy"
+            },
+            {
+              "id": "m10",
+              "correct": true,
+              "time": 3.346,
+              "difficulty": "moderate"
+            },
+            {
+              "id": "m09",
+              "correct": false,
+              "time": 17.756,
+              "difficulty": "moderate"
+            },
+            {
+              "id": "e07",
+              "correct": true,
+              "time": 3.914,
+              "difficulty": "easy"
+            }
+          ]
+        },
+        "3": {
+          "correct": 10,
+          "times": [
+            4.214,
+            3.963,
+            5.403,
+            17.756,
+            4.86,
+            4.39,
+            8.365,
+            18.679,
+            3.936,
+            3.984
+          ],
+          "questions": [
+            {
+              "id": "e10",
+              "correct": true,
+              "time": 4.214,
+              "difficulty": "easy"
+            },
+            {
+              "id": "m02",
+              "correct": true,
+              "time": 3.963,
+              "difficulty": "moderate"
+            },
+            {
+              "id": "e17",
+              "correct": true,
+              "time": 5.403,
+              "difficulty": "easy"
+            },
+            {
+              "id": "m12",
+              "correct": true,
+              "time": 17.756,
+              "difficulty": "moderate"
+            },
+            {
+              "id": "m04",
+              "correct": true,
+              "time": 4.86,
+              "difficulty": "moderate"
+            },
+            {
+              "id": "h13",
+              "correct": true,
+              "time": 4.39,
+              "difficulty": "hard"
+            },
+            {
+              "id": "h10",
+              "correct": true,
+              "time": 8.365,
+              "difficulty": "hard"
+            },
+            {
+              "id": "h11",
+              "correct": true,
+              "time": 18.679,
+              "difficulty": "hard"
+            },
+            {
+              "id": "e01",
+              "correct": true,
+              "time": 3.936,
+              "difficulty": "easy"
+            },
+            {
+              "id": "e04",
+              "correct": true,
+              "time": 3.984,
+              "difficulty": "easy"
+            }
+          ]
+        },
+        "4": {
+          "correct": 9,
+          "times": [
+            4.475,
+            5.45,
+            4.52,
+            19.311,
+            4.442,
+            4.908,
+            3.112,
+            3.754,
+            11.54,
+            7.596
+          ],
+          "questions": [
+            {
+              "id": "m06",
+              "correct": true,
+              "time": 4.475,
+              "difficulty": "moderate"
+            },
+            {
+              "id": "m13",
+              "correct": true,
+              "time": 5.45,
+              "difficulty": "moderate"
+            },
+            {
+              "id": "e02",
+              "correct": true,
+              "time": 4.52,
+              "difficulty": "easy"
+            },
+            {
+              "id": "h14",
+              "correct": false,
+              "time": 19.311,
+              "difficulty": "hard"
+            },
+            {
+              "id": "m03",
+              "correct": true,
+              "time": 4.442,
+              "difficulty": "moderate"
+            },
+            {
+              "id": "e15",
+              "correct": true,
+              "time": 4.908,
+              "difficulty": "easy"
+            },
+            {
+              "id": "e18",
+              "correct": true,
+              "time": 3.112,
+              "difficulty": "easy"
+            },
+            {
+              "id": "h03",
+              "correct": true,
+              "time": 3.754,
+              "difficulty": "hard"
+            },
+            {
+              "id": "h15",
+              "correct": true,
+              "time": 11.54,
+              "difficulty": "hard"
+            },
+            {
+              "id": "e12",
+              "correct": true,
+              "time": 7.596,
+              "difficulty": "easy"
+            }
+          ]
+        },
+        "5": {
+          "correct": 10,
+          "times": [
+            17.357,
+            4.687,
+            24.56,
+            16.061,
+            5.103,
+            6.763,
+            5.729,
+            15.72,
+            8.109,
+            3.507
+          ],
+          "questions": [
+            {
+              "id": "h05",
+              "correct": true,
+              "time": 17.357,
+              "difficulty": "hard"
+            },
+            {
+              "id": "e14",
+              "correct": true,
+              "time": 4.687,
+              "difficulty": "easy"
+            },
+            {
+              "id": "m07",
+              "correct": true,
+              "time": 24.56,
+              "difficulty": "moderate"
+            },
+            {
+              "id": "h08",
+              "correct": true,
+              "time": 16.061,
+              "difficulty": "hard"
+            },
+            {
+              "id": "e09",
+              "correct": true,
+              "time": 5.103,
+              "difficulty": "easy"
+            },
+            {
+              "id": "m08",
+              "correct": true,
+              "time": 6.763,
+              "difficulty": "moderate"
+            },
+            {
+              "id": "e20",
+              "correct": true,
+              "time": 5.729,
+              "difficulty": "easy"
+            },
+            {
+              "id": "h18",
+              "correct": true,
+              "time": 15.72,
+              "difficulty": "hard"
+            },
+            {
+              "id": "m05",
+              "correct": true,
+              "time": 8.109,
+              "difficulty": "moderate"
+            },
+            {
+              "id": "e08",
+              "correct": true,
+              "time": 3.507,
+              "difficulty": "easy"
+            }
+          ]
+        }
+      }
+    }
+  }
+]

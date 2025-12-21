@@ -3,6 +3,7 @@ import { useAudio } from './hooks/useAudio';
 import WelcomeScreen from './components/WelcomeScreen';
 import ExperimentController from './components/ExperimentController';
 import ResultsDashboard from './components/ResultsDashboard';
+import TinnitusMatcher from './components/TinnitusMatcher';
 import questions from './data/questions.json';
 
 // Fisher-Yates shuffle
@@ -16,7 +17,7 @@ function shuffle(array) {
 }
 
 function App() {
-  const [view, setView] = useState('WELCOME'); // WELCOME, TESTING, RESULTS
+  const [view, setView] = useState('WELCOME'); // WELCOME, TESTING, RESULTS, TINNITUS
   const [phaseOrder, setPhaseOrder] = useState([1, 2, 3, 4]);
   const [results, setResults] = useState(null);
   const [sessionId, setSessionId] = useState(null);
@@ -62,10 +63,21 @@ function App() {
     setView('WELCOME');
   }, []);
 
+  const handleOpenTinnitusMatcher = useCallback(() => {
+    setView('TINNITUS');
+  }, []);
+
+  const handleBackFromTinnitus = useCallback(() => {
+    setView('WELCOME');
+  }, []);
+
   return (
     <div className="app">
       {view === 'WELCOME' && (
-        <WelcomeScreen onStart={handleStart} />
+        <WelcomeScreen 
+          onStart={handleStart} 
+          onOpenTinnitusMatcher={handleOpenTinnitusMatcher}
+        />
       )}
       
       {view === 'TESTING' && (
@@ -84,6 +96,10 @@ function App() {
           audio={audio}
           onRestart={handleRestart}
         />
+      )}
+
+      {view === 'TINNITUS' && (
+        <TinnitusMatcher onBack={handleBackFromTinnitus} />
       )}
     </div>
   );
