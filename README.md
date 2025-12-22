@@ -305,7 +305,7 @@ At criticality, small quantum biases have **maximum leverage**. This is why "qua
 3. Is the claustrum the actual site?
 4. Is quantum indeterminacy "freedom" or just "randomness"?
 
-### Current Confidence: 35-50%
+### Current Confidence: higher than 50%
 
 The **mechanism** is demonstrated. The **quantum source** remains to be proven experimentally.
 
