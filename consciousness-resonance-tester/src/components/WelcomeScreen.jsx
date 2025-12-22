@@ -5,7 +5,7 @@ function WelcomeScreen({ onStart, onOpenTinnitusMatcher }) {
 
   return (
     <div className="container fade-in" style={{ paddingTop: '4rem' }}>
-      <div className="card" style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
+      <div className="card" style={{ textAlign: 'center', maxWidth: '650px', margin: '0 auto' }}>
         {/* Header */}
         <div style={{ marginBottom: '2rem' }}>
           <h1 style={{ 
@@ -16,10 +16,24 @@ function WelcomeScreen({ onStart, onOpenTinnitusMatcher }) {
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent'
           }}>
-            Consciousness Resonance Tester
+            Frequency Specificity Test
           </h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-            Cognitive Performance Under Auditory Conditions
+            Testing whether gamma entrainment is frequency-specific or if any rhythm helps
+          </p>
+        </div>
+
+        {/* Research Question */}
+        <div style={{ 
+          background: 'var(--bg-tertiary)', 
+          padding: '1rem',
+          borderRadius: '8px',
+          marginBottom: '1.5rem',
+          borderLeft: '4px solid var(--accent-cyan)'
+        }}>
+          <p style={{ fontSize: '0.9rem', color: 'var(--text-primary)', margin: 0 }}>
+            <strong>Question:</strong> Does 40 Hz specifically enhance cognitive binding, 
+            or does any rhythmic stimulus help?
           </p>
         </div>
 
@@ -32,7 +46,7 @@ function WelcomeScreen({ onStart, onOpenTinnitusMatcher }) {
           marginBottom: '1.5rem'
         }}>
           <h3 style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            Experiment Protocol
+            Protocol
           </h3>
           <ul style={{ 
             listStyle: 'none', 
@@ -41,24 +55,28 @@ function WelcomeScreen({ onStart, onOpenTinnitusMatcher }) {
           }}>
             <li style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
               <span style={{ color: 'var(--accent-cyan)' }}>01</span>
-              <span>3 practice questions to familiarize yourself</span>
+              <span>3 practice questions</span>
             </li>
             <li style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
               <span style={{ color: 'var(--accent-cyan)' }}>02</span>
-              <span>5 phases × 10 questions each (50 total)</span>
+              <span><strong>8 conditions</strong> × 6 questions each (48 total)</span>
             </li>
             <li style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
               <span style={{ color: 'var(--accent-cyan)' }}>03</span>
-              <span>Different audio conditions per phase (randomized order)</span>
+              <span><strong>3 min pre-exposure</strong> per condition (lets brain entrain)</span>
+            </li>
+            <li style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+              <span style={{ color: 'var(--accent-cyan)' }}>04</span>
+              <span>Binaural beats at different frequencies (randomized)</span>
             </li>
             <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-              <span style={{ color: 'var(--accent-cyan)' }}>04</span>
-              <span>Answer as quickly and accurately as possible</span>
+              <span style={{ color: 'var(--accent-cyan)' }}>05</span>
+              <span>Answer pattern recognition questions quickly & accurately</span>
             </li>
           </ul>
         </div>
 
-        {/* Audio Conditions */}
+        {/* Conditions Grid */}
         <div style={{ 
           textAlign: 'left',
           marginBottom: '1.5rem',
@@ -66,22 +84,61 @@ function WelcomeScreen({ onStart, onOpenTinnitusMatcher }) {
           border: '1px solid var(--border-color)',
           borderRadius: '8px'
         }}>
-          <h3 style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            Audio Conditions
+          <h3 style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            8 Test Conditions
           </h3>
-          <div style={{ fontSize: '0.85rem' }}>
-            <div style={{ marginBottom: '0.5rem' }}>
-              <span style={{ color: 'var(--text-muted)' }}>Control:</span>
-              <span style={{ color: 'var(--text-secondary)', marginLeft: '0.5rem' }}>Silence, White Noise</span>
-            </div>
-            <div style={{ marginBottom: '0.5rem' }}>
-              <span style={{ color: 'var(--accent-magenta)' }}>Disruption:</span>
-              <span style={{ color: 'var(--text-secondary)', marginLeft: '0.5rem' }}>37 Hz, 35-45 Hz Sweep</span>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', fontSize: '0.85rem' }}>
+            <div>
+              <div style={{ color: 'var(--text-muted)', fontWeight: 500, marginBottom: '0.5rem' }}>Control</div>
+              <div style={{ color: 'var(--text-secondary)' }}>• Silence</div>
+              <div style={{ color: 'var(--text-secondary)' }}>• Pink Noise</div>
             </div>
             <div>
-              <span style={{ color: 'var(--accent-cyan)' }}>Entrainment:</span>
-              <span style={{ color: 'var(--text-secondary)', marginLeft: '0.5rem' }}>40 Hz Pulse</span>
+              <div style={{ color: 'var(--accent-green)', fontWeight: 500, marginBottom: '0.5rem' }}>Target</div>
+              <div style={{ color: 'var(--text-secondary)' }}>• <strong>40 Hz</strong> (gamma)</div>
             </div>
+            <div>
+              <div style={{ color: 'var(--accent-yellow)', fontWeight: 500, marginBottom: '0.5rem' }}>Near-Miss</div>
+              <div style={{ color: 'var(--text-secondary)' }}>• 38 Hz (2 Hz low)</div>
+              <div style={{ color: 'var(--text-secondary)' }}>• 42 Hz (2 Hz high)</div>
+            </div>
+            <div>
+              <div style={{ color: 'var(--accent-cyan)', fontWeight: 500, marginBottom: '0.5rem' }}>Harmonics</div>
+              <div style={{ color: 'var(--text-secondary)' }}>• 20 Hz (subharmonic)</div>
+              <div style={{ color: 'var(--text-secondary)' }}>• 80 Hz (overtone)</div>
+            </div>
+            <div style={{ gridColumn: 'span 2' }}>
+              <div style={{ color: 'var(--accent-purple)', fontWeight: 500, marginBottom: '0.5rem' }}>Unrelated</div>
+              <div style={{ color: 'var(--text-secondary)' }}>• 53 Hz (not harmonically related)</div>
+            </div>
+          </div>
+        </div>
+
+        {/* What We're Testing */}
+        <div style={{ 
+          textAlign: 'left',
+          marginBottom: '1.5rem',
+          padding: '1rem',
+          background: 'rgba(0, 212, 255, 0.05)',
+          borderRadius: '8px',
+          fontSize: '0.85rem'
+        }}>
+          <h3 style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', marginBottom: '0.75rem', textTransform: 'uppercase' }}>
+            Hypotheses
+          </h3>
+          <div style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+            <p style={{ margin: '0 0 0.5rem' }}>
+              <strong>If gamma-specific:</strong> 40 Hz &gt; all others
+            </p>
+            <p style={{ margin: '0 0 0.5rem' }}>
+              <strong>If harmonics matter:</strong> 40 ≈ 80 ≈ 20 Hz (octave relationships help)
+            </p>
+            <p style={{ margin: '0 0 0.5rem' }}>
+              <strong>If any rhythm helps:</strong> All binaural ≈ each other &gt; silence
+            </p>
+            <p style={{ margin: 0 }}>
+              <strong>If near-miss interferes:</strong> 38/42 Hz &lt; control (disrupts natural gamma)
+            </p>
           </div>
         </div>
 
@@ -89,9 +146,9 @@ function WelcomeScreen({ onStart, onOpenTinnitusMatcher }) {
         <div className="headphone-warning">
           <span className="headphone-icon">🎧</span>
           <div>
-            <strong>Headphones Required</strong>
+            <strong>Stereo Headphones Required</strong>
             <p style={{ fontSize: '0.8rem', margin: '0.25rem 0 0', opacity: 0.9 }}>
-              Low-frequency tones (37 Hz) cannot be reproduced by laptop speakers.
+              Binaural beats require different frequencies in each ear. Speakers won't work.
             </p>
           </div>
         </div>
@@ -120,7 +177,7 @@ function WelcomeScreen({ onStart, onOpenTinnitusMatcher }) {
             }}
           />
           <span style={{ color: 'var(--text-primary)' }}>
-            I am wearing headphones and ready to begin
+            I am wearing stereo headphones and ready to begin
           </span>
         </label>
 
@@ -140,7 +197,7 @@ function WelcomeScreen({ onStart, onOpenTinnitusMatcher }) {
           fontSize: '0.75rem', 
           color: 'var(--text-muted)'
         }}>
-          Estimated duration: 12-18 minutes
+          Estimated duration: 45-50 minutes
         </p>
       </div>
 
@@ -192,11 +249,11 @@ function WelcomeScreen({ onStart, onOpenTinnitusMatcher }) {
         fontSize: '0.75rem',
         color: 'var(--text-muted)'
       }}>
-        <p>Testing hypothesis: Does gamma-band (40 Hz) interference affect cognitive binding?</p>
+        <p>Part of the Consciousness Investigation project</p>
+        <p style={{ marginTop: '0.25rem' }}>Run multiple sessions for reliable results</p>
       </div>
     </div>
   );
 }
 
 export default WelcomeScreen;
-

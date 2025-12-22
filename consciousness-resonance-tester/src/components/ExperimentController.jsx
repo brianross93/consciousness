@@ -1,5 +1,6 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import QuestionCard from './QuestionCard';
+import { CONDITIONS } from '../hooks/useAudioEnhanced';
 
 // Fisher-Yates shuffle
 function shuffle(array) {
@@ -11,52 +12,65 @@ function shuffle(array) {
   return arr;
 }
 
-// Stratified sampling: 4 easy, 3 moderate, 3 hard per phase (5 phases)
-function stratifiedSample(questions) {
+// Questions per phase: 3 easy, 2 moderate, 1 hard = 6 total
+// 8 phases × 6 questions = 48 questions needed
+const QUESTIONS_PER_PHASE = 6;
+const EASY_PER_PHASE = 3;
+const MODERATE_PER_PHASE = 2;
+const HARD_PER_PHASE = 1;
+
+// Pre-exposure duration in seconds (research suggests 6+ min for full effect)
+// 3 minutes pre-exposure + ~3 min questions = ~6 min total per condition
+const PRE_EXPOSURE_SECONDS = 180; // 3 minutes
+
+// Stratified sampling for 8 phases
+function stratifiedSample(questions, numPhases) {
   const easy = shuffle(questions.easy);
   const moderate = shuffle(questions.moderate);
   const hard = shuffle(questions.hard);
   
   const phases = {};
   
-  for (let phase = 1; phase <= 5; phase++) {
+  for (let phase = 1; phase <= numPhases; phase++) {
     const phaseQuestions = [
-      // 4 easy questions
-      ...easy.splice(0, 4),
-      // 3 moderate questions
-      ...moderate.splice(0, 3),
-      // 3 hard questions
-      ...hard.splice(0, 3)
+      ...easy.splice(0, EASY_PER_PHASE),
+      ...moderate.splice(0, MODERATE_PER_PHASE),
+      ...hard.splice(0, HARD_PER_PHASE)
     ];
-    // Shuffle within phase so difficulty order is random
     phases[phase] = shuffle(phaseQuestions);
   }
   
   return phases;
 }
 
-function ExperimentController({ questions, phaseOrder, audio, onComplete }) {
-  // Stratified sampling: 4 easy + 3 moderate + 3 hard per phase
+function ExperimentController({ questions, phaseOrder, audio, onComplete, numPhases = 8 }) {
+  // Stratified sampling
   const questionAssignments = useMemo(() => {
-    return stratifiedSample(questions);
-  }, [questions]);
+    return stratifiedSample(questions, numPhases);
+  }, [questions, numPhases]);
 
   // State
-  const [stage, setStage] = useState('PRACTICE'); // PRACTICE, PHASE_INTRO, PHASE_TEST
+  const [stage, setStage] = useState('PRACTICE'); // PRACTICE, PHASE_INTRO, PRE_EXPOSURE, PHASE_TEST
   const [currentPhaseIndex, setCurrentPhaseIndex] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [questionStartTime, setQuestionStartTime] = useState(null);
   
-  // Results accumulator (5 phases now)
+  // Pre-exposure timer state
+  const [preExposureRemaining, setPreExposureRemaining] = useState(PRE_EXPOSURE_SECONDS);
+  const timerRef = useRef(null);
+  
+  // Initialize results for all phases
+  const initialPhaseResults = useMemo(() => {
+    const phases = {};
+    for (let i = 1; i <= numPhases; i++) {
+      phases[i] = { correct: 0, times: [], questions: [] };
+    }
+    return phases;
+  }, [numPhases]);
+
   const [results, setResults] = useState({
     practice: { correct: 0, times: [], questions: [] },
-    phases: {
-      1: { correct: 0, times: [], questions: [] },
-      2: { correct: 0, times: [], questions: [] },
-      3: { correct: 0, times: [], questions: [] },
-      4: { correct: 0, times: [], questions: [] },
-      5: { correct: 0, times: [], questions: [] }
-    }
+    phases: initialPhaseResults
   });
 
   // Current phase number (from randomized order)
@@ -67,51 +81,77 @@ function ExperimentController({ questions, phaseOrder, audio, onComplete }) {
     if (stage === 'PRACTICE') {
       return questions.practice;
     }
-    // Use the stratified question assignments for this phase
     return questionAssignments[currentPhase] || [];
   }, [stage, currentPhase, questions.practice, questionAssignments]);
 
   const currentQuestion = currentQuestions[currentQuestionIndex];
   const totalQuestionsInStage = currentQuestions.length;
 
-  // Progress calculation
+  // Progress calculation (now includes pre-exposure time)
   const overallProgress = useMemo(() => {
     const practiceQuestions = questions.practice.length;
-    const phaseQuestions = 10 * 5; // 5 phases, 10 each
+    const phaseQuestions = QUESTIONS_PER_PHASE * numPhases;
     const totalQuestions = practiceQuestions + phaseQuestions;
     
     let completed = 0;
     if (stage === 'PRACTICE') {
       completed = currentQuestionIndex;
+    } else if (stage === 'PHASE_INTRO' || stage === 'PRE_EXPOSURE') {
+      completed = practiceQuestions + (currentPhaseIndex * QUESTIONS_PER_PHASE);
     } else {
-      completed = practiceQuestions + (currentPhaseIndex * 10) + currentQuestionIndex;
+      completed = practiceQuestions + (currentPhaseIndex * QUESTIONS_PER_PHASE) + currentQuestionIndex;
     }
     
     return (completed / totalQuestions) * 100;
-  }, [stage, currentPhaseIndex, currentQuestionIndex, questions.practice.length]);
+  }, [stage, currentPhaseIndex, currentQuestionIndex, questions.practice.length, numPhases]);
 
   // Start timer when question appears
   useEffect(() => {
-    setQuestionStartTime(Date.now());
+    if (stage === 'PHASE_TEST' || stage === 'PRACTICE') {
+      setQuestionStartTime(Date.now());
+    }
   }, [currentQuestionIndex, stage, currentPhaseIndex]);
 
   // Handle audio for phases
   useEffect(() => {
-    if (stage === 'PHASE_TEST') {
+    if (stage === 'PHASE_TEST' || stage === 'PRE_EXPOSURE') {
       audio.setPhaseAudio(currentPhase);
     } else {
       audio.stopAll();
     }
   }, [stage, currentPhase, audio]);
 
+  // Pre-exposure countdown timer
+  useEffect(() => {
+    if (stage === 'PRE_EXPOSURE') {
+      setPreExposureRemaining(PRE_EXPOSURE_SECONDS);
+      
+      timerRef.current = setInterval(() => {
+        setPreExposureRemaining(prev => {
+          if (prev <= 1) {
+            clearInterval(timerRef.current);
+            setStage('PHASE_TEST');
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+      
+      return () => {
+        if (timerRef.current) {
+          clearInterval(timerRef.current);
+        }
+      };
+    }
+  }, [stage]);
+
   // Handle answer submission
   const handleAnswer = useCallback((selectedAnswer) => {
-    const responseTime = (Date.now() - questionStartTime) / 1000; // seconds
+    const responseTime = (Date.now() - questionStartTime) / 1000;
     const isCorrect = selectedAnswer === currentQuestion.correct;
 
-    // Update results
     setResults(prev => {
-      const newResults = JSON.parse(JSON.stringify(prev)); // Deep clone
+      const newResults = JSON.parse(JSON.stringify(prev));
       
       if (stage === 'PRACTICE') {
         newResults.practice.correct += isCorrect ? 1 : 0;
@@ -135,25 +175,20 @@ function ExperimentController({ questions, phaseOrder, audio, onComplete }) {
       return newResults;
     });
 
-    // Move to next question or stage
     const isLastQuestion = currentQuestionIndex >= totalQuestionsInStage - 1;
     
     if (!isLastQuestion) {
       setCurrentQuestionIndex(prev => prev + 1);
     } else {
-      // End of current question set
       if (stage === 'PRACTICE') {
-        // Move to first phase intro
         setStage('PHASE_INTRO');
         setCurrentQuestionIndex(0);
-      } else if (currentPhaseIndex < 4) {
-        // Move to next phase intro (5 phases total, index 0-4)
+      } else if (currentPhaseIndex < numPhases - 1) {
         setCurrentPhaseIndex(prev => prev + 1);
         setStage('PHASE_INTRO');
         setCurrentQuestionIndex(0);
       } else {
-        // Experiment complete - pass final results
-        // Need to include the last answer in the results
+        // Complete - include final answer
         const finalResults = JSON.parse(JSON.stringify(results));
         finalResults.phases[currentPhase].correct += isCorrect ? 1 : 0;
         finalResults.phases[currentPhase].times.push(responseTime);
@@ -169,61 +204,252 @@ function ExperimentController({ questions, phaseOrder, audio, onComplete }) {
   }, [
     questionStartTime, currentQuestion, stage, currentPhase,
     currentQuestionIndex, totalQuestionsInStage, currentPhaseIndex,
-    results, onComplete
+    results, onComplete, numPhases
   ]);
 
-  // Start phase after intro
-  const startPhase = useCallback(() => {
+  // Start pre-exposure period
+  const startPreExposure = useCallback(() => {
+    setStage('PRE_EXPOSURE');
+  }, []);
+
+  // Skip pre-exposure (for testing/debugging)
+  const skipPreExposure = useCallback(() => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
     setStage('PHASE_TEST');
   }, []);
 
-  // Render phase intro screen
-  if (stage === 'PHASE_INTRO') {
+  // Get condition info for display
+  const conditionInfo = CONDITIONS[currentPhase];
+
+  // Format time as MM:SS
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
+
+  // Render pre-exposure screen
+  if (stage === 'PRE_EXPOSURE') {
+    const progress = ((PRE_EXPOSURE_SECONDS - preExposureRemaining) / PRE_EXPOSURE_SECONDS) * 100;
+    
     return (
       <div className="container fade-in" style={{ paddingTop: '4rem' }}>
-        <div className="card" style={{ textAlign: 'center', maxWidth: '500px', margin: '0 auto' }}>
-          <div className="phase-indicator" style={{ justifyContent: 'center', marginBottom: '2rem' }}>
+        <div className="card" style={{ textAlign: 'center', maxWidth: '550px', margin: '0 auto' }}>
+          <div className="phase-indicator" style={{ justifyContent: 'center', marginBottom: '1rem' }}>
             <span className="phase-dot"></span>
-            <span>Phase {currentPhaseIndex + 1} of 5</span>
+            <span>Phase {currentPhaseIndex + 1} of {numPhases}</span>
           </div>
 
-          <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>
-            {audio.getConditionLabel(currentPhase)}
+          <h2 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>
+            Pre-Exposure Period
           </h2>
-
-          <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>
-            {currentPhase === 1 && 'Complete silence. Focus on the questions.'}
-            {currentPhase === 2 && 'Background white noise will play. Try to focus through it.'}
-            {currentPhase === 3 && 'A 74 Hz tone will play. This is near the 2nd harmonic of gamma (80 Hz).'}
-            {currentPhase === 4 && 'A sweeping 70-90 Hz tone will play. It oscillates around gamma×2.'}
-            {currentPhase === 5 && 'A binaural beat will play (200Hz left, 240Hz right). Your brain will perceive a 40Hz beat.'}
+          
+          <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
+            Relax and listen to the audio. Questions will begin automatically.
           </p>
 
-          <div style={{ 
-            background: 'var(--bg-tertiary)', 
-            padding: '1rem', 
-            borderRadius: '8px',
-            marginBottom: '2rem',
-            fontFamily: 'IBM Plex Mono',
-            fontSize: '0.875rem',
-            color: 'var(--text-muted)'
+          {/* Audio condition display */}
+          <div style={{
+            background: 'var(--bg-tertiary)',
+            padding: '1.5rem',
+            borderRadius: '12px',
+            marginBottom: '2rem'
           }}>
-            10 questions (4 easy • 3 moderate • 3 hard)
+            <div className="audio-status" style={{ justifyContent: 'center', marginBottom: '1rem' }}>
+              <div className="audio-wave">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <span style={{ fontSize: '1.1rem', fontWeight: 500 }}>
+                {conditionInfo?.name}
+                {conditionInfo?.frequency && typeof conditionInfo.frequency === 'number' && 
+                  ` (${conditionInfo.frequency} Hz)`}
+              </span>
+            </div>
+            
+            <p style={{ 
+              fontSize: '0.85rem', 
+              color: 'var(--text-muted)', 
+              margin: 0 
+            }}>
+              {conditionInfo?.description}
+            </p>
           </div>
 
+          {/* Timer display */}
+          <div style={{ marginBottom: '2rem' }}>
+            <div style={{
+              fontSize: '3rem',
+              fontFamily: 'IBM Plex Mono',
+              fontWeight: 600,
+              color: 'var(--accent-cyan)',
+              marginBottom: '0.5rem'
+            }}>
+              {formatTime(preExposureRemaining)}
+            </div>
+            <p style={{ 
+              fontSize: '0.85rem', 
+              color: 'var(--text-muted)',
+              margin: 0
+            }}>
+              remaining before questions
+            </p>
+          </div>
+
+          {/* Progress bar */}
+          <div style={{
+            background: 'var(--bg-secondary)',
+            borderRadius: '4px',
+            height: '8px',
+            overflow: 'hidden',
+            marginBottom: '1.5rem'
+          }}>
+            <div style={{
+              background: 'linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta))',
+              height: '100%',
+              width: `${progress}%`,
+              transition: 'width 1s linear'
+            }} />
+          </div>
+
+          {/* Why pre-exposure */}
+          <div style={{
+            background: 'rgba(0, 212, 255, 0.05)',
+            padding: '1rem',
+            borderRadius: '8px',
+            fontSize: '0.8rem',
+            color: 'var(--text-muted)',
+            textAlign: 'left',
+            marginBottom: '1rem'
+          }}>
+            <strong style={{ color: 'var(--text-secondary)' }}>Why wait?</strong>
+            <p style={{ margin: '0.5rem 0 0' }}>
+              Research shows neural entrainment takes ~6 minutes to stabilize. 
+              This pre-exposure period allows the audio frequency to affect your brain rhythms 
+              before we measure cognitive performance.
+            </p>
+          </div>
+
+          {/* Skip button (small, for testing) */}
           <button 
-            className="btn btn-primary" 
-            onClick={startPhase}
-            style={{ width: '100%' }}
+            onClick={skipPreExposure}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: 'var(--text-muted)',
+              fontSize: '0.75rem',
+              cursor: 'pointer',
+              padding: '0.5rem'
+            }}
           >
-            Begin Phase {currentPhaseIndex + 1}
+            Skip (testing only)
           </button>
         </div>
       </div>
     );
   }
 
-  // Render question
+  // Render phase intro screen
+  if (stage === 'PHASE_INTRO') {
+    return (
+      <div className="container fade-in" style={{ paddingTop: '4rem' }}>
+        <div className="card" style={{ textAlign: 'center', maxWidth: '550px', margin: '0 auto' }}>
+          <div className="phase-indicator" style={{ justifyContent: 'center', marginBottom: '2rem' }}>
+            <span className="phase-dot"></span>
+            <span>Phase {currentPhaseIndex + 1} of {numPhases}</span>
+          </div>
+
+          <h2 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>
+            {conditionInfo?.name || `Condition ${currentPhase}`}
+          </h2>
+
+          {conditionInfo?.frequency && (
+            <div style={{ 
+              fontFamily: 'IBM Plex Mono',
+              fontSize: '0.875rem',
+              color: 'var(--accent-cyan)',
+              marginBottom: '1rem'
+            }}>
+              {typeof conditionInfo.frequency === 'number' 
+                ? `${conditionInfo.frequency} Hz binaural beat`
+                : conditionInfo.frequency}
+            </div>
+          )}
+
+          <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
+            {conditionInfo?.description}
+          </p>
+
+          {/* Condition type badge */}
+          <div style={{
+            display: 'inline-block',
+            padding: '0.25rem 0.75rem',
+            borderRadius: '4px',
+            fontSize: '0.75rem',
+            fontFamily: 'IBM Plex Mono',
+            textTransform: 'uppercase',
+            marginBottom: '1.5rem',
+            background: conditionInfo?.type === 'target' ? 'rgba(0, 255, 136, 0.2)' :
+                       conditionInfo?.type === 'control' ? 'rgba(136, 136, 136, 0.2)' :
+                       conditionInfo?.type === 'near_miss' ? 'rgba(255, 136, 0, 0.2)' :
+                       conditionInfo?.type === 'harmonic' ? 'rgba(0, 136, 255, 0.2)' :
+                       'rgba(136, 0, 255, 0.2)',
+            color: conditionInfo?.type === 'target' ? 'var(--accent-green)' :
+                   conditionInfo?.type === 'control' ? 'var(--text-muted)' :
+                   conditionInfo?.type === 'near_miss' ? 'var(--accent-yellow)' :
+                   conditionInfo?.type === 'harmonic' ? 'var(--accent-cyan)' :
+                   'var(--accent-purple)'
+          }}>
+            {conditionInfo?.type?.replace('_', ' ')}
+          </div>
+
+          {/* Phase structure */}
+          <div style={{ 
+            background: 'var(--bg-tertiary)', 
+            padding: '1rem', 
+            borderRadius: '8px',
+            marginBottom: '1.5rem',
+            textAlign: 'left'
+          }}>
+            <div style={{ 
+              fontFamily: 'IBM Plex Mono',
+              fontSize: '0.85rem',
+              color: 'var(--text-secondary)',
+              marginBottom: '0.5rem'
+            }}>
+              Phase structure:
+            </div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+              <div style={{ marginBottom: '0.25rem' }}>
+                1. <strong>{Math.floor(PRE_EXPOSURE_SECONDS / 60)} min</strong> audio pre-exposure (listen & relax)
+              </div>
+              <div>
+                2. <strong>{QUESTIONS_PER_PHASE} questions</strong> ({EASY_PER_PHASE} easy • {MODERATE_PER_PHASE} moderate • {HARD_PER_PHASE} hard)
+              </div>
+            </div>
+          </div>
+
+          <p style={{ 
+            fontSize: '0.8rem', 
+            color: 'var(--text-muted)',
+            marginBottom: '1.5rem'
+          }}>
+            Total phase time: ~{Math.floor(PRE_EXPOSURE_SECONDS / 60) + 3} minutes
+          </p>
+
+          <button 
+            className="btn btn-primary" 
+            onClick={startPreExposure}
+            style={{ width: '100%' }}
+          >
+            Start Pre-Exposure
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   if (!currentQuestion) {
     return <div className="container">Loading...</div>;
   }
@@ -253,7 +479,7 @@ function ExperimentController({ questions, phaseOrder, audio, onComplete }) {
         ) : (
           <div className="phase-indicator">
             <span className="phase-dot"></span>
-            <span>Phase {currentPhaseIndex + 1} / 5</span>
+            <span>Phase {currentPhaseIndex + 1} / {numPhases}</span>
           </div>
         )}
 
@@ -272,7 +498,11 @@ function ExperimentController({ questions, phaseOrder, audio, onComplete }) {
           <div className={`audio-wave ${currentPhase === 1 ? 'silent' : ''}`}>
             <span></span><span></span><span></span><span></span><span></span>
           </div>
-          <span>{audio.getConditionLabel(currentPhase)}</span>
+          <span>
+            {conditionInfo?.name}
+            {conditionInfo?.frequency && typeof conditionInfo.frequency === 'number' && 
+              ` (${conditionInfo.frequency} Hz)`}
+          </span>
         </div>
       )}
 

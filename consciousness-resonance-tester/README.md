@@ -1,104 +1,95 @@
-# Consciousness Resonance Tester
+# Frequency Specificity Test
 
-**A cognitive experiment testing whether gamma-band audio interference affects cognitive binding.**
+**Testing whether gamma (40 Hz) entrainment is frequency-specific or if any rhythmic stimulus helps cognitive binding.**
 
-## Hypothesis
+## Research Question
 
-The brain uses **gamma oscillations (~40 Hz)** to bind separate features into unified percepts. If we can disrupt this binding with interfering frequencies — or enhance it with entrainment — we should see measurable effects on cognitive performance.
+The brain uses gamma oscillations (~40 Hz) for feature binding and conscious perception. External stimulation at 40 Hz (gamma entrainment) has shown effects in some studies. But is this effect:
 
-| Condition | Prediction |
-|-----------|------------|
-| **Silence** | Baseline performance |
-| **Pink Noise** | Slight distraction (non-specific) |
-| **74 Hz Tone** | Reduced accuracy, increased variance (γ×2 interference) |
-| **70-90 Hz Sweep** | Reduced accuracy, increased variance (adaptive interference) |
-| **40 Hz Binaural** | Maintained or improved performance (entrainment) |
+1. **Frequency-specific?** Only 40 Hz helps, other frequencies don't
+2. **Harmonic?** Related frequencies (20 Hz, 80 Hz) also help
+3. **Non-specific?** Any rhythmic stimulus improves performance
+4. **Interfering?** Near-miss frequencies (38 Hz, 42 Hz) actually hurt
 
----
-
-## Theoretical Background
-
-### Gamma Binding
-
-Gamma oscillations (30-100 Hz, centered ~40 Hz) are associated with:
-- **Feature binding** — integrating color, shape, motion into unified objects
-- **Conscious perception** — gamma power correlates with awareness
-- **Working memory** — maintaining information across time
-
-**Key insight:** Gamma operates in a narrow frequency band. Stimulation at *exactly* 40 Hz may entrain (enhance), while *near* 40 Hz (e.g., 37 Hz, 74 Hz) may interfere.
-
-### Why Harmonics?
-
-We use 74 Hz and 70-90 Hz (the 2nd harmonic of gamma) instead of 37 Hz and 35-45 Hz because:
-1. **Sub-50 Hz is hard for headphones** — causes distortion/clipping, especially with Bluetooth + ANC
-2. **Harmonics carry the same information** — if 40 Hz is the fundamental, 80 Hz (×2) is its harmonic
-3. **Same interference principle** — 74 Hz is "off" from 80 Hz the same way 37 Hz is "off" from 40 Hz
-
-### Why Binaural for Entrainment?
-
-The 40 Hz entrainment phase uses **binaural beats** (200 Hz left ear, 240 Hz right ear):
-- The 40 Hz beat is generated *inside the brain* at the superior olivary complex
-- This may be more effective at entraining cortical gamma than direct acoustic stimulation
-- Uses comfortable mid-range frequencies instead of low rumble
+This experiment tests all four hypotheses.
 
 ---
 
 ## Experimental Design
 
-### 5 Phases (Randomized Order)
+### 8 Conditions (Randomized Order)
 
-| Phase | Audio | Frequency | Method | Purpose |
-|-------|-------|-----------|--------|---------|
-| 1 | Silence | — | — | Baseline |
-| 2 | Pink Noise | Broadband | Monaural | Non-specific distraction control |
-| 3 | 74 Hz Tone | 74 Hz | Monaural | Fixed γ×2 interference |
-| 4 | 70-90 Hz Sweep | 70-90 Hz | Monaural | Adaptive γ×2 interference |
-| 5 | 40 Hz Binaural | 200/240 Hz | Binaural | Gamma entrainment |
+| Condition | Type | Frequency | Hypothesis |
+|-----------|------|-----------|------------|
+| Silence | Control | — | Baseline |
+| Pink Noise | Control | Broadband | Non-specific distraction |
+| **40 Hz Binaural** | **Target** | 40 Hz | Should enhance binding |
+| 38 Hz Binaural | Near-miss | 38 Hz | Should interfere |
+| 42 Hz Binaural | Near-miss | 42 Hz | Should interfere |
+| 80 Hz Binaural | Harmonic | 80 Hz | Test octave relationship |
+| 20 Hz Binaural | Harmonic | 20 Hz | Test subharmonic |
+| 53 Hz Binaural | Unrelated | 53 Hz | Control for "any frequency" |
 
-- **10 questions per phase** (50 total)
-- **Stratified difficulty:** 4 easy + 3 moderate + 3 hard per phase
-- **Phase order randomized** each session to control for fatigue/learning
-- **Question options shuffled** so correct answer position varies (A/B/C/D)
+### Per Phase
+- **3-minute pre-exposure**: Audio plays while participant relaxes (allows neural entrainment)
+- **6 questions** per condition (3 easy, 2 moderate, 1 hard)
+- **~6 minutes total** per condition (3 min pre-exposure + ~3 min questions)
+- **48 questions total** + 3 practice
+- **45-50 minutes** total duration
+- **Stratified difficulty** to control for question difficulty across conditions
 
-### Question Types
+### Why Pre-Exposure?
 
-- **Sequence patterns:** 2, 4, 8, 16, ... → ?
-- **Letter patterns:** A, C, E, G, ... → ?
-- **Analogies:** Doctor : Patient :: Teacher : ?
-- **Logic puzzles:** If all X are Y, and Z is X, then...
+Research shows neural entrainment requires time to stabilize:
 
-These require **cognitive binding** — integrating pattern elements into a unified understanding.
+| Duration | Effect |
+|----------|--------|
+| 6+ min | Full alpha entrainment (Thut et al., 2011) |
+| 10-30 min | Effective gamma entrainment in clinical studies |
+| 3 min | Minimum for measurable EEG changes |
+
+Our 3-minute pre-exposure + ~3 minutes of questions provides ~6 minutes total exposure per condition—balancing scientific rigor with practical session length.
+
+### Measures
+- **Accuracy** (correct/total)
+- **Response time** (mean, variance)
+- **Coefficient of variation** (consistency)
+- **Cohen's d** (effect size for comparisons)
 
 ---
 
-## Metrics Collected
+## Hypotheses & Predictions
 
-| Metric | What It Measures |
-|--------|------------------|
-| **Accuracy** | Correct answers / total |
-| **Mean Response Time** | Average time per question |
-| **Response Time Variance** | Consistency of processing speed |
-| **Coefficient of Variation** | Normalized variance (σ/μ) |
+| Hypothesis | If True, We Should See |
+|------------|----------------------|
+| **Gamma-specific** | 40 Hz > all others (accuracy & speed) |
+| **Harmonics matter** | 40 Hz ≈ 80 Hz ≈ 20 Hz (octave relationships) |
+| **Any rhythm helps** | All binaural ≈ each other > silence |
+| **Near-miss interferes** | 38/42 Hz < control (disrupts natural gamma) |
 
-### Key Comparisons
+---
 
-1. **Disruption Effect:** Control (Silence + Noise) vs. Interference (74 Hz + Sweep)
-2. **Entrainment Effect:** Control vs. 40 Hz Binaural
-3. **Variance Analysis:** Does interference increase response time variability?
+## Connection to Consciousness Theory
+
+This experiment tests a key prediction of the thermodynamic amplification model:
+
+1. **Brain oscillations reflect criticality** — networks at the edge of chaos
+2. **External entrainment can shift network state** — like the THRML simulation showed
+3. **Frequency specificity would support** the idea that gamma (~40 Hz) is special for binding
+4. **Harmonic relationships would support** the idea that phase/frequency ratios matter (connects to Euler-Fokker music theory)
 
 ---
 
 ## Running the Experiment
 
 ### Prerequisites
-
 - Node.js 18+
 - Modern browser (Chrome/Firefox/Edge)
-- **Headphones required** (binaural beats won't work with speakers)
+- **Stereo headphones** (binaural beats require different frequencies in each ear)
 
 ### Installation
 
-```bash
+```powershell
 cd consciousness-resonance-tester
 npm install
 npm run dev
@@ -108,57 +99,72 @@ Open http://localhost:5173
 
 ### Taking the Test
 
-1. **Wear headphones** — required for binaural beats and low frequencies
-2. **Disable ANC if possible** — active noise cancellation can interfere with tones
-3. **Find a quiet environment** — minimize external distractions
-4. **Complete all 5 phases** — takes 12-18 minutes
-5. **Run multiple sessions** — single sessions have high noise
+1. **Wear stereo headphones** — required for binaural beats
+2. **Disable ANC** — active noise cancellation may interfere
+3. **Quiet environment** — minimize distractions
+4. **Complete all 8 phases** — takes 45-50 minutes
+5. **Run 5-10 sessions** — single sessions are too noisy for conclusions
 
 ---
 
 ## Interpreting Results
 
-### Dashboard Metrics
+### Key Comparisons
 
-| Metric | Good Signal | Meaning |
-|--------|-------------|---------|
-| **Disruption Effect > 5%** | ✓ | Interference reduced accuracy |
-| **Entrainment Boost > 3%** | ✓ | 40 Hz improved performance |
-| **Variance Ratio > 1.3×** | ✓ | Interference destabilized processing |
+| Comparison | What It Tests |
+|------------|---------------|
+| 40 Hz vs Control | Does gamma entrainment work at all? |
+| 40 Hz vs Near-miss (38/42) | Is the effect frequency-specific? |
+| 40 Hz vs Harmonics (20/80) | Do octave relationships matter? |
+| Control vs Near-miss | Does off-frequency stimulation interfere? |
 
-### What Supports the Hypothesis?
+### Effect Sizes (Cohen's d)
 
-**Strong support:**
-- Accuracy: Control > Interference > Entrainment (or Control ≈ Entrainment)
-- Variance: Interference >> Control ≈ Entrainment
-- Effect specific to gamma-band, not just "any sound"
+| d Value | Interpretation |
+|---------|---------------|
+| < 0.2 | Negligible |
+| 0.2-0.5 | Small |
+| 0.5-0.8 | Medium |
+| > 0.8 | Large |
 
-**Weak/no support:**
-- All conditions perform similarly
-- Pink noise as disruptive as gamma interference
-- High individual variability across sessions
+### What Supports Each Hypothesis?
+
+**Gamma-specific entrainment:**
+- 40 Hz accuracy > control by 10%+
+- 40 Hz accuracy > near-miss by 10%+
+- Effect size (d) > 0.5
+
+**Harmonic relationships matter:**
+- 40 Hz ≈ 80 Hz ≈ 20 Hz (within 5%)
+- But all three > unrelated (53 Hz)
+
+**Near-miss interference:**
+- 38/42 Hz accuracy < control
+- Higher response time variance for near-miss conditions
 
 ---
 
 ## Data Storage
 
-Results are saved to `localStorage` and can be exported as JSON:
+Results saved to `localStorage` under key `resonanceResultsV2`:
 
 ```json
 {
-  "sessionId": 1766210554728,
-  "timestamp": "2025-12-20T06:13:10.508Z",
-  "phaseOrder": [1, 3, 5, 2, 4],
+  "sessionId": 1703123456789,
+  "timestamp": "2025-12-22T...",
+  "phaseOrder": [3, 7, 1, 5, 2, 8, 4, 6],
+  "conditions": { ... },
   "results": {
     "phases": {
-      "1": { "correct": 9, "times": [...], "questions": [...] },
+      "1": { "correct": 5, "times": [...], "questions": [...] },
       ...
     }
-  }
+  },
+  "version": 2
 }
 ```
 
-Click **"Export All Data"** on the results screen to download.
+Click **"Export All Data"** to download JSON for analysis.
 
 ---
 
@@ -166,22 +172,20 @@ Click **"Export All Data"** on the results screen to download.
 
 ### Audio Engine
 
+All binaural beats use 200 Hz base frequency:
+- Left ear: 200 Hz
+- Right ear: 200 Hz + beat frequency
+- Brain perceives the difference as a beat
+
 ```
-┌─────────────────────────────────────────────────────────┐
-│ Web Audio API                                           │
-├─────────────────────────────────────────────────────────┤
-│ Pink Noise:   Buffer → LowPass Filter → Gain → Output   │
-│ 74 Hz Tone:   Oscillator → Gain → Compressor → Output   │
-│ Sweep:        Oscillator + LFO → Gain → Compressor      │
-│ Binaural:     OscL → GainL ─┐                           │
-│               OscR → GainR ─┼→ Merger → Compressor      │
-└─────────────────────────────────────────────────────────┘
+40 Hz binaural: Left=200 Hz, Right=240 Hz → 40 Hz beat
+38 Hz binaural: Left=200 Hz, Right=238 Hz → 38 Hz beat
+80 Hz binaural: Left=200 Hz, Right=280 Hz → 80 Hz beat
 ```
 
 ### Tech Stack
-
-- **React 18** — UI framework
-- **Vite** — Build tool
+- **React 18** — UI
+- **Vite** — Build
 - **Web Audio API** — Precise audio generation
 - **localStorage** — Result persistence
 
@@ -189,11 +193,28 @@ Click **"Export All Data"** on the results screen to download.
 
 ## Limitations
 
-1. **N=1 problem:** Individual sessions have high variance. Need multiple sessions or participants.
-2. **No EEG verification:** We assume gamma is affected but don't measure it directly.
-3. **Headphone dependency:** Effect may vary with headphone quality/type.
-4. **Learning effects:** Participants may improve at the question types over time.
-5. **Placebo possible:** Knowing which condition is "supposed" to hurt may influence performance.
+1. **N=1 per session** — need multiple sessions for statistical power
+2. **No EEG verification** — we assume entrainment but don't measure it
+3. **Headphone variability** — different headphones may reproduce frequencies differently
+4. **Learning effects** — may improve at question types over sessions
+5. **Expectation effects** — knowing hypothesis may bias results
+
+### Mitigations
+- Randomized phase order
+- Stratified question distribution
+- Effect size calculation (more robust than raw percentages)
+- Multiple session aggregation
+
+---
+
+## Future Improvements
+
+- [ ] Add EEG integration to verify entrainment
+- [ ] Add HRV measurement for physiological correlate
+- [ ] Test additional harmonic frequencies (60 Hz = 3:2 ratio)
+- [ ] Add Stroop task for different binding measure
+- [ ] Implement proper double-blind (fake condition names)
+- [ ] Statistical power analysis for required sample size
 
 ---
 
@@ -201,20 +222,10 @@ Click **"Export All Data"** on the results screen to download.
 
 | Study | Finding |
 |-------|---------|
-| Tsai Lab (MIT) | 40 Hz light/sound reduces amyloid in Alzheimer's models |
-| Tallon-Baudry et al. | Gamma correlates with feature binding in perception |
-| Garcia-Argibay (2019) | Meta-analysis: small but significant binaural beat effects |
-| Reedijk et al. (2015) | Individual differences in binaural beat response |
-
----
-
-## Future Improvements
-
-- [ ] Add EEG integration to measure actual gamma changes
-- [ ] Test original 37 Hz / 35-45 Hz with wired headphones
-- [ ] Add more question types (spatial reasoning, Stroop task)
-- [ ] Implement double-blind mode (randomized condition labels)
-- [ ] Add statistical analysis (t-tests, effect sizes) to results dashboard
+| Tsai Lab (MIT) | 40 Hz light/sound reduces amyloid in Alzheimer's |
+| Tallon-Baudry et al. | Gamma correlates with feature binding |
+| Garcia-Argibay (2019) | Meta-analysis: small but significant binaural effects |
+| Beggs & Plenz (2003) | Neural avalanches follow power laws (criticality) |
 
 ---
 
@@ -224,5 +235,4 @@ Research and educational use. Part of the [Consciousness Investigation](../READM
 
 ---
 
-*Testing the gamma binding hypothesis through behavioral measurement.*
-
+*Testing frequency specificity of gamma entrainment through behavioral measurement.*

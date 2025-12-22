@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useAudio } from './hooks/useAudio';
+import { useAudioEnhanced, CONDITIONS } from './hooks/useAudioEnhanced';
 import WelcomeScreen from './components/WelcomeScreen';
 import ExperimentController from './components/ExperimentController';
 import ResultsDashboard from './components/ResultsDashboard';
@@ -16,16 +16,21 @@ function shuffle(array) {
   return arr;
 }
 
+// Number of phases (8 conditions for frequency specificity testing)
+const NUM_PHASES = 8;
+
 function App() {
-  const [view, setView] = useState('WELCOME'); // WELCOME, TESTING, RESULTS, TINNITUS
-  const [phaseOrder, setPhaseOrder] = useState([1, 2, 3, 4]);
+  const [view, setView] = useState('WELCOME');
+  const [phaseOrder, setPhaseOrder] = useState([]);
   const [results, setResults] = useState(null);
   const [sessionId, setSessionId] = useState(null);
-  const audio = useAudio();
+  const audio = useAudioEnhanced();
 
-  // Generate randomized phase order on mount (5 phases now)
+  // Generate randomized phase order on mount
   useEffect(() => {
-    setPhaseOrder(shuffle([1, 2, 3, 4, 5]));
+    // Phases 1-8 correspond to the 8 conditions
+    const phases = Array.from({ length: NUM_PHASES }, (_, i) => i + 1);
+    setPhaseOrder(shuffle(phases));
     setSessionId(Date.now());
   }, []);
 
@@ -43,21 +48,24 @@ function App() {
     audio.stopAll();
     setResults(experimentResults);
     
-    // Store results in localStorage for aggregation
-    const storedResults = JSON.parse(localStorage.getItem('resonanceResults') || '[]');
+    // Store results with condition metadata
+    const storedResults = JSON.parse(localStorage.getItem('resonanceResultsV2') || '[]');
     storedResults.push({
       sessionId,
       timestamp: new Date().toISOString(),
       phaseOrder,
-      results: experimentResults
+      conditions: CONDITIONS,
+      results: experimentResults,
+      version: 2 // Version 2 = frequency specificity test
     });
-    localStorage.setItem('resonanceResults', JSON.stringify(storedResults));
+    localStorage.setItem('resonanceResultsV2', JSON.stringify(storedResults));
     
     setView('RESULTS');
   }, [audio, sessionId, phaseOrder]);
 
   const handleRestart = useCallback(() => {
-    setPhaseOrder(shuffle([1, 2, 3, 4, 5]));
+    const phases = Array.from({ length: NUM_PHASES }, (_, i) => i + 1);
+    setPhaseOrder(shuffle(phases));
     setSessionId(Date.now());
     setResults(null);
     setView('WELCOME');
@@ -86,6 +94,7 @@ function App() {
           phaseOrder={phaseOrder}
           audio={audio}
           onComplete={handleComplete}
+          numPhases={NUM_PHASES}
         />
       )}
       
@@ -106,4 +115,3 @@ function App() {
 }
 
 export default App;
-
