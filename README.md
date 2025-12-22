@@ -2,11 +2,21 @@
 
 **Computational exploration of the Penrose-Hameroff Orch-OR hypothesis and thermodynamic models of neural decision-making.**
 
-**Important** Please read free_will_investigation_synthesis, or drop it into an LLM, to understand more why this specific model is being tested.
+**Important** Please read free_will_investigation_synthesis! , or drop it into an LLM, to understand more why this specific model is being tested.
 
 also, messing around with the resonance tester. It's not core to the theory, just messing around with it.
 
 This project investigates whether quantum effects in microtubules could provide a mechanism for consciousness and free will, using thermodynamic simulations (THRML), Monte Carlo analysis, and examination of existing experimental data.
+
+---
+
+## Neuroanatomical Reference
+
+The following brain map illustrates the neural pathways, neurotransmitter systems, and anatomical structures discussed throughout this investigation:
+
+![Brain Map - Neural Pathways and Structures](brainmap.png)
+
+*Source: [The Highest of the Mountains - Brain Maps](https://thehighestofthemountains.com/brainmaps.html) - Comprehensive neuroanatomy reference showing cortical regions, subcortical structures, neurotransmitter systems, and sensory/motor pathways. Created by a space shuttle guidance system engineer over six years of research.*
 
 ---
 

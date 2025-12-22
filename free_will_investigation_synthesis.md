@@ -294,6 +294,16 @@ This is MORE plausible:
 
 **This section traces the full chain from quantum event to motor behavior, with sources for each step.**
 
+### Neuroanatomical Reference
+
+The following brain map provides a comprehensive visual reference for the neural structures, pathways, and neurotransmitter systems discussed in this causal pathway:
+
+![Brain Map - Neural Pathways and Structures](brainmap.png)
+
+*Source: [The Highest of the Mountains - Brain Maps](https://thehighestofthemountains.com/brainmaps.html) - This map shows the cortical regions (prefrontal, motor, sensory, parietal, occipital), subcortical structures (thalamus, basal ganglia, cerebellum), neurotransmitter systems (dopamine, serotonin, acetylcholine, GABA, glutamate), and the major ascending/descending pathways referenced throughout this section. Created by a space shuttle guidance system engineer over six years of research.*
+
+---
+
 ### Step 1: OR Collapse in Tubulin
 
 **What happens:** Electrons within tubulin proteins exist in quantum superposition. After ~160ms, gravitational self-energy (E_G) reaches threshold and triggers Objective Reduction — the superposition collapses to a definite state.
