@@ -734,6 +734,54 @@ Brains operate at the edge of chaos. This is where small signals get maximally a
 | Non-computability test | Penrose's philosophical claim |
 | Intervention + prediction | Full causal chain |
 
+### 10.4 Novel Isotope Predictions (Collaboration Requested)
+
+**Background:** The xenon isotope experiments (Li et al. 2018) demonstrated that nuclear spin—a quantum property with no classical chemical relevance—affects anesthetic potency. Xe-129 (spin ½) and Xe-131 (spin 3/2) have different effects despite identical chemistry. Similarly, Fisher's work suggests Li-6 and Li-7 have different psychiatric effects.
+
+**The Model Predicts:** Any consciousness-affecting compound with stable isotopes of different nuclear spin should show isotope-dependent effects. This is a novel prediction that classical neuroscience would not make.
+
+#### Candidate Experiments
+
+| Compound | Spin-0 Isotope(s) | Non-zero Spin Isotope | Prediction | Status |
+|----------|-------------------|----------------------|------------|--------|
+| **Krypton** | Kr-84, Kr-86 | Kr-83 (spin 9/2) | Different anesthetic potency | ❓ Untested |
+| **Magnesium** | Mg-24, Mg-26 | Mg-25 (spin 5/2) | Different psychiatric effects | ❓ Untested |
+| **Zinc** | Zn-64, Zn-66, Zn-68 | Zn-67 (spin 5/2) | Different cognitive effects | ❓ Untested |
+| **Calcium** | Ca-40, Ca-44 | Ca-43 (spin 7/2) | Different neural signaling | ❓ Untested |
+| **Nitrous Oxide** | N₂O with N-14/O-16 | N-15 (spin ½) or O-17 (spin 5/2) variants | Different anesthetic potency | ❓ Untested |
+
+#### Why These Experiments Matter
+
+1. **Falsifiable:** If isotope effects are NOT found where predicted, the model is weakened
+2. **Novel:** Classical neuroscience has no reason to expect these effects
+3. **Extends existing data:** Builds on confirmed Xe and Li results
+4. **Mechanistically specific:** Tests nuclear spin specifically, not just "quantum effects"
+
+#### Experimental Protocol (Proposed)
+
+**For Krypton (cleanest test):**
+1. Obtain isotopically enriched Kr-83 and Kr-84
+2. Measure MAC (minimum alveolar concentration) for anesthesia in animal model
+3. Compare potency between isotopes
+4. **Prediction:** Kr-83 (spin 9/2) will show measurably different potency than Kr-84 (spin 0)
+
+**For Magnesium (most accessible):**
+1. Obtain Mg-25 enriched magnesium supplements vs natural magnesium (mostly Mg-24/26)
+2. Double-blind trial for anxiety/depression measures
+3. Compare efficacy between isotope compositions
+4. **Prediction:** Mg-25 enriched magnesium will show different psychiatric effects
+
+#### Request for Collaboration
+
+These experiments require:
+- Access to isotopically enriched compounds
+- Appropriate laboratory or clinical trial infrastructure
+- Expertise in anesthesiology, psychiatry, or neuropharmacology
+
+**If you have the capability to test these predictions, please reach out.** A confirmed novel isotope effect would be strong evidence for the quantum consciousness hypothesis. A null result would be equally valuable for refining the theory.
+
+*Literature search (December 2024) found no existing studies on krypton, magnesium, zinc, calcium, or nitrous oxide isotope effects on consciousness. These appear to be genuine gaps in the literature.*
+
 ---
 
 ## Part 11: Philosophical Position
