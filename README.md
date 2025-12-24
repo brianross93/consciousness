@@ -41,6 +41,8 @@ We test this through:
 | THRML: 10% hub bias -> 60% global shift at criticality | **Confirmed (p < 0.0001)** | Thermodynamic amplification demonstrated |
 | Bidirectional control (amplify/veto both work) | Confirmed | Supports "free will" AND "free won't" |
 | Quantum bias != classical mimic (skewness differs) | Confirmed (p < 0.05) | Selective bias produces distinct dynamics |
+| Model matches real neural data (hc-3, α ≈ 1.6) | **Validated** | Simulation dynamics match hippocampal recordings |
+| L5p neurons as primary site | **Strong** | Anesthesia specifically decouples L5p (Suzuki & Larkum 2020) |
 | Xenon isotope spin effect (~20% potency difference) | Experimental | Direct evidence quantum properties affect consciousness |
 | Brain criticality is empirically established | Literature | Neural avalanches follow power laws (Beggs & Plenz 2003+) |
 
@@ -119,7 +121,7 @@ python quantum_avalanche_v3.py
 Analyzes existing experimental data on quantum effects in consciousness.
 
 **What it does:**
-- Analyzes xenon isotope anesthesia data (Li et al. PNAS 2018)
+- Analyzes xenon isotope anesthesia data (Li et al. Anesthesiology 2018)
 - Shows nuclear spin (quantum property) affects anesthetic potency by ~20%
 
 **Key finding:** Isotopes with nuclear spin require ~20% more xenon for anesthesia than spin-0 isotopes. Same chemistry, different quantum property -> different consciousness effect.
@@ -139,7 +141,7 @@ Verifies that simulation parameters match real brain biology.
 **What it does:**
 - Calculates tubulin counts per neuron (~1.3 billion)
 - Shows 10^10 tubulins = ~8-800 neurons (plausible local ensemble)
-- Identifies claustrum as candidate anatomical site
+- Identifies Layer 5 Pyramidal (L5p) neurons as primary anatomical site
 
 ```powershell
 python tubulin_verification.py
@@ -263,7 +265,7 @@ The brain operates as a **thermodynamic computer at criticality**:
 
 ```
 ELECTRON SUPERPOSITION IN TUBULIN (d ~ 0.01 nm)
-    | ~8-800 neurons in claustrum, ~160ms
+    | ~8-800 L5p neurons across cortex, ~160ms
 GRAVITATIONAL SELF-ENERGY TRIGGERS OR COLLAPSE
     | selection occurs (non-deterministic)
 ELECTRON POSITION DETERMINES LOCAL ELECTRIC FIELD
@@ -296,13 +298,15 @@ At criticality, small quantum biases have **maximum leverage**. This is why "qua
 2. **Hub-based control is efficient** (10% nodes -> 60% effect)
 3. **Bidirectional control** supports both free will AND "free won't"
 4. **OR timescales match neural processing** (tau ~ 100-500ms)
-5. **Parameters match biology** (10^10 tubulins = ~8-800 neurons)
+5. **Parameters match biology** (10^10 tubulins = ~8-800 L5p neurons)
+6. **Model matches real neural data** (hc-3 hippocampal recordings, α ≈ 1.6)
+7. **Epoch-based pulsed bias** matches OR timing and preserves criticality
 
 ### What Remains Uncertain
 
 1. Does quantum coherence actually persist in tubulins at 37C?
-2. Does OR collapse actually occur? (2025 IBM preprint suggests yes)
-3. Is the claustrum the actual site?
+2. Does OR collapse actually occur? (2025 arXiv preprint reports OR-consistent results)
+3. Are L5p neurons the actual site? (Strong evidence from anesthesia studies)
 4. Is quantum indeterminacy "freedom" or just "randomness"?
 
 ### Current Confidence: higher than 50%
@@ -315,13 +319,15 @@ The **mechanism** is demonstrated. The **quantum source** remains to be proven e
 
 | Topic | Citation |
 |-------|----------|
-| Xenon isotope spin effect | Li et al. PNAS 2018 (PMID 29642079) |
+| Xenon isotope spin effect | Li et al. Anesthesiology 2018 |
 | Neural avalanche criticality | Beggs & Plenz, J. Neuroscience (2003) |
 | Brain criticality review | Cocchi et al. Prog Neurobiol (2017) |
 | OR collapse mechanism | Penrose, "The Emperor's New Mind" (1989) |
 | Orch-OR theory | Hameroff & Penrose, Physics of Life Reviews (2014) |
+| L5p anesthesia mechanism | Suzuki & Larkum, Cell (2020) |
+| Dendritic integration theory | Larkum, Trends Neurosci (2013) |
 | Tryptophan superradiance | J. Phys. Chem. 2024 (PMID 38641327) |
-| IBM OR experiment | Tagg & Reid, arXiv:2504.02914 (2025) |
+| OR experiment | Tagg & Reid, arXiv:2504.02914 (2025) |
 | THRML library | Extropic AI, github.com/extropic-ai/thrml |
 
 ---
