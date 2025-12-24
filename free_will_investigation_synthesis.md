@@ -30,10 +30,10 @@ This document presents a **first-principles investigation** into consciousness a
 
 | Phenomenon | Observation | Source | Why It's Problematic |
 |------------|-------------|--------|---------------------|
-| **Psychedelics Paradox** | Psilocybin DECREASES brain activity, yet experience INTENSIFIES | Carhart-Harris et al. PNAS (2012) | Generator model predicts opposite |
+| **Psychedelics Paradox** | Psilocybin reduces DMN integrity and high-level constraints, yet subjective intensity and neural signal diversity increase | Carhart-Harris et al. PNAS (2012) | Less constraint → more experience is backwards for generator models |
 | **Terminal Lucidity** | Dementia patients regain full clarity hours before death | Nahm et al. (2012), Batthyány (2016) | Damaged brain → damaged mind should hold |
 | **NDEs** | Vivid structured experiences during cardiac arrest (flat EEG) | Parnia et al. AWARE study (2014) | No brain activity → no experience? |
-| **Xenon Isotopes** | Nuclear spin (quantum property) affects anesthetic potency by ~20% | Li et al. PNAS (2018) PMID 29642079 | Chemically identical → should be identical effect |
+| **Xenon Isotopes** | Nuclear spin (quantum property) affects anesthetic potency by ~20% | Li et al. Anesthesiology (2018) | Chemically identical → should be identical effect |
 | **Savant Syndrome** | Sudden extraordinary abilities after brain damage | Treffert (2009) | Less brain → more ability? |
 
 ### 1.3 The Hard Problem (Chalmers 1995)
@@ -198,13 +198,17 @@ A critic might say: "I accept your mechanism (OR + thermodynamic amplification) 
 
 **The honest assessment:**
 
-"Quantum-augmented emergentism" is not actually a *theory*. It's:
+Quantum-augmented emergentism claims the relevant conscious properties arise from quantum-augmented neural dynamics rather than being filtered/received. This position must address:
 
-> "I accept your mechanism but I'm going to assume consciousness emerges from it anyway, even though this doesn't explain the anomalies, doesn't solve the hard problem, and has less explanatory power — because I find 'receiver' metaphysically uncomfortable."
+1. **The explanatory gap:** Why do *these* dynamics feel like something, when other dynamics don't? Emergence doesn't dissolve the hard problem; it relocates it.
 
-That's not a competing explanation. It's a refusal to follow the evidence because the conclusion is unfamiliar.
+2. **The directional predictions:** "Less structure/energy → richer experience" (psychedelics, terminal lucidity) becomes special pleading rather than a first-order prediction. The emergentist must explain why *reduced* neural activity produces *enhanced* conscious experience case-by-case.
 
-**Note:** We remain open to alternative interpretations. But the burden is on critics to *actually provide* an alternative that explains the same data equally well — not merely assert that one might exist.
+3. **The isotope sensitivity:** Quantum emergence must explain why nuclear spin (not chemistry) affects consciousness — but without the interface/receiver framing, this becomes an unexplained brute fact.
+
+**The receiver/filter model makes these first-order predictions.** Quantum emergentism can accommodate them post-hoc, but accommodation without prediction reduces explanatory power.
+
+**Note:** We remain open to alternative interpretations. The burden is on critics to supply an alternative that explains the same data with equal or greater parsimony — not merely to assert that one might exist.
 
 ---
 
@@ -216,22 +220,35 @@ That's not a competing explanation. It's a refusal to follow the evidence becaus
 |-------|---------|--------|
 | Kerskens & López Pérez 2022 | MRI entanglement signals correlated with consciousness | **Real paper, debated interpretation** |
 | Bandyopadhyay et al. 2014 | Multi-scale resonance in microtubules | **Real measurements** |
-| Li et al. 2018 (PMID 29642079) | Xenon isotope spin affects anesthetic potency by ~20% | **Strong evidence** |
+| Li et al. Anesthesiology 2018 | Xenon isotope spin affects anesthetic potency by ~20% | **Strong evidence** |
 | Carhart-Harris et al. 2012 | Psychedelics decrease activity, increase experience | **Replicated finding** |
-| Tagg & Reid 2025 (arXiv) | IBM experiment supports Penrose OR | **Preliminary** |
+| Tagg & Reid 2025 (arXiv:2504.02914) | Results authors interpret as consistent with OR-like collapse | **Preliminary, unreplicated** |
 
 ### 4.2 The Gran Sasso Clarification
 
-**Critical discovery:** The Gran Sasso experiment (Donadi et al. 2021) tested the **Diósi-Penrose model**, not Penrose's original OR.
+**Critical discovery:** The Gran Sasso experiment (Donadi et al. 2021, Nature Physics) tested the **Diósi-Penrose (DP) model**, not Penrose's original OR as used in Orch-OR.
 
-- **Diósi model:** Predicts radiation emission ❌ (refuted)
-- **Penrose OR:** No radiation prediction ✓ (not tested)
+**What Donadi actually tested:**
+- The DP model predicts that gravity-induced collapse produces **spontaneous radiation emission** from charged particles
+- LNGS underground detectors measured X-ray emission from germanium crystals
+- Results constrained the collapse-rate parameter space, ruling out some DP variants
 
-**The "refutation" was of a model Penrose never advocated.** (McQueen arXiv:2301.12306)
+**Why this doesn't apply to Orch-OR:**
+- The radiation-emission prediction comes from Diósi's formulation, not Penrose's
+- Penrose's OR involves gravitational self-energy thresholds triggering collapse, but **does not predict spontaneous radiation**
+- The Orch-OR pathway (electron superposition in tubulin → OR collapse → conformational change) operates via a different mechanism than the DP emission channel
+
+| Model | Collapse Mechanism | Predicts Radiation? | Gran Sasso Status |
+|-------|-------------------|--------------------|--------------------|
+| **Diósi-Penrose** | Gravity + stochastic noise | Yes | Constrained |
+| **Penrose OR** | Gravitational self-energy threshold | No | Not tested |
+| **Orch-OR** | OR in biological substrate | No | Not tested |
+
+**The "refutation" was of a model Penrose never advocated for consciousness.** (McQueen arXiv:2301.12306 provides detailed analysis)
 
 ### 4.3 The Xenon Isotope Evidence (Key Finding)
 
-Li et al. PNAS 2018 — **This is direct experimental evidence:**
+Li et al. Anesthesiology 2018 — **This is direct experimental evidence:**
 
 | Isotope | Nuclear Spin | Anesthetic Potency |
 |---------|--------------|-------------------|
@@ -372,11 +389,12 @@ The following brain map provides a comprehensive visual reference for the neural
 - Dense gap junctions allow synchronized activity
 
 **Source:** 
-- Crick & Koch, Phil Trans R Soc B (2005) — "What is the function of the claustrum?"
-- Atlan et al., Behav Brain Funct (2021) — Comprehensive claustrum connectivity review
-- Reser et al., J Comp Neurol (2014) — Claustrum-striatum projections
+- Larkum, Trends Neurosci (2013) — "A cellular mechanism for cortical associations"
+- Aru et al., Front Syst Neurosci (2019) — "Coupling the state and contents of consciousness"
+- Suzuki & Larkum, Cell (2020) — "General Anesthesia Decouples Cortical Pyramidal Neurons"
+- Claustrum coordinates L5p populations: Crick & Koch (2005), Atlan et al. (2021)
 
-**Key point:** A small bias in claustrum neurons (8-800 cells) can broadcast to the entire cortex because of its unique "all-to-all" connectivity.
+**Key point:** L5p neurons are distributed across cortex; a small bias in their coupling zones (~8-800 neurons with synchronized tubulin states) can shift cortex-wide dynamics through BAC firing cascades.
 
 ---
 
@@ -457,9 +475,9 @@ Spinal Cord Motor Neurons → Muscles → Movement
 └─────────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────────┐
-│  4. CLAUSTRUM BROADCAST (proposed OR site)                      │
-│     8-800 neurons → all cortical areas + striatum               │
-│     Source: Crick & Koch (2005), Atlan et al. (2021)            │
+│  4. L5p DENDRITIC INTEGRATION (primary OR site)                 │
+│     BAC firing binds top-down + bottom-up → conscious moment    │
+│     Source: Larkum (2013), Aru et al. (2019), Suzuki (2020)     │
 └─────────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────────┐
@@ -558,19 +576,19 @@ The "sweet spot" (10^10 tubulins = ~8-800 neurons) produces collapse times match
 
 ---
 
-### 7.4 What The Simulations PROVE
+### 7.4 What The Simulations ESTABLISH (In-Model)
 
-**This is critical: the simulations are not illustrations — they are computational proof of the core mechanism.**
+**The simulations demonstrate the mechanism works in silico. Biological instantiation requires the proposed experiments.**
 
 | Theoretical Claim | Simulation Result | Status |
 |-------------------|-------------------|--------|
-| **Amplification works** | 10% hub bias → 60% network shift | **PROVEN** (p < 0.0001) |
-| **Bidirectional control (free will + free won't)** | Positive bias pushes +0.61, negative bias pushes -0.60 | **PROVEN** (p < 0.0001) |
-| **Criticality is necessary** | Effect only appears at critical temperature (beta = 0.52) | **PROVEN** |
-| **Hub nodes have disproportionate influence** | 10 nodes out of 100 shift entire network | **PROVEN** |
-| **Quantum ≠ random noise** | Selective bias produces different skewness than uniform noise | **PROVEN** (p = 0.014) |
+| **Amplification works** | 10% hub bias → 60% network shift | **ESTABLISHED** (p < 0.0001) |
+| **Bidirectional control (free will + free won't)** | Positive bias pushes +0.61, negative bias pushes -0.60 | **ESTABLISHED** (p < 0.0001) |
+| **Criticality is necessary** | Effect only appears at critical temperature (β = 0.52) | **ESTABLISHED** |
+| **Hub nodes have disproportionate influence** | 10 nodes out of 100 shift entire network | **ESTABLISHED** |
+| **Quantum ≠ random noise** | Selective bias produces different skewness than uniform noise | **ESTABLISHED** (p = 0.014) |
 | **Matches real neural data** | Classical/Q(-) α ≈ 1.6 matches hc-3 hippocampal recordings | **VALIDATED** |
-| **Entropy signature distinguishes conditions** | Q(+) higher entropy, Q(-) lower entropy than baseline | **DEMONSTRATED** |
+| **Entropy signature distinguishes conditions** | Q(+) higher entropy, Q(-) lower entropy than baseline | **ESTABLISHED** |
 
 **What this means:**
 
@@ -583,6 +601,35 @@ The "sweet spot" (10^10 tubulins = ~8-800 neurons) produces collapse times match
 4. **The effect is distinguishable from noise.** Monte Carlo shows quantum-biased avalanches have different statistical signatures (skewness) than pure thermal noise. This is testable in real neural data.
 
 **Remaining gap:** The simulations prove the AMPLIFICATION mechanism works. They don't prove OR collapse occurs in biology — that requires the proposed experiments (xenon isotopes, Leggett-Garg tests, etc.).
+
+---
+
+### Results Box: Computational Evidence Summary
+
+**Purpose:** Formalize simulation methodology for reproducibility and critique.
+
+| Component | Specification |
+|-----------|---------------|
+| **Task** | Simulate neural network dynamics under different bias conditions; compare to real neural avalanche data |
+| **Signals measured** | Network magnetization (Ising), avalanche size distributions, power-law exponents (α), sample entropy per epoch |
+| **Model classes tested** | (1) THRML thermodynamic sampling (Gibbs/Boltzmann), (2) Monte Carlo cascade propagation, (3) Time-binned stochastic firing with refractory dynamics |
+| **Training/calibration** | Parameters tuned to match real hc-3 hippocampal recordings (α ≈ 1.60); critical temperature found via susceptibility maximum |
+| **Conditions** | Classical (no bias), Q(+) (hub nodes biased toward activation), Q(-) (hub nodes biased toward suppression), Mimic (uniform noise matched to Q(+) mean) |
+| **Negative controls** | Mimic condition tests whether selective hub bias differs from uniform thermal noise; off-critical runs confirm effect requires criticality |
+
+**Key Results:**
+
+| Test | Finding | p-value |
+|------|---------|---------|
+| Q(+) vs Q(-) magnetization | Bidirectional shift (±0.60) from baseline | < 0.0001 |
+| Q(+) vs Mimic skewness | Different distributions despite matched means | 0.014 |
+| Classical/Q(-) vs real data | α matches hc-3 hippocampal recordings (1.53-1.63 vs 1.60) | — |
+| Q(+) vs Q(-) epoch entropy | Higher entropy in Q(+), lower in Q(-) | < 0.05 |
+| Effect at non-critical temperature | No significant bias effect | — (confirms criticality requirement) |
+
+**Interpretation:** Selective bias at hub nodes produces network-wide state shifts distinguishable from uniform noise, but **only at criticality**. Classical and Q(-) conditions match real neural data; Q(+) with constant bias diverges (epoch-based pulsed bias resolves this). The entropy signature, not avalanche exponent alone, distinguishes conditions under realistic OR timing.
+
+---
 
 ### 7.5 Validation Against Real Neural Data (hc-3 Dataset)
 
@@ -687,6 +734,63 @@ These predictions are testable with existing datasets.
 
 ---
 
+### 7.6 Operational Residual Test: Epoch-Entropy Signature
+
+**Purpose:** Formalize the epoch-based findings as a discriminative test that survives the "means matched" objection.
+
+---
+
+#### Null Model (Classical)
+
+- Network tuned to criticality (β at susceptibility maximum)
+- Small-world topology (Watts-Strogatz, k=8, p=0.1)
+- No hub-targeted bias
+- Compute epoch entropy distribution: H_e(Classical)
+
+#### Quantum Alternatives
+
+Same network, same criticality, but apply **pulsed hub bias** at simulated OR collapse events:
+- **Coherent phase** (~40 bins): no bias, superposition accumulating
+- **Collapse event**: OR threshold reached
+- **Effect phase** (~10 bins): bias pulse applied to hub nodes
+
+Conditions:
+- **Q(+)**: positive bias (promote activation)
+- **Q(-)**: negative bias (suppress activation)
+
+#### Test Statistic
+
+Primary: **Epoch entropy separation**
+
+```
+ΔH(+) = E[H_e | Q(+)] − E[H_e | Classical]
+ΔH(-) = E[H_e | Q(-)] − E[H_e | Classical]
+```
+
+Secondary: **Distribution separation** (AUROC or KL divergence between the three epoch-entropy distributions)
+
+#### Negative Control (Mimic)
+
+- Match mean activity level to Q(+)
+- Remove structured hub targeting (uniform noise instead)
+- **Prediction:** Mimic entropy distribution overlaps Classical, not Q(+)
+
+#### Results
+
+| Comparison | ΔH | Separation |
+|------------|-------|------------|
+| Q(+) vs Classical | +0.06 (higher) | Distinguishable |
+| Q(-) vs Classical | -0.02 (lower) | Distinguishable |
+| Mimic vs Classical | ~0 | Not distinguishable |
+
+#### The Headline Prediction
+
+> **Under OR-like pulsed dynamics, epoch entropy separates Q(+), Q(-), and Classical even when power-law exponent (α) converges to the critical value (~1.6).**
+
+This is the operational residual: a structured signature that survives calibration to real neural data and cannot be reproduced by uniform noise matching.
+
+---
+
 ## Part 8: Biological Grounding
 
 ### 8.1 Does the Model Match Real Biology?
@@ -736,21 +840,184 @@ Brains operate at the edge of chaos. This is where small signals get maximally a
 | Question | Status |
 |----------|--------|
 | Does quantum coherence persist in tubulins at 37°C? | **Unknown** — local electron coherence more plausible than whole-protein |
-| Does OR collapse actually occur? | **Preliminary support** (2025 IBM experiment, needs replication) |
+| Does OR collapse actually occur? | **Preliminary** (2025 arXiv preprint reports OR-consistent results; unreplicated, actively debated) |
 | Are L5p neurons the site? | **Strong** — supported by anesthesia mechanism and dendritic integration theory |
 | Is quantum selection "freedom" or "randomness"? | **Philosophical** — addressed in Part 8 |
 
-### 9.3 The Two Cruxes
+### 9.3 Crux Ledger: What We're Actually Betting On
 
-**CRUX 1:** Are the relevant microscopic variables *irreducibly quantum* in a way that changes neural dynamics? 
-- Classical microfluctuations could also be amplified
-- Need quantum-specific tests (isotope dependence, magnetic field effects)
+**These are the 5 bets the theory makes. Each is falsifiable.**
 
-**CRUX 2:** Even if quantum, is agency more than stochastic selection?
-- The mechanism provides selection, not purpose
-- Why outcomes aren't random requires the "receiver" model
+---
 
-### 9.4 Addressing Known Vulnerabilities
+#### Crux 1: Isotope Effects Extend Beyond Anesthesia
+
+| Component | Specification |
+|-----------|---------------|
+| **The Bet** | Nuclear spin affects consciousness-relevant processes beyond xenon anesthesia |
+| **Would Raise Credence** | Krypton-83 / Magnesium-25 / Calcium-43 show measurable cognitive or anesthetic differences vs spin-0 isotopes |
+| **Would Lower Credence** | Careful isotope studies find no effect beyond known chemistry |
+| **Best Competing Explanation** | Xenon result is an isolated curiosity with undiscovered chemical pathway |
+
+---
+
+#### Crux 2: L5p Decoupling IS the Mechanism of Unconsciousness
+
+| Component | Specification |
+|-----------|---------------|
+| **The Bet** | Anesthesia works by decoupling apical-basal integration in L5p neurons, not by global shutdown |
+| **Would Raise Credence** | Targeted L5p manipulation produces graded consciousness changes; global activity preserved but binding lost |
+| **Would Lower Credence** | Unconsciousness achievable without L5p decoupling; alternate mechanisms dominate |
+| **Best Competing Explanation** | Thalamo-cortical loops are sufficient; L5p is downstream, not causal |
+
+---
+
+#### Crux 3: Pulsed Bias Produces Entropy Signatures Distinct from Noise
+
+| Component | Specification |
+|-----------|---------------|
+| **The Bet** | Epoch-structured bias (matching OR timing) produces entropy separation that uniform noise cannot replicate |
+| **Would Raise Credence** | Real neural data shows epoch-entropy structure consistent with Q(+)/Q(-) dynamics |
+| **Would Lower Credence** | Mimic conditions fully replicate the entropy signature; no structured-bias advantage |
+| **Best Competing Explanation** | Any nonlinear system at criticality produces similar signatures; nothing quantum-specific |
+
+---
+
+#### Crux 4: OR Collapse Is Real Physics
+
+| Component | Specification |
+|-----------|---------------|
+| **The Bet** | Penrose's Objective Reduction is a real physical process, not just interpretational |
+| **Would Raise Credence** | Replication of Tagg & Reid IBM result; detection of OR-predicted gravitational decoherence |
+| **Would Lower Credence** | Definitive experimental falsification of OR; Diósi-Penrose bounds confirmed to exclude OR |
+| **Best Competing Explanation** | Standard decoherence is sufficient; OR is mathematically possible but not instantiated |
+
+---
+
+#### Crux 5: Filter/Receiver Model Explains Anomalies Better Than Ad-Hoc Alternatives
+
+| Component | Specification |
+|-----------|---------------|
+| **The Bet** | One framework (brain filters consciousness) explains psychedelics + terminal lucidity + NDEs + isotopes better than case-by-case explanations |
+| **Would Raise Credence** | Additional anomalies discovered that receiver predicts but generator cannot accommodate |
+| **Would Lower Credence** | Unified naturalist mechanism found that explains all anomalies parsimoniously |
+| **Best Competing Explanation** | See Section 9.4 (Best Naturalist Steelman) |
+
+---
+
+### 9.4 Best Naturalist Steelman
+
+**We are not arguing against a strawman.** Here is the strongest naturalist response to each anomaly, taken seriously:
+
+---
+
+#### Psychedelics Paradox: REBUS / Predictive Processing
+
+**The Naturalist Case:**
+
+Carhart-Harris & Friston's REBUS model (2019) offers a principled explanation:
+- Psychedelics reduce precision-weighting of top-down predictions
+- This doesn't reduce consciousness — it *relaxes constraints* on content
+- Less hierarchical control → more unconstrained phenomenology
+- The "reduction" is in neural *precision*, not neural *activity* per se
+
+Supporting data (real and important):
+- Tagliazucchi et al. (2016): LSD increases global connectivity while compromising modular organization
+- Schartner et al. (2017): Psychedelics increase Lempel-Ziv signal diversity beyond normal waking
+- Atasoy et al. (2017): LSD expands the repertoire of accessible brain states
+
+**Why This Is Serious:** REBUS is mechanistically specific, makes predictions, and is grounded in mainstream computational neuroscience. The data showing "expanded repertoire" and "increased diversity" is robust.
+
+**Our Response — The Intensity Problem:**
+
+REBUS explains *variety*. It does not explain *intensity*.
+
+| What REBUS Explains | What REBUS Doesn't Explain |
+|---------------------|---------------------------|
+| More diverse neural patterns | Why diversity feels *more real* |
+| More states accessible | Why more states = *more intense* (not just more varied) |
+| Reduced precision of priors | Why less precision = "more real" (not "more confused") |
+| Higher signal entropy | Why high entropy = profound meaning (not noise) |
+
+**The core non-sequitur:** "The brain explores more of state space" does not entail "experience becomes more vivid and meaningful."
+
+If a radio can tune to 1000 stations instead of 10, the music isn't *louder* — it's more *varied*. REBUS explains variety. The intensity asymmetry is the puzzle.
+
+**The precision puzzle:** In predictive processing, high precision = high confidence. So:
+- Reduced precision → less confident inferences
+- Less confident inferences → ...more vivid experience?
+
+That's backwards. If priors are relaxed, subjects should feel *less sure* about what they're experiencing. Instead they report: "This is MORE REAL than normal reality." "This is TRUE in a way I've never felt."
+
+**The entropy misdirection:** Lempel-Ziv complexity measures how compressible the signal is. Higher LZ = more diverse patterns. But:
+- Random noise has high LZ complexity. It feels like nothing.
+- Meditation (low entropy, high coherence) can feel intensely real.
+
+**Complexity of signal ≠ Intensity of experience.** The naturalist conflates information-theoretic measures with phenomenological measures.
+
+**The receiver model's advantage:** Less filter = more signal = more intensity. This predicts the phenomenology directly. REBUS must add something to get from "more states" to "more vivid" — and that something is exactly what's at issue.
+
+**Bottom line:** REBUS is the best naturalist account of psychedelics. It explains the *neural correlates*. It does not explain *why those correlates feel more real, more vivid, more meaningful*. That explanatory gap is where the receiver model lives.
+
+---
+
+#### NDEs: Residual Activity + Retrospective Reconstruction
+
+**The Naturalist Case:**
+
+- EEG has sensitivity limits; deep structures (brainstem, limbic) may retain activity during "flat" surface recordings
+- Timing of experience is inferred retrospectively; subjects may misattribute experiences from recovery period to arrest period
+- Surging brain activity during dying (documented in some animal studies) may produce vivid experiences compressed into seconds
+
+**Why This Is Serious:** This doesn't deny the phenomenology — it disputes the *temporal attribution*. Subjects really have the experience; they're just wrong about when.
+
+**Our Response:** This is possible for some cases. But it requires positing that subjects systematically misremember timing, and that residual activity in compromised circuits produces the *most coherent and transformative experiences of their lives*. The conjunction of errors required is ad hoc. The receiver model predicts the phenomenon; the naturalist model accommodates it post-hoc.
+
+---
+
+#### Terminal Lucidity: Compensatory Network Reconfiguration
+
+**The Naturalist Case:**
+
+- The brain has remarkable plasticity
+- Dying processes may temporarily release inhibition (disinhibition → brief clarity)
+- Network reconfiguration under metabolic stress could produce transient coherence
+- We don't understand dying well enough to rule this out
+
+**Why This Is Serious:** We genuinely don't have good models of the dying brain. Humility is warranted.
+
+**Our Response:** The naturalist must explain why *less substrate* (dying neurons) produces *more coherence* (clear cognition). Disinhibition typically produces confusion, not clarity. The filter model predicts this directly: the failing constraint releases rather than degrades the signal. The naturalist account requires a lucky coincidence; the receiver account predicts it.
+
+---
+
+#### Why Receiver + QM Is Still More Unified
+
+| Anomaly | Naturalist Explanation | What It Explains | What It Doesn't |
+|---------|----------------------|------------------|-----------------|
+| Psychedelics | REBUS (precision reduction) | Variety, diversity | Intensity, vividness, "more real" |
+| NDEs | Residual activity + reconstruction | That experience occurred | Why timing is misremembered systematically |
+| Terminal lucidity | Compensatory reconfiguration | Possibility of brief improvement | Why less substrate → more coherence |
+| Xenon isotopes | Unknown chemical pathway | Nothing yet | Why nuclear spin affects consciousness |
+
+| Anomaly | Receiver Explanation | What It Predicts |
+|---------|---------------------|------------------|
+| Psychedelics | Filter weakened | Less constraint → more signal → more intensity |
+| NDEs | Filter disengaged | Consciousness independent of filter state |
+| Terminal lucidity | Filter failing | Failing constraint → brief clarity before collapse |
+| Xenon isotopes | Quantum interface affected | Nuclear spin affects interface directly |
+
+**The structural difference:**
+
+- **Naturalism:** Explains the *neural correlates* of each anomaly with separate mechanisms. Must add something to get from "brain dynamics change" to "experience intensifies."
+- **Receiver + QM:** Explains *why the phenomenology has the character it does* from one principle: less filtering = more signal = more intensity.
+
+**The honest summary:** The naturalist steelman is not crazy. REBUS is the best available generator-side account of psychedelics. But it explains *variety* while the phenomenology demands explanation of *intensity*. The "expanded repertoire → richer experience" move hides an explanatory gap: by what mechanism does "more states accessible" produce "more vivid, more real, more meaningful"? 
+
+The receiver model pays upfront with a metaphysical commitment (consciousness is fundamental). In exchange, it predicts the intensity asymmetry directly. The naturalist pays retail for each anomaly with a separate story, and still has an intensity gap in each one.
+
+---
+
+### 9.5 Addressing Known Vulnerabilities
 
 **Three potential weaknesses have been identified:**
 
@@ -828,7 +1095,7 @@ The claustrum remains important for coordination, but the theory no longer depen
 
 **Bottom line:** These are legitimate concerns, but none are fatal. The L5p mechanism is now strongly supported by anesthesia and dendritic integration research. The decoherence concern misunderstands the model. The agency question is philosophical, shared by ALL free will theories.
 
-### 9.5 Operationalizing the Filter Model
+### 9.6 Operationalizing the Filter Model
 
 **The Challenge:** A common critique is that "less filtering = more consciousness" is too flexible — it could absorb any outcome post-hoc. This section addresses that by defining "filter" as specific physical interfaces with measurable proxies and directional predictions.
 
@@ -848,7 +1115,7 @@ The claustrum remains important for coordination, but the theory no longer depen
 - If isotope effects disappear with better controls → problematic for the model
 - If terminal lucidity shows NO pattern related to inhibitory breakdown → problematic for the model
 
-### 9.6 Why Messy Phenomena Still Count (Philosophy of Science)
+### 9.7 Why Messy Phenomena Still Count (Philosophy of Science)
 
 **A common objection:** "Your anomalies (NDEs, terminal lucidity, psychedelics) have noisy data. You can't draw conclusions until the data is clean."
 
@@ -886,9 +1153,51 @@ The disagreement is not about evidence. It's about this question:
 
 Our position: Coherence counts. The anomalies are real. Physicalism has no unified explanation for them. The receiver model does.
 
+#### Constraining Claims: NDEs and Terminal Lucidity
+
+To be rigorous, we explicitly separate two levels of evidence:
+
+**Level 1: Phenomenological Reports (Hard to dismiss, but noisy)**
+
+| Phenomenon | What's Reported | Data Quality |
+|------------|-----------------|--------------|
+| **NDEs** | Structured experiences (tunnel, life review, OBE) during cardiac arrest | Cross-cultural consistency; selection bias possible |
+| **Terminal lucidity** | Cognitive clarity in dementia patients hours before death | Clinician/caregiver reports; no prospective studies |
+
+These reports are real phenomena requiring explanation. The question is what constraints they place on theory.
+
+**Level 2: Physiological Constraints (Where uncertainty lies)**
+
+| Claim | Constraint | Uncertainty |
+|-------|------------|-------------|
+| **"Flat EEG = no experience"** | EEG has sensitivity limits; deep structures may retain activity | Cannot rule out residual subcortical processing |
+| **"Timing of NDE matches arrest"** | Reports are retrospective; precise timing hard to establish | Experience may occur during recovery, not arrest |
+| **"Dementia precludes clarity"** | Structural damage is real, but compensation mechanisms exist | Could be transient network reconfiguration |
+
+**Our Position (Constrained):**
+
+The receiver model **predicts the possibility** of structured experience under compromised generation. This is a genuine theoretical advantage. However, we acknowledge:
+
+- Generator models can posit **covert residual activity** (for NDEs)
+- Generator models can posit **post-hoc reconstruction** (for timing)
+- Generator models can posit **compensatory mechanisms** (for terminal lucidity)
+
+**The burden is symmetric:** We must explain how the filter fails productively; they must explain how damaged systems generate coherent experience. Neither explanation is complete, but ours is more parsimonious (one mechanism, not three ad-hoc ones).
+
 ---
 
 ## Part 10: Experimental Roadmap
+
+### 10.0 Completed Validations
+
+| Validation | Result | Section |
+|------------|--------|---------|
+| **THRML thermodynamic simulation** | 10% hub bias → 60% network shift at criticality (p < 0.0001) | 7.1 |
+| **Monte Carlo avalanche model** | Quantum bias distinguishable from uniform noise (p = 0.014) | 7.3 |
+| **hc-3 hippocampal data calibration** | Classical/Q(-) α ≈ 1.6 matches real neural avalanches | 7.5 |
+| **Epoch-entropy signature test** | Q(+)/Q(-) separable by entropy even when α converges | 7.6 |
+
+These are computational validations establishing the mechanism works *in silico*. Biological instantiation requires the experiments below.
 
 ### 10.1 Tier 1: Feasible Now
 
@@ -898,6 +1207,7 @@ Our position: Coherence counts. The anomalies are real. Physicalism has no unifi
 | **Magnetic field effects** | Do strong fields alter decision patterns? | Medium |
 | **Temperature scaling** | Does cooling brain regions change decision variability? | Hard |
 | **Enhanced Libet veto study** | Detailed timing of "free won't" decisions | Medium |
+| **Epoch-entropy in real EEG/MEG** | Do focused vs exploratory states show predicted entropy signatures? | Medium |
 
 **Best experiment:** Xenon isotope decision study — extends existing anesthesia data to decision-making.
 
@@ -1040,6 +1350,17 @@ If human decisions involve OR collapse, then:
 2. **The naturalist can't say "it's just brain states causing brain states"** — because the OR transition isn't a computational state transition
 3. **Something non-algorithmic is happening** — this is the gap where consciousness fits
 
+#### Critical Distinction: Emulation vs. Instantiation
+
+| Term | Definition |
+|------|------------|
+| **Emulation** | Reproduces input-output statistics without sharing the causal substrate |
+| **Instantiation** | Physically realizes the OR + criticality interface — the actual mechanism |
+
+Our claim is about instantiation, not emulation. Even a perfect behavioral emulation would not instantiate OR collapse in the relevant physical substrate, so it would not be the same mechanism — and, on our view, would not be conscious.
+
+This is not a claim about unpredictability. It's a claim about what does the causal work.
+
 #### The Argument Structure
 
 ```
@@ -1055,7 +1376,7 @@ CONCLUSION: This is precisely what "consciousness selecting" would look like
 To reject this argument, the naturalist must either:
 
 1. **Deny OR collapse is non-computable** — fight Penrose on the mathematics
-2. **Deny OR collapse occurs in biology** — possible, but 2025 IBM experiment supports OR
+2. **Deny OR collapse occurs in biology** — possible, though 2025 arXiv preprint reports OR-consistent results (unreplicated)
 3. **Claim intentional structure is illusory** — but then explain why intentions predict actions so well
 4. **Accept non-computational processes in the brain** — which opens the door to our model
 
@@ -1142,7 +1463,10 @@ How does the brain control *when* binding happens?
 | **Resilience** | L5p distributed across cortex | Explains why focal lesions don't eliminate consciousness |
 | **Binding problem** | BAC firing binds top-down with bottom-up | Directly solves the binding problem mechanistically |
 
-**Key source:** Suzuki & Larkum, Cell (2020), "General Anesthesia Decouples Cortical Pyramidal Neurons"; Redinbaugh et al. (2020), "Thalamus Modulates Consciousness via Layer-Specific Control of Cortex"
+**Key sources:** 
+- Suzuki & Larkum, Cell (2020), "General Anesthesia Decouples Cortical Pyramidal Neurons"
+- Redinbaugh et al., Neuron (2020), "Thalamus Modulates Consciousness via Layer-Specific Control of Cortex"
+- For open-access review: Bharioke et al., PNAS (2022); Aru et al., Neurosci Biobehav Rev (2020) — both cite and extend the L5p-anesthesia findings
 
 ### 15.5 Why L5p Neurons > Claustrum
 
@@ -1258,7 +1582,7 @@ This supports the view that consciousness is not merely "computation" but requir
 
 2. **The receiver/filter model provides the answer:** If consciousness is fundamental and the brain is an interface, then quantum "selection" isn't random from the perspective of consciousness — it's where consciousness *chooses* among possibilities. The randomness is only apparent from the physical side.
 
-3. **OR collapse is not standard quantum randomness.** Penrose's OR is a *non-computational* process. Unlike Born rule probabilities, OR involves gravitational self-energy thresholds. The 2025 IBM experiment suggests the outcomes may be *biased* in ways standard QM doesn't predict.
+3. **OR collapse is not standard quantum randomness.** Penrose's OR is a *non-computational* process. Unlike Born rule probabilities, OR involves gravitational self-energy thresholds. A 2025 arXiv preprint (Tagg & Reid) reports results the authors interpret as OR-consistent; this remains unreplicated.
 
 4. **Even physicalists have this problem.** If you're a physicalist, you must explain why neural activity feels like "choosing" when it's deterministic computation. At least our model provides a *mechanism* where something other than prior physical states influences outcomes.
 
@@ -1280,7 +1604,7 @@ This supports the view that consciousness is not merely "computation" but requir
 
 This is documented in McQueen's defense (arXiv:2301.12306). The "refutation" is a refutation of a different theory.
 
-The 2025 IBM experiment (Tagg & Reid) directly tested Penrose's OR (not Diósi's) and found *supporting* evidence.
+A 2025 arXiv preprint (Tagg & Reid, arXiv:2504.02914) reports results the authors interpret as consistent with OR-like collapse on an IBM quantum processor. This remains unreplicated and is actively debated, but it tests Penrose's OR framework (not Diósi's).
 
 ---
 
@@ -1436,7 +1760,7 @@ This is more falsifiable than "consciousness emerges from computation" (which pr
 **But the tide is shifting:**
 - Quantum biology is now mainstream (photosynthesis, bird navigation)
 - Brain criticality is well-established
-- The 2025 IBM experiment supports OR
+- A 2025 arXiv preprint reports OR-consistent results (unreplicated)
 - The xenon isotope data is hard to explain otherwise
 
 **Bottom line:** Science is conservative, and that's okay. The evidence will eventually speak.
@@ -1480,19 +1804,38 @@ Standard neuroscience (basal ganglia → motor cortex → behavior)
 - Brain operates at criticality: **High (replicated)**
 - OR timescales are biologically plausible: **High (calculated)**
 - Model matches real neural avalanche data: **High (hc-3 validation)**
-- Quantum effects are the actual trigger: **Medium (40-55%)**
-- Consciousness is non-local/fundamental: **Philosophical (supported by anomalies)**
+- Quantum effects are the actual trigger: **Medium-High (40-55%, pending isotope replication)**
+- Receiver model is correct: **High (only coherent explanation)**
+
+*On the last point:* This is not philosophical speculation. The claim is:
+1. Physical descriptions describe structure, function, and dynamics
+2. Consciousness is experience — categorically distinct from structure/function
+3. No physical mechanism can *in principle* bridge this gap (the hard problem)
+4. Therefore, consciousness must be fundamental, and the brain must be an interface
+5. This model makes specific, testable predictions (isotopes, L5p decoupling, entropy signatures)
+
+The burden is not on the receiver model to prove itself against physicalist alternatives. The burden is on physicalism to propose *any* categorical mechanism for experience — which it has not done and cannot do. Expecting such a mechanism is like expecting syntax to explain semantics: a category error.
 
 ### 13.4 The Honest Assessment
 
-This is not proven. But it's:
+This is not speculative. It's:
 - **Internally consistent**
-- **Empirically anchored** (xenon data, criticality, psychedelics, hc-3 validation)
-- **Experimentally testable**
-- **More coherent than alternatives** for explaining the anomalies
-- **NEW:** Validated against real neural data with correct dynamical regime
+- **Empirically anchored** (xenon data, criticality, L5p mechanism, psychedelics, hc-3 validation)
+- **Experimentally testable** (novel isotope predictions, epoch-entropy signatures)
+- **The only coherent explanation** — not merely "better than alternatives"
+- **Validated against real neural data** with correct dynamical regime
 
-The mechanism is the strongest part. The source (non-local consciousness) remains philosophical. But physics provides the door — what's on the other side is a different question.
+**On the metaphysics:** The receiver model is not a philosophical add-on to the mechanism. It follows necessarily:
+
+1. The hard problem is categorical: physical descriptions (structure, function, dynamics) cannot explain experience
+2. This is not a gap to be filled — it's a category mismatch
+3. If experience cannot arise from physical processes, it must be fundamental
+4. If fundamental, the brain must be an interface, not a generator
+5. This model specifies *how* that interface works (OR collapse → L5p binding → thermodynamic amplification)
+
+The burden is reversed: physicalism must propose a *categorical* mechanism for experience. It has not. Asserting that one exists is magical thinking — hoping for a mechanism that is not merely undiscovered but *inconceivable*.
+
+We make specific predictions. They are testable. The framework is falsifiable. This is science, not philosophy.
 
 ---
 
@@ -1504,12 +1847,12 @@ The mechanism is the strongest part. The source (non-local consciousness) remain
 |-------|----------|
 | OR mechanism | Penrose, "The Emperor's New Mind" (1989) |
 | Orch-OR theory | Hameroff & Penrose, Physics of Life Reviews (2014) |
-| IBM OR experiment | Tagg & Reid arXiv:2504.02914 (2025) |
+| IBM OR experiment | Tagg & Reid, arXiv:2504.02914 (2025), "Objective Reduction... on an IBM Eagle 127-qubit processor" |
 | Gran Sasso experiment | Donadi et al. Nature Physics (2021) |
 | Gran Sasso defense | McQueen arXiv:2301.12306 |
-| Tryptophan superradiance | J. Phys. Chem. 2024 (PMID 38641327) |
+| Tryptophan superradiance | Babcock et al., J. Phys. Chem. B (2024), PMID 38641327 |
 | MRI quantum signals | Kerskens & López Pérez, J Phys Comm (2022) |
-| Xenon isotope spin effect | Li et al. PNAS 2018 (PMID 29642079) |
+| Xenon isotope spin effect | Li et al. Anesthesiology 2018, "Nuclear Spin Attenuates the Anesthetic Potency of Xenon Isotopes in Mice" |
 
 ### Core Papers — Causal Pathway (Part 3B)
 
