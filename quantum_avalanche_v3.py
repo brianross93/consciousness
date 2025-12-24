@@ -18,6 +18,7 @@ from scipy import stats
 from scipy.optimize import curve_fit
 import csv
 import os
+import glob
 from datetime import datetime
 import warnings
 warnings.filterwarnings('ignore')
@@ -49,50 +50,39 @@ def or_bias_fraction(N_tubulins, base_fraction=0.1):
 # POWER-LAW FITTING
 # =============================================================================
 
-def fit_powerlaw(sizes, x_min=5, x_max=None):
+def fit_powerlaw(sizes, x_min=None, x_max=None):
     """
-    Fit power-law exponent using MLE and log-binned CDF.
-    
-    Returns:
-    --------
-    alpha : float
-        Power-law exponent (P(s) ~ s^(-alpha))
-    alpha_err : float
-        Standard error on alpha
-    ks_stat : float
-        Kolmogorov-Smirnov statistic (lower = better fit)
+    Simple MLE power-law exponent (no xmin search).
+    alpha = 1 + n / sum(log(x/xmin))
     """
-    sizes = np.array(sizes)
-    sizes = sizes[sizes >= x_min]
-    
+    sizes = np.asarray(sizes, dtype=float)
+    sizes = sizes[np.isfinite(sizes)]
+    sizes = sizes[sizes > 0]
+    if sizes.size == 0:
+        return np.nan, np.nan, np.nan
     if x_max is not None:
         sizes = sizes[sizes <= x_max]
-    
-    if len(sizes) < 10:
+    if sizes.size == 0:
         return np.nan, np.nan, np.nan
-    
-    # MLE estimate: alpha = 1 + n / sum(ln(x/x_min))
+    if x_min is None:
+        x_min = sizes.min()
+    sizes = sizes[sizes >= x_min]
     n = len(sizes)
-    alpha_mle = 1 + n / np.sum(np.log(sizes / x_min))
-    alpha_err = (alpha_mle - 1) / np.sqrt(n)
-    
-    # KS test
-    # Theoretical CDF: P(X <= x) = 1 - (x/x_min)^(-(alpha-1))
-    def powerlaw_cdf(x, alpha):
-        return 1 - (x / x_min) ** (-(alpha - 1))
-    
+    if n < 10:
+        return np.nan, np.nan, np.nan
+    alpha = 1 + n / np.sum(np.log(sizes / x_min))
+    alpha_err = (alpha - 1) / np.sqrt(n)
+    # KS statistic (optional check)
     sorted_sizes = np.sort(sizes)
-    empirical_cdf = np.arange(1, n + 1) / n
-    theoretical_cdf = powerlaw_cdf(sorted_sizes, alpha_mle)
-    ks_stat = np.max(np.abs(empirical_cdf - theoretical_cdf))
-    
-    return alpha_mle, alpha_err, ks_stat
+    emp_cdf = np.arange(1, n + 1) / n
+    th_cdf = 1 - (sorted_sizes / x_min) ** (-(alpha - 1))
+    ks_stat = np.max(np.abs(emp_cdf - th_cdf))
+    return alpha, alpha_err, ks_stat
 
 
 def fit_powerlaw_linregress(sizes, n_bins=20, x_min=5):
     """
-    Fit power-law using linear regression on log-binned data.
-    More robust for visualization.
+    Legacy log-binned fit (kept for plotting).
     """
     sizes = np.array(sizes)
     sizes = sizes[sizes >= x_min]
@@ -100,14 +90,9 @@ def fit_powerlaw_linregress(sizes, n_bins=20, x_min=5):
     if len(sizes) < 50:
         return np.nan, np.nan, [], []
     
-    # Log-spaced bins
     bins = np.logspace(np.log10(x_min), np.log10(max(sizes)), n_bins + 1)
     hist, bin_edges = np.histogram(sizes, bins=bins, density=True)
-    
-    # Bin centers (geometric mean)
     bin_centers = np.sqrt(bin_edges[:-1] * bin_edges[1:])
-    
-    # Filter zeros
     mask = hist > 0
     log_x = np.log10(bin_centers[mask])
     log_y = np.log10(hist[mask])
@@ -115,12 +100,8 @@ def fit_powerlaw_linregress(sizes, n_bins=20, x_min=5):
     if len(log_x) < 3:
         return np.nan, np.nan, [], []
     
-    # Linear regression
     slope, intercept, r_value, p_value, std_err = stats.linregress(log_x, log_y)
-    
-    # alpha = -slope (since P(s) ~ s^(-alpha))
     alpha = -slope
-    
     return alpha, std_err, bin_centers[mask], hist[mask]
 
 
@@ -138,25 +119,40 @@ def load_beggs_data(filepath=None):
     If no file provided, generates synthetic power-law data matching
     literature values (alpha ~1.5, Beggs & Plenz 2003).
     """
+    # 1) Prefer local avalanche CSVs if present (e.g., hc-3 derived)
+    local_glob = os.environ.get("REAL_AVALANCHE_GLOB", "data/neuron/avalanche_sizes_*.csv")
+    local_files = sorted(glob.glob(local_glob))
+    if filepath is None and local_files:
+        sizes = []
+        for lf in local_files:
+            try:
+                arr = np.loadtxt(lf, delimiter=',', skiprows=1, usecols=[0])
+                # loadtxt returns float if any blank; enforce int-ish
+                sizes.extend([int(x) for x in np.atleast_1d(arr) if x > 0])
+            except Exception as e:
+                print(f"[warn] Failed to read {lf}: {e}")
+        if sizes:
+            return np.array(sizes), f'local ({len(local_files)} files: {local_glob})'
+    
+    # 2) Specific file if provided
     if filepath is not None and os.path.exists(filepath):
         sizes = []
         with open(filepath, 'r') as f:
             reader = csv.DictReader(f)
             for row in reader:
-                if 'size' in row:
+                if 'size' in row and row['size']:
                     sizes.append(int(row['size']))
-                elif 'avalanche_size' in row:
+                elif 'avalanche_size' in row and row['avalanche_size']:
                     sizes.append(int(row['avalanche_size']))
-        return np.array(sizes), 'real'
+        if sizes:
+            return np.array(sizes), 'real'
     
-    # Generate synthetic "real" data matching literature
-    # Beggs & Plenz 2003: alpha ~ 1.5, range 1 to ~1000
+    # 3) Fallback synthetic "real" data matching literature (Beggs & Plenz 2003)
     np.random.seed(42)
     n_samples = 5000
     alpha = 1.5
     x_min = 1
     
-    # Inverse transform sampling for power-law
     u = np.random.uniform(0, 1, n_samples)
     sizes = x_min * (1 - u) ** (-1 / (alpha - 1))
     sizes = np.clip(sizes, 1, 5000).astype(int)
@@ -230,6 +226,62 @@ def run_avalanches(G, n_seeds=30, threshold=1.05, seed=None):
     return np.array([avalanche_size(G, s, threshold) for s in seeds])
 
 
+def collapse_to_avalanches(seq):
+    """Convert a sequence of bin counts into contiguous avalanches (nonzero runs)."""
+    aval = []
+    run = 0
+    for v in seq:
+        if v > 0:
+            run += v
+        elif run > 0:
+            aval.append(run)
+            run = 0
+    if run > 0:
+        aval.append(run)
+    return np.array(aval)
+
+
+def simulate_time_bins(N=3000, k=10, p=0.1, n_bins=500, prob_fire=0.02,
+                       base_threshold=1.03, bias_nodes=None, bias_strength=0.0,
+                       seed=None, refractory=False):
+    """
+    Generate per-bin active-unit counts from a simple stochastic propagation model.
+    - prob_fire: baseline prob a node activates spontaneously per bin
+    - base_threshold: neighbor weight threshold for propagating activity
+    - bias_nodes: indices receiving an additive bias to activation probability
+    - bias_strength: added probability for bias_nodes
+    """
+    if seed is not None:
+        np.random.seed(seed)
+    G = nx.watts_strogatz_graph(N, k, p, seed=seed)
+    # neighbor weights ~ N(1, 0.12)
+    for u, v in G.edges():
+        G[u][v]['weight'] = np.random.normal(1.0, 0.12)
+    active_counts = []
+    last_active_mask = np.zeros(N, dtype=bool)
+    for t in range(n_bins):
+        # spontaneous
+        prob = np.full(N, prob_fire)
+        if bias_nodes is not None and bias_strength != 0:
+            prob[bias_nodes] = np.clip(prob[bias_nodes] + bias_strength, 0, 1)
+        spontaneous = np.random.rand(N) < prob
+        # propagation: if neighbor weight > threshold and neighbor fired last bin
+        neighbor_hit = np.zeros(N, dtype=bool)
+        for u, v in G.edges():
+            if last_active_mask[u] and G[u][v]['weight'] > base_threshold:
+                neighbor_hit[v] = True
+            if last_active_mask[v] and G[u][v]['weight'] > base_threshold:
+                neighbor_hit[u] = True
+        propagated = neighbor_hit
+        active_mask = spontaneous | propagated
+        if refractory:
+            # simple 1-bin refractory: can't fire twice consecutively
+            active_mask = active_mask & (~last_active_mask)
+        active_counts.append({'mask': active_mask, 'count': active_mask.sum()})
+        last_active_mask = active_mask
+    return np.array([a['count'] for a in active_counts])
+
+
 # =============================================================================
 # SIMULATION CONDITIONS
 # =============================================================================
@@ -284,7 +336,7 @@ def run_mimic(G, n_seeds, threshold, seed, target_mean, max_boost=0.15):
 def monte_carlo(n_runs=80, N_nodes=5000, n_seeds_per_run=30, threshold=1.05,
                 N_tubulins=1e10, base_bias_fraction=0.1, bias_strength=0.05):
     """
-    Monte Carlo with all four conditions:
+    Monte Carlo with all four conditions using the original cascade metric:
     - Classical
     - Quantum Positive (amplify)
     - Quantum Negative (veto)
@@ -307,35 +359,103 @@ def monte_carlo(n_runs=80, N_nodes=5000, n_seeds_per_run=30, threshold=1.05,
         
         # Classical
         sizes_c = run_classical(G, n_seeds_per_run, threshold, run)
-        results['classical']['sizes'].extend(sizes_c)
-        results['classical']['means'].append(np.mean(sizes_c))
-        results['classical']['skews'].append(stats.skew(sizes_c) if np.std(sizes_c) > 0 else 0)
+        aval_c = collapse_to_avalanches(sizes_c)
+        results['classical']['sizes'].extend(aval_c)
+        results['classical']['means'].append(np.mean(aval_c) if aval_c.size else 0)
+        results['classical']['skews'].append(stats.skew(aval_c) if aval_c.size and np.std(aval_c) > 0 else 0)
         
         # Quantum Positive (amplify)
         sizes_qp = run_quantum_positive(G, n_seeds_per_run, threshold, run + 10000,
                                          N_tubulins, base_bias_fraction, bias_strength)
-        results['quantum_pos']['sizes'].extend(sizes_qp)
-        results['quantum_pos']['means'].append(np.mean(sizes_qp))
-        results['quantum_pos']['skews'].append(stats.skew(sizes_qp) if np.std(sizes_qp) > 0 else 0)
+        aval_qp = collapse_to_avalanches(sizes_qp)
+        results['quantum_pos']['sizes'].extend(aval_qp)
+        results['quantum_pos']['means'].append(np.mean(aval_qp) if aval_qp.size else 0)
+        results['quantum_pos']['skews'].append(stats.skew(aval_qp) if aval_qp.size and np.std(aval_qp) > 0 else 0)
         
         # Quantum Negative (veto)
         sizes_qn = run_quantum_negative(G, n_seeds_per_run, threshold, run + 20000,
                                          N_tubulins, base_bias_fraction, bias_strength)
-        results['quantum_neg']['sizes'].extend(sizes_qn)
-        results['quantum_neg']['means'].append(np.mean(sizes_qn))
-        results['quantum_neg']['skews'].append(stats.skew(sizes_qn) if np.std(sizes_qn) > 0 else 0)
+        aval_qn = collapse_to_avalanches(sizes_qn)
+        results['quantum_neg']['sizes'].extend(aval_qn)
+        results['quantum_neg']['means'].append(np.mean(aval_qn) if aval_qn.size else 0)
+        results['quantum_neg']['skews'].append(stats.skew(aval_qn) if aval_qn.size and np.std(aval_qn) > 0 else 0)
         
         # Mimic (match quantum positive)
-        target_mean = np.mean(sizes_qp)
+        target_mean = np.mean(sizes_qp) if sizes_qp.size else 0
         sizes_m = run_mimic(G, n_seeds_per_run, threshold, run + 30000, target_mean)
-        results['mimic']['sizes'].extend(sizes_m)
-        results['mimic']['means'].append(np.mean(sizes_m))
-        results['mimic']['skews'].append(stats.skew(sizes_m) if np.std(sizes_m) > 0 else 0)
+        aval_m = collapse_to_avalanches(sizes_m)
+        results['mimic']['sizes'].extend(aval_m)
+        results['mimic']['means'].append(np.mean(aval_m) if aval_m.size else 0)
+        results['mimic']['skews'].append(stats.skew(aval_m) if aval_m.size and np.std(aval_m) > 0 else 0)
     
     for cond in results:
         for key in results[cond]:
             results[cond][key] = np.array(results[cond][key])
     
+    return results
+
+
+def monte_carlo_timebins(n_runs=40, N_nodes=3000, k=10, p=0.1, n_bins=800,
+                         prob_fire=0.02, base_threshold=1.03,
+                         bias_fraction=0.1, bias_strength=0.02,
+                         seed_offset=0):
+    """
+    Time-binned avalanches using active-units-per-bin (aligned with real data).
+    Returns dict with sizes/means/skews for each condition.
+    """
+    results = {
+        'classical': {'sizes': [], 'means': [], 'skews': []},
+        'quantum_pos': {'sizes': [], 'means': [], 'skews': []},
+        'quantum_neg': {'sizes': [], 'means': [], 'skews': []},
+        'mimic': {'sizes': [], 'means': [], 'skews': []}
+    }
+    for run in range(n_runs):
+        if run % 10 == 0:
+            print(f"  [timebin] Run {run}/{n_runs}...")
+        # bias nodes selection
+        np.random.seed(run + seed_offset)
+        bias_nodes = np.random.choice(N_nodes, size=max(1, int(bias_fraction * N_nodes)), replace=False)
+        
+        # Classical
+        counts = simulate_time_bins(N=N_nodes, k=k, p=p, n_bins=n_bins,
+                                    prob_fire=prob_fire, base_threshold=base_threshold,
+                                    bias_nodes=None, bias_strength=0.0,
+                                    seed=run + seed_offset)
+        aval = collapse_to_avalanches(counts)
+        results['classical']['sizes'].extend(aval)
+        results['classical']['means'].append(np.mean(aval) if aval.size else 0)
+        results['classical']['skews'].append(stats.skew(aval) if aval.size and np.std(aval) > 0 else 0)
+        
+        # Quantum Positive
+        counts = simulate_time_bins(N=N_nodes, k=k, p=p, n_bins=n_bins,
+                                    prob_fire=prob_fire, base_threshold=base_threshold,
+                                    bias_nodes=bias_nodes, bias_strength=bias_strength,
+                                    seed=run + seed_offset + 10000)
+        aval = collapse_to_avalanches(counts)
+        results['quantum_pos']['sizes'].extend(aval)
+        results['quantum_pos']['means'].append(np.mean(aval) if aval.size else 0)
+        results['quantum_pos']['skews'].append(stats.skew(aval) if aval.size and np.std(aval) > 0 else 0)
+        
+        # Quantum Negative (veto: reduce firing prob on bias nodes)
+        counts = simulate_time_bins(N=N_nodes, k=k, p=p, n_bins=n_bins,
+                                    prob_fire=prob_fire, base_threshold=base_threshold,
+                                    bias_nodes=bias_nodes, bias_strength=-bias_strength,
+                                    seed=run + seed_offset + 20000)
+        aval = collapse_to_avalanches(counts)
+        results['quantum_neg']['sizes'].extend(aval)
+        results['quantum_neg']['means'].append(np.mean(aval) if aval.size else 0)
+        results['quantum_neg']['skews'].append(stats.skew(aval) if aval.size and np.std(aval) > 0 else 0)
+        
+        # Mimic: no bias nodes but increase global prob_fire slightly to match Q(+) mean
+        mimic_prob = prob_fire + (bias_strength * bias_fraction)
+        counts = simulate_time_bins(N=N_nodes, k=k, p=p, n_bins=n_bins,
+                                    prob_fire=mimic_prob, base_threshold=base_threshold,
+                                    bias_nodes=None, bias_strength=0.0,
+                                    seed=run + seed_offset + 30000)
+        aval = collapse_to_avalanches(counts)
+        results['mimic']['sizes'].extend(aval)
+        results['mimic']['means'].append(np.mean(aval) if aval.size else 0)
+        results['mimic']['skews'].append(stats.skew(aval) if aval.size and np.std(aval) > 0 else 0)
     return results
 
 
@@ -560,33 +680,79 @@ def main():
     print("="*70)
     print()
     
-    # Parameters (reduced for speed - scale up for publication)
-    N_NODES = 3000
-    N_RUNS = 50
-    N_SEEDS_PER_RUN = 25
-    THRESHOLD = 1.05
-    N_TUBULINS = 1e10
-    BASE_BIAS_FRACTION = 0.1
-    BIAS_STRENGTH = 0.05
+    # Time-binned simulation parameters (aligned to real-data binning)
+    BIN_MS = float(os.environ.get("SIM_BIN_MS", "4"))
+    N_NODES = int(os.environ.get("SIM_NODES", "3000"))
+    N_RUNS = int(os.environ.get("SIM_RUNS", "40"))
+    N_BINS = int(os.environ.get("SIM_N_BINS", "800"))
+    PROB_FIRE = float(os.environ.get("SIM_PROB_FIRE", "0.02"))
+    BASE_THRESHOLD = float(os.environ.get("SIM_BASE_THRESHOLD", "1.03"))
+    BIAS_FRACTION = float(os.environ.get("SIM_BIAS_FRACTION", "0.1"))
+    BIAS_STRENGTH = float(os.environ.get("SIM_BIAS_STRENGTH", "0.02"))
+    REFRACTORY = os.environ.get("SIM_REFRACTORY", "1") == "1"
+    DO_SWEEP = os.environ.get("SIM_SWEEP", "1") == "1"
     
     # Load real data
     print("Loading real avalanche data...")
-    real_sizes, real_source = load_beggs_data()  # Will use synthetic if no file
+    real_sizes, real_source = load_beggs_data()  # Prefers local data/neuron/avalanche_sizes_*.csv or units_bin*
     print(f"  Source: {real_source}")
     print(f"  N samples: {len(real_sizes)}")
     alpha_real, _, _ = fit_powerlaw(real_sizes)
     print(f"  Alpha: {alpha_real:.2f}")
     print()
     
-    # Monte Carlo
-    results = monte_carlo(
+    target_alpha = alpha_real if np.isfinite(alpha_real) else 1.6
+
+    # Optional parameter sweep to match real alpha
+    best = None
+    if DO_SWEEP:
+        print("Sweeping prob_fire and base_threshold to match real alpha...")
+        pf_grid = [float(x) for x in os.environ.get("SIM_SWEEP_PROB_FIRE", "0.0002,0.0005,0.001").split(",")]
+        th_grid = [float(x) for x in os.environ.get("SIM_SWEEP_THRESHOLD", "1.05,1.1,1.2,1.3").split(",")]
+        k_grid = [int(x) for x in os.environ.get("SIM_SWEEP_K", "8,10").split(",")]
+        sweep_runs = int(os.environ.get("SIM_SWEEP_RUNS", "8"))
+        sweep_bins = int(os.environ.get("SIM_SWEEP_N_BINS", "400"))
+        for pf in pf_grid:
+            for th in th_grid:
+                for kk in k_grid:
+                    res = monte_carlo_timebins(
+                        n_runs=sweep_runs,
+                        N_nodes=N_NODES,
+                        k=kk,
+                        n_bins=sweep_bins,
+                        prob_fire=pf,
+                        base_threshold=th,
+                        bias_fraction=0.0,
+                        bias_strength=0.0,
+                        seed_offset=1234
+                    )
+                    aval = np.array(res['classical']['sizes'])
+                    alpha_sim, _, _ = fit_powerlaw(aval)
+                    diff = abs(alpha_sim - target_alpha) if np.isfinite(alpha_sim) else np.inf
+                    print(f"  pf={pf}, th={th}, k={kk} -> alpha_sim={alpha_sim:.2f}, diff={diff:.2f}")
+                    if best is None or diff < best['diff']:
+                        best = {'pf': pf, 'th': th, 'k': kk, 'alpha': alpha_sim, 'diff': diff}
+        if best:
+            PROB_FIRE = best['pf']
+            BASE_THRESHOLD = best['th']
+            K_SWEEP = best['k']
+            print(f"Best sweep: pf={PROB_FIRE}, th={BASE_THRESHOLD}, k={K_SWEEP}, alpha_sim={best['alpha']:.2f}")
+        else:
+            K_SWEEP = 10
+    else:
+        K_SWEEP = 10
+
+    # Time-binned Monte Carlo aligned to real-data binning (final run)
+    results = monte_carlo_timebins(
         n_runs=N_RUNS,
         N_nodes=N_NODES,
-        n_seeds_per_run=N_SEEDS_PER_RUN,
-        threshold=THRESHOLD,
-        N_tubulins=N_TUBULINS,
-        base_bias_fraction=BASE_BIAS_FRACTION,
-        bias_strength=BIAS_STRENGTH
+        k=K_SWEEP,
+        n_bins=N_BINS,
+        prob_fire=PROB_FIRE,
+        base_threshold=BASE_THRESHOLD,
+        bias_fraction=BIAS_FRACTION,
+        bias_strength=BIAS_STRENGTH,
+        seed_offset=0
     )
     
     # Analysis

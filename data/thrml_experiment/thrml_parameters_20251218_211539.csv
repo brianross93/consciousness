@@ -1,5 +1,0 @@
-parameter,value
-critical_beta,0.5222222222222223
-n_nodes,100
-n_hubs,10
-hub_indices,"[np.int64(27), np.int64(2), np.int64(14), np.int64(30), np.int64(40), np.int64(64), np.int64(89), np.int64(84), np.int64(85), np.int64(73)]"
