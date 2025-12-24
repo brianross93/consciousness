@@ -507,7 +507,7 @@ Spinal Cord Motor Neurons → Muscles → Movement
 
 | Step | Evidence Level | Notes |
 |------|---------------|-------|
-| 1. OR collapse | **Theoretical** | Penrose mechanism; 2025 IBM preprint supports |
+| 1. OR collapse | **Theoretical** | Penrose mechanism; 2025 arXiv preprint reports OR-consistent results |
 | 2. Tubulin → MAP | **Strong** | Well-established biochemistry |
 | 3. MAP → synaptic plasticity | **Strong** | Multiple knockout studies |
 | 4. L5p dendritic integration | **Strong** | Larkum (2013), Aru et al. (2019), anesthesia studies |
@@ -1816,7 +1816,7 @@ Standard neuroscience (basal ganglia → motor cortex → behavior)
 
 The burden is not on the receiver model to prove itself against physicalist alternatives. The burden is on physicalism to propose *any* categorical mechanism for experience — which it has not done and cannot do. Expecting such a mechanism is like expecting syntax to explain semantics: a category error.
 
-### 13.4 The Honest Assessment
+### 13.4 Verdict, My Final Claim
 
 This is not speculative. It's:
 - **Internally consistent**
