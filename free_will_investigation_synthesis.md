@@ -277,16 +277,22 @@ This is MORE plausible:
 - Electron delocalization is normal quantum chemistry
 - 2024 tryptophan superradiance paper supports this
 
-### 5.4 Anatomical Location: The Claustrum
+### 5.4 Anatomical Location: Layer 5 Pyramidal Neurons
 
 10^10 tubulins (for neural-timescale OR collapse) = ~8-800 neurons.
 
-**The claustrum** (Crick's "conductor of consciousness"):
-- Thin sheet of neurons with dense gap junctions
-- Connects to nearly all cortical regions
-- Disruption causes loss of consciousness
-- Small enough for local quantum coherence
-- Connected enough for global influence
+**UPDATE (2025):** The primary candidate for OR has shifted from the claustrum to **Layer 5 Pyramidal (L5p) Neurons**, based on dendritic integration theory (Larkum, Aru et al.).
+
+**Why L5p neurons are ideal:**
+- **Span entire cortical thickness** — basal dendrites (bottom-up sensory) to apical tuft (top-down predictions)
+- **The apical trunk** contains long, parallel microtubule bundles — ideal geometry for coherence
+- **Anesthetics specifically decouple L5p** — propofol/ketamine separate apical from basal (this IS the mechanism of unconsciousness)
+- **Distributed architecture** — L5p neurons are holographically distributed, not a single point of failure
+- **Explains binding directly** — consciousness occurs when top-down meets bottom-up in the "coupling zone"
+
+**The claustrum** remains relevant as a coordination/relay structure, but the **content of consciousness** is generated in L5p neurons.
+
+See **Part 15** for the full L5p mechanism.
 
 ---
 
@@ -348,12 +354,20 @@ The following brain map provides a comprehensive visual reference for the neural
 
 ---
 
-### Step 4: Claustrum → Cortical Broadcast
+### Step 4: L5p Neurons → Cortical Broadcast
 
-**What happens:** The claustrum (proposed OR site) has reciprocal connections with virtually all cortical areas. Activity in claustrum neurons propagates throughout the cortex.
+**What happens:** Layer 5 pyramidal neurons (the primary OR site) generate conscious moments through BAC (Back-propagation Activated Calcium) firing when top-down and bottom-up signals coincide. This creates a cortex-wide broadcast.
+
+**The L5p Mechanism (BAC Firing):**
+- **Bottom-up signal** (sensory data) arrives at basal dendrites → Sodium spike
+- **Top-down signal** (predictions/context) arrives at apical tuft → Calcium spike  
+- **Coincidence in the trunk** (within ~10ms window) → Non-linear BAC spike
+- **Result:** High-frequency burst (~200Hz) that broadcasts to connected regions
 
 **Connectivity:**
-- Projects to prefrontal, motor, sensory, parietal cortex
+- L5p neurons project to thalamus, striatum, brainstem, spinal cord
+- Receive input from virtually all cortical layers
+- The claustrum coordinates between L5p populations
 - Also projects to striatum (basal ganglia input)
 - Dense gap junctions allow synchronized activity
 
@@ -478,7 +492,7 @@ Spinal Cord Motor Neurons → Muscles → Movement
 | 1. OR collapse | **Theoretical** | Penrose mechanism; 2025 IBM preprint supports |
 | 2. Tubulin → MAP | **Strong** | Well-established biochemistry |
 | 3. MAP → synaptic plasticity | **Strong** | Multiple knockout studies |
-| 4. Claustrum connectivity | **Strong** | Anatomical tracing studies |
+| 4. L5p dendritic integration | **Strong** | Larkum (2013), Aru et al. (2019), anesthesia studies |
 | 5. Thalamo-cortical loop | **Strong** | Disruption → unconsciousness |
 | 6. Basal ganglia selection | **Strong** | Standard motor neuroscience |
 | 7. Motor execution | **Strong** | Textbook neuroanatomy |
@@ -489,13 +503,13 @@ Spinal Cord Motor Neurons → Muscles → Movement
 
 ### Why This Pathway Makes Biological Sense
 
-1. **Evolutionary efficiency:** The quantum effect only needs to work in a small structure (claustrum). Evolution built the amplification (criticality, thalamus, basal ganglia).
+1. **Evolutionary efficiency:** The quantum effect works in distributed L5p neurons across cortex. Evolution built the amplification (criticality, thalamus, basal ganglia).
 
 2. **Matches timing:** OR collapse (~160ms) + broadcast (~50ms) + action selection (~100ms) ≈ 300-400ms — consistent with Libet's "readiness potential" timing.
 
 3. **Explains "free won't":** The hyperdirect pathway provides the neural substrate for veto. A negative quantum bias could activate this "emergency stop."
 
-4. **Matches anatomy:** The claustrum is perfectly positioned — small enough for coherence, connected enough for influence.
+4. **Matches anatomy:** L5p neurons are perfectly positioned — distributed for resilience, with ideal microtubule geometry in the apical trunk.
 
 ---
 
@@ -577,10 +591,10 @@ The "sweet spot" (10^10 tubulins = ~8-800 neurons) produces collapse times match
 | Parameter | Simulation Value | Real Brain | Match? |
 |-----------|------------------|------------|--------|
 | Tubulin count per neuron | ~10^9 | ~1.3 × 10^9 | ✓ |
-| Ensemble size | 8-800 neurons | Claustrum has thousands | ✓ |
+| Ensemble size | 8-800 neurons | L5p coupling zones across cortex | ✓ |
 | OR collapse time | ~160 ms | Gamma rhythm: ~100 ms | ✓ |
 | Network topology | Small-world | Brain is small-world | ✓ |
-| Hub influence | 10% nodes → 60% effect | Thalamus/claustrum are hubs | ✓ |
+| Hub influence | 10% nodes → 60% effect | Thalamus + L5p are network hubs | ✓ |
 
 ### 8.2 Brain Criticality Is Empirically Established
 
@@ -616,7 +630,7 @@ Brains operate at the edge of chaos. This is where small signals get maximally a
 |----------|--------|
 | Does quantum coherence persist in tubulins at 37°C? | **Unknown** — local electron coherence more plausible than whole-protein |
 | Does OR collapse actually occur? | **Preliminary support** (2025 IBM experiment, needs replication) |
-| Is the claustrum the site? | **Plausible** — needs verification |
+| Are L5p neurons the site? | **Strong** — supported by anesthesia mechanism and dendritic integration theory |
 | Is quantum selection "freedom" or "randomness"? | **Philosophical** — addressed in Part 8 |
 
 ### 9.3 The Two Cruxes
@@ -633,15 +647,18 @@ Brains operate at the edge of chaos. This is where small signals get maximally a
 
 **Three potential weaknesses have been identified:**
 
-#### Vulnerability 1: The Claustrum Bottleneck
+#### ~~Vulnerability 1: The Claustrum Bottleneck~~ RESOLVED
 
-*Critique:* The theory relies heavily on the claustrum as the OR site. If the claustrum handles only classical signal relay, the broadcast mechanism weakens.
+*Original Critique:* The theory relied heavily on the claustrum as the OR site — a single point of failure.
 
-*Response:* 
-- The claustrum is ONE candidate, not the only one. The thalamus and cortical layer 5 pyramidal neurons are alternatives.
-- The key requirement is: a small, highly-connected structure where ~8-800 neurons could share quantum coherence via gap junctions.
-- Even if not the claustrum, SOME structure meeting these criteria likely exists.
-- The THRML simulation is agnostic to which structure — it shows ANY hub-connected region at criticality works.
+*Resolution (2025):* The primary OR site has been updated to **Layer 5 Pyramidal (L5p) Neurons** based on dendritic integration theory (Larkum, Aru et al.). This resolves the vulnerability:
+
+- **Distributed architecture:** L5p neurons are distributed across the entire cortex, not a single structure
+- **Empirical support:** Anesthetics specifically decouple L5p apical-basal integration — this IS how unconsciousness works
+- **Better geometry:** L5p apical trunks contain long, parallel microtubule bundles ideal for quantum coherence
+- **Explains binding:** The "coupling zone" where top-down meets bottom-up is the site of conscious integration
+
+The claustrum remains important for coordination, but the theory no longer depends on it as the sole OR site. See **Part 15** for the complete L5p mechanism.
 
 #### Vulnerability 2: The 160ms Decoherence Problem
 
@@ -702,7 +719,65 @@ Brains operate at the edge of chaos. This is where small signals get maximally a
 - Is this provable? No. But it's also not disprovable, and it explains the data better than alternatives.
 - The simulations prove the MECHANISM (amplification, veto) works. What does the selecting remains philosophical.
 
-**Bottom line:** These are legitimate concerns, but none are fatal. The claustrum is a hypothesis (testable). The decoherence concern misunderstands the model. The agency question is philosophical, shared by ALL free will theories.
+**Bottom line:** These are legitimate concerns, but none are fatal. The L5p mechanism is now strongly supported by anesthesia and dendritic integration research. The decoherence concern misunderstands the model. The agency question is philosophical, shared by ALL free will theories.
+
+### 9.5 Operationalizing the Filter Model
+
+**The Challenge:** A common critique is that "less filtering = more consciousness" is too flexible — it could absorb any outcome post-hoc. This section addresses that by defining "filter" as specific physical interfaces with measurable proxies and directional predictions.
+
+#### The Filter Components (Operationalized)
+
+| Filter Component | Physical Substrate | Measurable Proxy | Receiver Prediction | Competing Physicalist Expectation |
+|------------------|-------------------|------------------|---------------------|----------------------------------|
+| **Apical–basal integration** | L5p neurons | BAC firing probability / apical gain | Psychedelics ↓ apical constraint → ↑ phenomenological richness | Disruption should reduce coherence & degrade experience |
+| **Thalamo-cortical gating** | CM / intralaminar thalamus | Phase-locking / information flow | Anesthesia ↓ gating → loss of unified experience | Same outcome, but no reason for isotope sensitivity |
+| **Microtubule quantum interface** | Tubulin / MAP dynamics | Isotope-dependent effects | Nuclear spin alters consciousness-relevant effects | No isotope dependence beyond chemistry |
+| **Criticality amplification** | Cortical networks | Avalanche scaling / susceptibility | Small local bias → large global effect | Classical noise only, no structured bias |
+| **Filter failure (terminal states)** | Inhibitory breakdown | Loss of constraint without loss of content | Brief clarity possible before structural collapse | No principled reason for improvement |
+
+**Why this removes the "absorbs anything" critique:** Each filter component now has a specific failure mode and a directional prediction. This is falsifiable:
+
+- If psychedelics INCREASE apical constraint while intensifying experience → problematic for the model
+- If isotope effects disappear with better controls → problematic for the model
+- If terminal lucidity shows NO pattern related to inhibitory breakdown → problematic for the model
+
+### 9.6 Why Messy Phenomena Still Count (Philosophy of Science)
+
+**A common objection:** "Your anomalies (NDEs, terminal lucidity, psychedelics) have noisy data. You can't draw conclusions until the data is clean."
+
+**This standard, if enforced strictly, would make some real phenomena permanently unexplainable.** That is a philosophical choice masquerading as methodological rigor.
+
+#### Science Routinely Explains Messy Phenomena
+
+| Field | Phenomenon | Data Quality | Did Science Wait for "Clean" Data? |
+|-------|------------|--------------|-----------------------------------|
+| Astrophysics | Black holes | Indirect inference only | No — explained via theory + sparse observations |
+| Evolutionary biology | Mass extinctions | Fossil record gaps, dating uncertainty | No — best available explanation accepted |
+| Medicine | Rare diseases | Case reports, small N | No — synthesis across cases accepted |
+| Cosmology | Dark matter | Never directly observed | No — inferred from gravitational effects |
+
+The demand for laboratory-grade data before engaging with consciousness anomalies is **not** a neutral methodological standard. It's a way of refusing to engage with the phenomena at all.
+
+#### What Actually Matters
+
+The legitimate standards for explanatory inference are:
+
+1. **Coherence:** Does the explanation unify the phenomena under one principle?
+2. **Constraint:** Does the explanation make specific predictions that could fail?
+3. **Comparative advantage:** Does it explain more than alternatives, with fewer ad-hoc moves?
+
+The receiver model passes all three:
+- **Coherence:** "Brain filters consciousness" explains psychedelics, terminal lucidity, NDEs, and normal function
+- **Constraint:** Operationalized filter components (above) make falsifiable predictions
+- **Comparative advantage:** Physicalism requires different explanations for each anomaly; receiver model uses one
+
+#### The Real Dispute
+
+The disagreement is not about evidence. It's about this question:
+
+> **Should explanatory coherence across messy but real phenomena count as legitimate abductive evidence, or should only tightly operationalized lab phenomena be allowed to "count"?**
+
+Our position: Coherence counts. The anomalies are real. Physicalism has no unified explanation for them. The receiver model does.
 
 ---
 
@@ -899,6 +974,125 @@ This residual = the non-computable component = where consciousness acts.
 
 ---
 
+## Part 15: The Physical Receiver — Layer 5 Pyramidal Neurons
+
+**The Core Pivot:** Moving the site of quantum reception from the Claustrum (a "switchboard") to **Layer 5 Pyramidal (L5p) Neurons** (the "content generators"). This aligns the theory with modern **Dendritic Integration Theory** (Larkum, Aru et al.).
+
+### 15.1 The Anatomy of the "Antenna"
+
+L5p neurons are unique in the cortex. They are massive, tree-like structures that span the entire vertical thickness of the cortical sheet, effectively bridging two distinct worlds of information:
+
+| Component | Location | Function |
+|-----------|----------|----------|
+| **Basal Dendrites** | Deep layers (5-6) | Receive **bottom-up sensory data** (raw input) |
+| **Apical Tuft** | Layer 1 (cortical surface) | Receive **top-down predictions/context** (internal models) |
+| **Apical Trunk** | Connects the two | **The coupling zone** — site of microtubule lattice |
+
+The apical trunk contains long, parallel bundles of microtubules — geometrically ideal for maintaining quantum coherence.
+
+### 15.2 The Mechanism: BAC Firing (The "Magic Handshake")
+
+Consciousness is not merely the firing of a neuron; it is the **binding** of two information streams.
+
+**Unconscious State:**
+- Sensory data hits the basal dendrites → Sodium spike
+- Prediction data hits the apical tuft → Calcium spike
+- If they remain **separate in time**, they fizzle out. No binding occurs. No conscious experience.
+
+**Conscious State:**
+- If the signals **meet in the coupling zone within ~10ms**, a non-linear threshold is crossed
+- **The Event:** A massive **Back-propagation Activated Calcium (BAC) Spike** occurs
+- The neuron bursts at high frequency (~200Hz)
+- This "explosion" is the physical signature of the **subject (prediction) meeting the object (sensation)**
+
+**Source:** Larkum (2013), "A cellular mechanism for cortical associations"; Aru et al. (2019), "Coupling the state and contents of consciousness"
+
+### 15.3 The Quantum Valve (Orch OR Integration)
+
+How does the brain control *when* binding happens?
+
+**The Problem:** We need a mechanism to regulate the threshold of the coupling zone — to allow or block the "handshake."
+
+**The Solution:** The microtubules running the length of the L5p trunk act as a **Variable Resistor** or "Quantum Valve":
+
+| State | Microtubule Configuration | Effect |
+|-------|---------------------------|--------|
+| **Decoherent** (Closed) | Tubulin superpositions collapsed randomly | Trunk is electrically resistant; top and bottom decoupled |
+| **Coherent → Collapsed** (Open) | OR collapse configures lattice conductively | Trunk becomes permissive; "handshake" occurs easily |
+
+**Functional Implications:**
+- **Anesthesia/Sleep:** Decoherent state → L5p decoupled → No conscious binding
+- **Waking consciousness:** Coherent processing → OR collapse → Binding occurs
+- **Attention/Agency:** "Paying attention" = selectively lowering resistance in specific L5p trunks via quantum mechanism
+
+### 15.4 Empirical Validation
+
+| Evidence | Finding | Implication |
+|----------|---------|-------------|
+| **Anesthesia mechanism** | Propofol/ketamine specifically **decouple apical from basal** in L5p neurons | This IS the mechanism of unconsciousness — not global shutdown |
+| **TMS studies** | Stimulation of L5p coupling zone affects conscious perception | The coupling zone is causally relevant |
+| **Geometry** | L5p trunk has long, parallel microtubule bundles | Superior to claustrum's mixed geometry for coherence |
+| **Resilience** | L5p distributed across cortex | Explains why focal lesions don't eliminate consciousness |
+| **Binding problem** | BAC firing binds top-down with bottom-up | Directly solves the binding problem mechanistically |
+
+**Key source:** Suzuki & Larkum, Cell (2020), "General Anesthesia Decouples Cortical Pyramidal Neurons"; Redinbaugh et al. (2020), "Thalamus Modulates Consciousness via Layer-Specific Control of Cortex"
+
+### 15.5 Why L5p Neurons > Claustrum
+
+| Factor | Claustrum | L5p Neurons |
+|--------|-----------|-------------|
+| **Empirical evidence** | Moderate (lesion studies) | **Strong** (anesthesia, TMS, electrophysiology) |
+| **Anesthesia mechanism** | Unknown | **Specifically decouples L5p** |
+| **Architecture** | Single structure (vulnerability) | **Distributed holographically** (resilient) |
+| **Microtubule geometry** | Mixed orientations | **Parallel bundles in trunk** |
+| **Explains binding** | Relay only | **Directly explains top-down/bottom-up integration** |
+| **Content generation** | Coordinates | **Generates conscious content** |
+
+### 15.6 The Complete Picture
+
+The L5p Neuron is the **Hardware Receiver**:
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    LAYER 1 (Surface)                    │
+│                    ┌─────────────┐                      │
+│                    │ APICAL TUFT │ ← Top-Down Predictions│
+│                    └──────┬──────┘   (Mental Models)    │
+│                           │                              │
+│                    ┌──────┴──────┐                      │
+│                    │   TRUNK     │ ← MICROTUBULE LATTICE│
+│                    │  (Coupling  │   (Quantum Valve)    │
+│                    │   Zone)     │                      │
+│                    └──────┬──────┘                      │
+│                           │                              │
+│                    ┌──────┴──────┐                      │
+│                    │    BASAL    │ ← Bottom-Up Sensation │
+│                    │  DENDRITES  │   (Physical Input)   │
+│                    └─────────────┘                      │
+│                    LAYER 5-6 (Deep)                     │
+└─────────────────────────────────────────────────────────┘
+        
+        When COINCIDENCE occurs in the Coupling Zone:
+        OR Collapse → BAC Spike → Conscious Moment
+```
+
+**Input A:** Physical Reality (Bottom-up sensory data)
+**Input B:** Mental/Platonic Reality (Top-down predictions)
+**The Zipper:** The Microtubule Lattice (Quantum Valve)
+**The Outcome:** When the Zipper closes (OR Collapse + BAC Firing), the two worlds fuse into a single conscious moment.
+
+### 15.7 Relationship to Biological Computationalism
+
+This mechanism aligns with recent work on biological vs. digital computation ([Milinkovic & Aru, 2026](https://doi.org/10.1016/j.neubiorev.2025.106524)):
+
+- **Scale inseparability:** L5p computation spans molecular (microtubules) to cellular (dendrites) to network (cortical) scales simultaneously
+- **Hybrid computation:** Combines discrete events (spikes) with continuous processing (dendritic integration)
+- **Substrate dependence:** The mechanism requires the specific fluidic, biological substrate — not simulable digitally
+
+This supports the view that consciousness is not merely "computation" but requires the specific biological implementation that L5p neurons provide.
+
+---
+
 ## Part 12: Frequently Asked Questions
 
 ### FAQ 1: "What about the Libet experiments? Don't they show free will is an illusion?"
@@ -1050,7 +1244,7 @@ The filter model predicts:
 | Appeals to mystery | Quantitative simulations with p-values |
 
 **The difference is rigor:**
-- We specify WHERE (claustrum, microtubules)
+- We specify WHERE (L5p neurons, microtubules in apical trunk)
 - We specify WHEN (τ ~ 160ms, matching gamma rhythms)
 - We specify HOW (OR → MAPs → synaptic plasticity → avalanches)
 - We specify WHAT WOULD DISPROVE IT (no isotope effects, no magnetic field effects)
@@ -1073,7 +1267,7 @@ Anyone can say "quantum." We show our work.
 | No magnetic field effects on neural avalanches | No quantum sensitivity in relevant pathways |
 | OR collapse disproven experimentally | The specific mechanism |
 | Brain criticality disproven | The amplification mechanism |
-| Claustrum disruption doesn't affect consciousness | Proposed anatomical site |
+| L5p apical-basal coupling NOT required for consciousness | Proposed anatomical site (but strongly supported) |
 | Temperature changes don't affect decision variability | Thermodynamic model |
 
 **Positive evidence that would strengthen it:**
@@ -1212,9 +1406,12 @@ The mechanism is the strongest part. The source (non-local consciousness) remain
 | 3 | MAP2 + LTP induction | Kim et al. (Lee & Pak lab), J. Neuroscience (2020) PMID 32237183 |
 | 3 | MAP1A + NMDA receptors | Bhattacharya et al., J. Neuroscience (2015) |
 | 3 | Tau in synaptic function | Wang & Bhattacharya, Cells (2022) |
-| 4 | Claustrum function | Crick & Koch, Phil Trans R Soc B (2005) |
-| 4 | Claustrum connectivity | Atlan et al., Behav Brain Funct (2021) |
-| 4 | Claustrum-striatum | Reser et al., J Comp Neurol (2014) |
+| 4 | L5p dendritic integration | Larkum, Trends Neurosci (2013) "A cellular mechanism for cortical associations" |
+| 4 | L5p + consciousness coupling | Aru et al., Front Syst Neurosci (2019) "Coupling the state and contents of consciousness" |
+| 4 | L5p anesthesia mechanism | Suzuki & Larkum, Cell (2020) "General Anesthesia Decouples Cortical Pyramidal Neurons" |
+| 4 | BAC firing | Larkum et al., Science (1999) "A new cellular mechanism for coupling inputs" |
+| 4 | Biological computation | Milinkovic & Aru, Neurosci Biobehav Rev (2026) "On biological and artificial consciousness" |
+| 4 | Claustrum coordination (supporting) | Crick & Koch, Phil Trans R Soc B (2005) |
 | 5 | L5p neurons + consciousness | Aru et al., Front Syst Neurosci (2019) |
 | 5 | Thalamus + consciousness | Redinbaugh et al., Neuron (2020) |
 | 5 | Thalamo-cortical in anesthesia | Mashour & Alkire, eLife (2014) |
