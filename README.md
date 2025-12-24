@@ -35,16 +35,18 @@ We test this through:
 
 ## Key Findings
 
-| Finding | Status | Significance |
-|---------|--------|--------------|
-| OR timescales match neural (tau ~ 0.1s for 10^10 tubulins) | Confirmed | Mechanism is biologically plausible |
-| THRML: 10% hub bias -> 60% global shift at criticality | **Confirmed (p < 0.0001)** | Thermodynamic amplification demonstrated |
-| Bidirectional control (amplify/veto both work) | Confirmed | Supports "free will" AND "free won't" |
-| Quantum bias != classical mimic (skewness differs) | Confirmed (p < 0.05) | Selective bias produces distinct dynamics |
-| Model matches real neural data (hc-3, α ≈ 1.6) | **Validated** | Simulation dynamics match hippocampal recordings |
-| L5p neurons as primary site | **Strong** | Anesthesia specifically decouples L5p (Suzuki & Larkum 2020) |
-| Xenon isotope spin effect (~20% potency difference) | Experimental | Direct evidence quantum properties affect consciousness |
-| Brain criticality is empirically established | Literature | Neural avalanches follow power laws (Beggs & Plenz 2003+) |
+| Finding | Status | Source | Significance |
+|---------|--------|--------|--------------|
+| OR timescales match neural (tau ~ 0.1s for 10^10 tubulins) | Confirmed | Calculation | Mechanism is biologically plausible |
+| 10% hub bias -> 60% global shift at criticality | **Confirmed (p < 0.0001)** | THRML (Gibbs) | Thermodynamic amplification works |
+| Bidirectional control (amplify/veto both work) | Confirmed | THRML + Monte Carlo | Supports "free will" AND "free won't" |
+| Quantum bias != classical mimic (skewness differs) | Confirmed (p < 0.05) | Monte Carlo | Selective bias produces distinct dynamics |
+| Model matches real neural data (hc-3, α ≈ 1.6) | **Validated** | Monte Carlo | Simulation dynamics match hippocampal recordings |
+| Pulsed bias preserves criticality (constant doesn't) | Demonstrated | Epoch-based MC | Matches actual OR timing |
+| Entropy distinguishes conditions under pulsed bias | Demonstrated | Epoch-based MC | Q(+) higher, Q(-) lower than baseline |
+| L5p neurons as primary site | **Strong** | Literature | Anesthesia decouples L5p (Suzuki & Larkum 2020) |
+| Xenon isotope spin effect (~20% potency difference) | Experimental | Literature | Direct evidence quantum properties affect consciousness |
+| Brain criticality is empirically established | Literature | Literature | Neural avalanches follow power laws (Beggs & Plenz 2003+) |
 
 ---
 
@@ -96,17 +98,21 @@ python or_collapse_scaling.py
 
 ### 3. Monte Carlo Avalanche Simulation (`quantum_avalanche_v3.py`)
 
-Comprehensive Monte Carlo simulation with four conditions and statistical tests.
+Comprehensive Monte Carlo simulation with **constant bias** and four conditions.
 
 **What it does:**
 - 5000-node networks, 100 Monte Carlo runs
 - Four conditions: Classical, Quantum(+), Quantum(-/veto), Classical Mimic
 - OR-linked bias fraction (collapse time -> bias scaling)
 - Statistical tests (t-tests on means and skewness)
+- **Calibrated against hc-3 hippocampal recordings** (α ≈ 1.6)
 
 **Key results:**
 - Mimic vs Quantum(+) skew: p = 0.014 - Quantum produces different distribution shape
 - Quantum(+) vs Quantum(-) mean: p < 0.001 - Bidirectional control confirmed
+- Classical/Q(-) α ≈ 1.6 matches real neural avalanches
+
+**Note:** Uses constant bias (applied every timestep). See epoch-based simulation for pulsed bias matching OR timing.
 
 ```powershell
 python quantum_avalanche_v3.py
@@ -116,7 +122,31 @@ python quantum_avalanche_v3.py
 
 ---
 
-### 4. Xenon Isotope Analysis (`fetch_real_data.py`)
+### 4. Epoch-Based Simulation (`quantum_avalanche_epochs.py`)
+
+Models OR collapse as **discrete pulsed events** with accumulation phases — more realistic than constant bias.
+
+**What it does:**
+- Coherent phase (~160ms): No bias, superposition "building"
+- Collapse event: OR threshold reached, bias "selected"
+- Effect phase (~40ms): Bias pulse propagates through network
+- Tracks entropy changes across epochs
+
+**Key insight:** Constant bias (in tests 1 and 3) pushes Q(+) away from criticality. Pulsed bias (matching actual OR timing) preserves criticality while producing distinct entropy signatures.
+
+**Key results:**
+- Q(+) shows higher entropy than Classical
+- Q(-) shows lower entropy than Classical
+- Alpha values converge (all conditions remain near criticality)
+- **Entropy, not alpha, distinguishes conditions under realistic OR timing**
+
+```powershell
+python quantum_avalanche_epochs.py
+```
+
+---
+
+### 5. Xenon Isotope Analysis (`fetch_real_data.py`)
 
 Analyzes existing experimental data on quantum effects in consciousness.
 
@@ -294,13 +324,21 @@ At criticality, small quantum biases have **maximum leverage**. This is why "qua
 
 ### What We Demonstrated
 
-1. **Thermodynamic amplification works** (THRML simulation, p < 0.0001)
-2. **Hub-based control is efficient** (10% nodes -> 60% effect)
-3. **Bidirectional control** supports both free will AND "free won't"
-4. **OR timescales match neural processing** (tau ~ 100-500ms)
-5. **Parameters match biology** (10^10 tubulins = ~8-800 L5p neurons)
-6. **Model matches real neural data** (hc-3 hippocampal recordings, α ≈ 1.6)
-7. **Epoch-based pulsed bias** matches OR timing and preserves criticality
+**THRML (True Gibbs Sampling):**
+1. **Thermodynamic amplification works** (p < 0.0001) — 10% hub bias → 60% network shift
+2. **Bidirectional control** supports both free will AND "free won't"
+
+**Monte Carlo (Constant Bias):**
+3. **Model matches real neural data** (hc-3 hippocampal recordings, α ≈ 1.6)
+4. **Quantum bias ≠ classical noise** (skewness differs, p < 0.05)
+
+**Monte Carlo (Epoch-Based / Pulsed Bias):**
+5. **Pulsed bias preserves criticality** — constant bias doesn't match OR dynamics
+6. **Entropy distinguishes conditions** — Q(+) higher, Q(-) lower than baseline
+
+**Calculations:**
+7. **OR timescales match neural processing** (tau ~ 100-500ms for 10^10 tubulins)
+8. **Parameters match biology** (10^10 tubulins = ~8-800 L5p neurons)
 
 ### What Remains Uncertain
 
