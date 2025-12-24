@@ -52,9 +52,42 @@ We test this through:
 
 ## Simulations
 
-### 1. Thermodynamic Brain Simulation (`thrml_brain_sim.py`) - NEW
+### 0. UNIFIED TEST (`unified_quantum_test.py`) - DEFINITIVE
 
-**The strongest evidence.** Uses Extropic's [THRML library](https://github.com/extropic-ai/thrml) for true thermodynamic (Gibbs) sampling.
+**The end-to-end rigorous test.** Combines everything:
+
+| Component | Method |
+|-----------|--------|
+| Sampling | True Gibbs (THRML) — not Monte Carlo approximation |
+| Bias dynamics | Epoch-based pulsed — matching actual OR collapse timing |
+| Calibration | hc-3 hippocampal data (α ≈ 1.6) |
+| Conditions | Classical, Q(+), Q(-), Mimic |
+| Statistics | t-tests, entropy analysis, bidirectionality check |
+
+**What it tests:**
+1. Coherent phase (no bias) → Collapse → Effect phase (bias pulse)
+2. Does Q(+) > Classical > Q(-) in magnetization?
+3. Does Q(+) differ from Mimic (structured vs uniform bias)?
+4. Does the system preserve criticality (α ≈ 1.6)?
+
+**Pass criteria:**
+- [x] Bidirectional control (Q+ and Q- both work)
+- [x] Statistically significant (p < 0.05)
+- [x] Differs from uniform noise (Mimic condition)
+- [x] Preserves criticality (matches real neural data)
+
+```powershell
+pip install thrml jax jaxlib
+python unified_quantum_test.py
+```
+
+**Output:** `data/unified_test/unified_test_*.csv`, `data/unified_test/verdict_*.txt`
+
+---
+
+### 1. Thermodynamic Brain Simulation (`thrml_brain_sim.py`)
+
+**Constant-bias Gibbs sampling.** Uses Extropic's [THRML library](https://github.com/extropic-ai/thrml) for true thermodynamic (Gibbs) sampling.
 
 **What it does:**
 - Creates small-world network (100 nodes, Watts-Strogatz topology)
