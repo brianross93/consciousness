@@ -16,7 +16,7 @@ The following brain map illustrates the neural pathways, neurotransmitter system
 
 ![Brain Map - Neural Pathways and Structures](brainmap.png)
 
-*Source: [The Highest of the Mountains - Brain Maps](https://thehighestofthemountains.com/brainmaps.html) - Comprehensive neuroanatomy reference showing cortical regions, subcortical structures, neurotransmitter systems, and sensory/motor pathways. Created by a space shuttle guidance system engineer over six years of research.*
+*Source: [The Highest of the Mountains - Brain Maps](https://thehighestofthemountains.com/brainmaps.html) - Comprehensive neuroanatomy reference showing cortical regions, subcortical structures, neurotransmitter systems, and sensory/motor pathways.*
 
 ---
 
