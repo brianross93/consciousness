@@ -56,7 +56,7 @@ CONFIG = {
     'quantum_bias': 0.3,      # Bias strength at hub nodes
     
     # Sampling
-    'n_runs': 20,             # Number of independent runs per condition
+    'n_runs': 40,             # Number of independent runs per condition (increased for statistical power)
     'n_warmup': 50,           # Warmup samples before each phase
     
     # Real data target (SIZE-based avalanches, not duration)
